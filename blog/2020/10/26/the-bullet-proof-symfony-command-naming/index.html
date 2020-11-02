@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>The Bullet Proof Symfony Command Naming | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 284 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/talks">Talks</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="mainContent">
+            <div class="container-fluid" id="post">
+                <h1>The Bullet Proof Symfony&nbsp;Command&nbsp;Naming</h1>
+
+                <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>3 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-10-Mon">
+            
+                            Mon, Oct 26
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/10/26/the-bullet-proof-symfony-command-naming/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-10-26-the-bullet-proof-symfony-command-naming.md">Edit Post</a>
+        </li>
+    </ul>
+
+                
+                
+                <div class="card card-bigger mb-5">
+                    <div class="card-body">
+                        <p>How do you name your Symfony commands? <code>&lt;Something&gt;Commands</code> for the class. What about its console name?
+<br>
+<br>
+If you're like most people, you don't think about such details that at all.
+But that makes <a href="/blog/2018/08/27/why-and-how-to-avoid-the-memory-lock">you think twice every time you create a new command</a>.
+<br>
+<br>
+If you're lazy like me, you have a convention and create one command after another, knowing the naming is based on... we'll get to it.</p>
+                    </div>
+                </div>
+
+                <p>Today I was making a new package that handles 1-click scoping for monorepo packages. I created this command:</p>
+<pre><code class="language-php">use Symfony\Component\Console\Command;
+
+final class GenerateWorkflowCommand extends Command
+{
+}</code></pre>
+<p>The hard question: how would you name it?</p>
+<pre><code class="language-bash">bin/console ?
+bin/console generate
+bin/console generate-workflow
+bin/console gen-wof
+...</code></pre>
+<h2 id="principle-of-the-least-surprise">Principle of the Least Surprise</h2>
+<p>Do you prefer to code with many rules and various principles across the whole codebase or with one clear way to do things? Let's look at existing principles in the Symfony ecosystem that prefer the latter:</p>
+<p><br></p>
+<p>How do you name action in <strong>Single Action Controller</strong>?</p>
+<pre><code class="language-php">final class PostDetailController extends Controller
+{
+    public function __invoke(Request $request): Response
+    {
+    }
+}</code></pre>
+<p>You don't. It's always <code>__invoke()</code>, and the class is already named.</p>
+<p><br></p>
+<p>How do you name an event for <strong>Event classes</strong>?</p>
+<pre><code class="language-php">$postAddedEvent = new PostAddedEvent($post);
+$this-&gt;eventDispatcher-&gt;dispatch($postAddedEvent);</code></pre>
+<p>You don't. It's based on <code>&lt;event-class&gt;::class</code>.</p>
+<p><br></p>
+<p>Seeing this, how would name a command?...</p>
+<p><br></p>
+<p>You wouldn't.</p>
+<p><em>&quot;Wait, what?&quot;</em></p>
+<p><br></p>
+<p>For ages, the name is information <a href="/blog/2018/08/27/why-and-how-to-avoid-the-memory-lock">coupled to a command class</a>. Imagine that's not the best practice. It's just a practice of habit. What other options we have?</p>
+<h2 id="em-where-em-do-we-name-a-command"><em>Where</em> do we Name a Command?</h2>
+<pre><code class="language-php">use Symfony\Component\Console\Command;
+
+final class GenerateWorkflowCommand extends Command
+{
+    // here
+    protected static $defaultName = '...';
+
+    // or
+
+    // here
+    public function configure(): void
+    {
+        $this-&gt;setName('...');
+    }
+}</code></pre>
+<p>In pre-historic Symfony versions, you could also use manual name registration in a config file.</p>
+<p><br></p>
+<p>All of these options have one problem in common. <strong>When</strong> we create command → we <strong>have to</strong> think of its name. <strong>If this, then that</strong> (imagine startup for this, right?). Also, we have to add it in the right place - which of those three would you pick? We don't care. We don't want to think about that.</p>
+<p>Why? <strong>Because we want to think about the contents of the <code>execute()</code> method.</strong> That's the fun part.</p>
+<h2 id="what-about-class-based-naming">What about Class-based Naming?</h2>
+<pre><code class="language-php">final class GenerateWorkflowCommand extends Command { ... }</code></pre>
+<p>↓</p>
+<pre><code class="language-bash">bin/console generate-workflow</code></pre>
+<p><br></p>
+<pre><code class="language-php">final class DumpStaticSiteCommand extends Command { ... }</code></pre>
+<p>↓</p>
+<pre><code class="language-bash">bin/console dump-static-site</code></pre>
+<p>You get the idea. In PHP code, it would look like this:</p>
+<pre><code class="language-php">use Symfony\Component\Console\Command;
+
+final class GenerateWorkflowCommand extends Command
+{
+    public function configure(): void
+    {
+        $this-&gt;setName('generate-worfklow');
+    }
+}</code></pre>
+<p>Pretty clear, right?</p>
+<p><em>&quot;But wait, Tomas! You still need to think about the name. Also, you've just made a typo, lol.&quot;</em></p>
+<pre><code class="language-diff">-       $this-&gt;setName('generate-worfklow');
++       $this-&gt;setName('generate-workflow');</code></pre>
+<p>Well, that happens when you try to impress your readers.</p>
+<p>How could we avoid such an awkward situation? If you contribute Symplify or Migrify, you might already know the answer... or if you get inspiration from <strong>the controller and event classes</strong> above.</p>
+<p><br></p>
+<p><em>&quot;Use the <code>&lt;command&gt;::class</code>!&quot;</em></p>
+<p><br></p>
+<p>That's right!</p>
+<pre><code class="language-php">$this-&gt;setName(GenerateWorkflowCommand::class);</code></pre>
+<p>Not like this. With some conversion method:</p>
+<pre><code class="language-php">use Symplify\PackageBuilder\Console\Command\CommandNaming;
+
+$this-&gt;setName(CommandNaming::classToName(GenerateWorkflowCommand::class));</code></pre>
+<p>That's better!</p>
+<p><em>&quot;Well, now we don't have to think about the name. But it's much more new code we have to use. Also, you said <a href="/blog/2020/08/31/how-static-methods-kills-you-like-corona">static will slowly kill  you</a>, right?&quot;</em></p>
+<h2 id="handle-command-naming-in-1-place">Handle Command Naming in 1 Place</h2>
+<p>I don't like it either. It's just another variation of crap code. What about handling the command names in 1 place only? Would that do?</p>
+<p><em>&quot;Uhm, maybe... what do you mean?&quot;</em></p>
+<pre><code class="language-php">use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command;
+use Symplify\PackageBuilder\Console\Command\CommandNaming;
+
+final class PackageScoperApplication extends Application
+{
+
+    /**
+     * Add names to all commands by class-name convention
+     * @param Command[] $commands
+     */
+    public function addCommands(array $commands): void
+    {
+        // or pass in the constructor
+        $commandNaming = new CommandNaming();
+
+        foreach ($commands as $command) {
+            $commandName = $commandNaming-&gt;resolveFromCommand($command);
+            $command-&gt;setName($commandName);
+        }
+
+        parent::addCommands($commands);
+    }
+}</code></pre>
+<p>That's it!</p>
+<ul>
+<li>1 place to handle command naming <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+<li>no more typos <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+<li>don't ever think about that <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+</ul>
+<pre><code class="language-diff"> use Symfony\Component\Console\Command;
+
+ final class GenerateWorkflowCommand extends Command
+ {
+     public function configure(): void
+     {
+-        $this-&gt;setName('generate-worfklow');
+     }
+ }</code></pre>
+<p>There is one disadvantage, though. In case of command rename, the configs that use the command have to updated too <em class="fas fa-fw fa-times text-danger fa-lg"></em></p>
+<p>Is it a good trade-off? I don't know.</p>
+<p><br></p>
+<p><strong>What is your way to not care about command naming?</strong> Let me know in the comments. I'm really curious. It seems like a small irrelevant issue, but if I could choose to have one less issue to worry about, I'd take it and focus on something that needs my attention.</p>
+<p><br></p>
+<p>Happy coding!</p>
+
+                <br>
+
+                <div class="row mb-5 mt-5">
+                    <div class="col-12 mb-5">
+                                                                            <a href="/blog/2020/10/19/how-to-split-test-monorepo-with-composer-2" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                                <em class="fas fa-fw fa-forward"></em>
+                                <strong>Read Next</strong>
+                                <br>
+                                <span class="text-bigger">
+                                    How to Split Test Monorepo with Composer 2
+                                </span>
+                            </a>
+                                            </div>
+
+                    <div class="col-12">
+                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-10-26-the-bullet-proof-symfony-command-naming.md" class="d-block btn btn-dark btn-wrappable">
+                            <em class="fab fa-fw fa-github"></em>
+                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                        </a>
+                    </div>
+                </div>
+
+                <br>
+
+                <a name="comments"></a>
+                <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+            </div>
+
+            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+        </div>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cluster-checklist.js"></script>
+<script src="/assets/js/cluster-expanable.js"></script>
+
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p>
+        Thank you <a href="/thank-you">99 people</a>, who contributed this blog
+
+        <span class="pl-2 pr-2">•</span>
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong> again?
+
+        <br>
+
+        Mostly with awesome <a href="https://getrector.org/">instant refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="The Bullet Proof Symfony Command Naming" />
+    <meta property="og:description" content="How do you name your Symfony commands? `Commands` for the class. What about its console name?
+
+
+If you&#039;re like most people, you don&#039;t think about such details that at all.
+But that makes [you think twice every time you create a new command](/blog/2018/08/27/why-and-how-to-avoid-the-memory-lock).
+
+
+If you&#039;re lazy like me, you have a convention and create one command after another, knowing the naming is based on... we&#039;ll get to it.
+" />
+    <meta property="og:url" content="/blog/2020/10/26/the-bullet-proof-symfony-command-naming" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="The Bullet Proof Symfony Command Naming" />
+    <meta name="twitter:description" content="How do you name your Symfony commands? `Commands` for the class. What about its console name?
+
+
+If you&#039;re like most people, you don&#039;t think about such details that at all.
+But that makes [you think twice every time you create a new command](/blog/2018/08/27/why-and-how-to-avoid-the-memory-lock).
+
+
+If you&#039;re lazy like me, you have a convention and create one command after another, knowing the naming is based on... we&#039;ll get to it.
+" />
