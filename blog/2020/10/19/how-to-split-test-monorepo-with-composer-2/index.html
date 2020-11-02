@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>How to Split Test Monorepo with Composer 2 | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 283 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/talks">Talks</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="mainContent">
+            <div class="container-fluid" id="post">
+                <h1>How to Split Test Monorepo with Composer 2</h1>
+
+                <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>3 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-10-Mon">
+            
+                            Mon, Oct 19
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/10/19/how-to-split-test-monorepo-with-composer-2/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-10-19-how-to-split-test-monorepo-with-composer-2.md">Edit Post</a>
+        </li>
+    </ul>
+
+                
+                
+                <div class="card card-bigger mb-5">
+                    <div class="card-body">
+                        <p><a href="https://twitter.com/packagist/status/1319945203797708800">Composer 2 was released</a> this week. It brings <strong>massive <code>composer install/update</code> performance</strong> improvement of <a href="https://blog.packagist.com/composer-2-0-is-now-available">150-200 %</a>.
+<br>
+<br>
+That means <a href="/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers/">faster feedback</a> from CI and faster monorepo testing.
+<br>
+<br>
+Today, we'll look on how to use Composer in Github Actions with monorepo split testing and what to avoid.</p>
+                    </div>
+                </div>
+
+                <p><em>Note: following feature will be available in Symplify 9, that will be released <a href="/blog/2017/10/30/what-can-you-learn-from-menstruation-and-symfony-releases/">along with Symfony 5.2</a>.</em></p>
+<p>Monorepo split testing is made easier by <a href="https://github.com/symplify/monorepo-builder"><code>symplify/monorepo-builder</code> package</a>. This is how it <a href="/blog/2020/02/10/how-to-test-monorepo-after-split-before-actual-split/">&quot;works&quot; for Composer 1</a>. Why &quot;works&quot;? There are 2 problems, that we fix during upgrade to Composer 2.</p>
+<p><br></p>
+<p>Let's say we have a <code>symplify/symplify</code> monorepo, where we develop all <code>symplify</code> package. We need to test all packages together <strong>with their local version</strong>, even in pull-request.</p>
+<h2 id="1-installing-packages-that-needs-local-version-package">1. Installing Packages that needs Local version Package</h2>
+<p>We want to test <code>symplify/coding-standard</code> package:</p>
+<ul>
+<li>the <code>symplify/coding-standard</code> package needs <code>symplify/autowire-array-parameter</code> package
+<ul>
+<li>the <code>symplify/autowire-array-parameter</code> needs the <code>symplify/package-builder</code> package</li>
+</ul></li>
+</ul>
+<p>In short:</p>
+<ul>
+<li>we're testing <em>a</em></li>
+<li><em>a</em> needs <em>b</em>
+<ul>
+<li><em>b</em> needs <em>c</em></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>This the result of localized package <code>composer install</code> on GitHub Action with Composer 1:</p>
+<ul>
+<li>Package <em>a</em> and <em>b</em> and used in local version <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+<li>Package <em>c</em> is used from packagist <em class="fas fa-fw fa-times text-danger fa-lg"></em></li>
+</ul>
+<img src="/assets/images/posts/2020/test_split_composer_2_require_3rd_package_fail.png" class="img-thumbnail">
+<p>What happens with changes of <code>symplify/package-builder</code> in this pull-request? <strong>They're ignored</strong>, and last stable version is used instead. <em class="fas fa-fw fa-times text-danger fa-lg"></em></p>
+<p><br></p>
+<p>This is the same process, with <strong>Composer 2</strong>:</p>
+<ul>
+<li>Package <em>a</em> and <em>b</em> and used in local version <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+<li>Package <em>c</em> is used in local version <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+</ul>
+<img src="/assets/images/posts/2020/test_split_composer_2_require_3rd_package_fixed.png" class="img-thumbnail">
+<h2 id="2-state-local-packages-as-code-dev-master-code">2. State Local packages as <code>dev-master</code></h2>
+<p>So we upgrade to Composer 2 with Symplify 9 and that's it? No.</p>
+<p>Local and GitHub Action development are different. Locally, Composer can see them as <code>dev-master</code> branch, which works with using <code>branch-alias</code>. But on GitHub Actoin (or your any favorite CI, the pull-request branch is <code>dev-&lt;commit-hash&gt;</code>).</p>
+<p><br></p>
+<p>The <code>composer install</code> will lead to a conflict with these 2 version:</p>
+<img src="/assets/images/posts/2020/test_split_composer_2_require_3rd_package_mess.png" class="img-thumbnail">
+<p>What now?</p>
+<p>I asked on Composer repository and after less than hour of work got <a href="https://github.com/composer/composer/issues/9368#issuecomment-718198161">a working solution with proper explanation</a>. Thank you Jordi!</p>
+<p>Trick is using <code>COMPOSER_ROOT_VERSION=dev-master</code> env, that will explicitly make version <code>dev-master</code> for all environments.</p>
+<p><br></p>
+<p>This is the final working GitHub Action (here you can see <a href="https://github.com/symplify/symplify/blob/40dbc8005754254aee31316b9082826f30b51577/.github/workflows/split_tests.yaml">it the action</a>):</p>
+<pre><code class="language-yaml">name: Split Tests
+
+on:
+    pull_request: null
+
+jobs:
+    split_testing:
+        runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                package_name:
+                    - coding-standard
+                    # and all the other packages...
+
+        name: Split Tests of ${{ matrix.package_name }}
+
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   uses: shivammathur/setup-php@v1
+                with:
+                    php-version: 7.4
+                    coverage: none
+                    tools: composer:v2
+
+            -   run: composer install --no-progress --ansi
+
+            # tell composer to use local package version
+            -   run: vendor/bin/monorepo-builder localize-composer-paths packages/${{ matrix.package_name }}/composer.json --ansi
+
+            -
+                working-directory: packages/${{ matrix.package_name }}
+                run: composer update --no-progress --ansi
+                env:
+                    # see https://github.com/composer/composer/issues/9368#issuecomment-718112361
+                    COMPOSER_ROOT_VERSION: "dev-master"
+
+            -
+                working-directory: packages/${{ matrix.package_name }}
+                run: vendor/bin/phpunit</code></pre>
+<p><br></p>
+<p>Do you want to know more about this topic?</p>
+<ul>
+<li><a href="https://github.com/composer/composer/issues/9368">Issue on Composer</a></li>
+<li><a href="https://getcomposer.org/doc/articles/repository-priorities.md#canonical-repositories">Canonical Repositories</a> and their <a href="https://getcomposer.org/doc/articles/repository-priorities.md#default-behavior">change in Composer 2</a></li>
+</ul>
+<p><br></p>
+<p>Happy coding!</p>
+
+                <br>
+
+                <div class="row mb-5 mt-5">
+                    <div class="col-12 mb-5">
+                                                                            <a href="/blog/2020/10/12/how-we-stopped-merging-pull-requests" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                                <em class="fas fa-fw fa-forward"></em>
+                                <strong>Read Next</strong>
+                                <br>
+                                <span class="text-bigger">
+                                    How We Stopped Merging Pull Requests
+                                </span>
+                            </a>
+                                            </div>
+
+                    <div class="col-12">
+                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-10-19-how-to-split-test-monorepo-with-composer-2.md" class="d-block btn btn-dark btn-wrappable">
+                            <em class="fab fa-fw fa-github"></em>
+                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                        </a>
+                    </div>
+                </div>
+
+                <br>
+
+                <a name="comments"></a>
+                <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+            </div>
+
+            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+        </div>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cluster-checklist.js"></script>
+<script src="/assets/js/cluster-expanable.js"></script>
+
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p>
+        Thank you <a href="/thank-you">99 people</a>, who contributed this blog
+
+        <span class="pl-2 pr-2">•</span>
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong> again?
+
+        <br>
+
+        Mostly with awesome <a href="https://getrector.org/">instant refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to Split Test Monorepo with Composer 2" />
+    <meta property="og:description" content="[Composer 2 was released](https://twitter.com/packagist/status/1319945203797708800) this week. It brings **massive `composer install/update` performance** improvement of [150-200 %](https://blog.packagist.com/composer-2-0-is-now-available).
+
+
+That means [faster feedback](/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers/) from CI and faster monorepo testing.
+
+
+Today, we&#039;ll look on how to use Composer in Github Actions with monorepo split testing and what to avoid.
+" />
+    <meta property="og:url" content="/blog/2020/10/19/how-to-split-test-monorepo-with-composer-2" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="How to Split Test Monorepo with Composer 2" />
+    <meta name="twitter:description" content="[Composer 2 was released](https://twitter.com/packagist/status/1319945203797708800) this week. It brings **massive `composer install/update` performance** improvement of [150-200 %](https://blog.packagist.com/composer-2-0-is-now-available).
+
+
+That means [faster feedback](/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers/) from CI and faster monorepo testing.
+
+
+Today, we&#039;ll look on how to use Composer in Github Actions with monorepo split testing and what to avoid.
+" />

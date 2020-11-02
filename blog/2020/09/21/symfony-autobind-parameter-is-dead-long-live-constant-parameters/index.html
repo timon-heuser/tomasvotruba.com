@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Symfony AutoBind Parameter is Dead, Long live Constant Parameters | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 279 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/talks">Talks</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="mainContent">
+            <div class="container-fluid" id="post">
+                <h1>Symfony AutoBind Parameter is Dead, Long live Constant Parameters</h1>
+
+                <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>2 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-09-Mon">
+            
+                            Mon, Sep 21
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/09/21/symfony-autobind-parameter-is-dead-long-live-constant-parameters/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-09-21-symfony-autobind-parameter-is-dead-long-live-constant-parameters.md">Edit Post</a>
+        </li>
+    </ul>
+
+                
+                
+                <div class="card card-bigger mb-5">
+                    <div class="card-body">
+                        <p>I wrote the <a href="/blog/2018/11/05/do-you-autowire-services-in-symfony-you-can-autowire-parameters-too/">Do you Autowire Services in Symfony? You can Autowire Parameters Too</a> almost 2 years ago. It seemed like a good idea at that time, to save manual YAML config wiring.
+<br><br>
+Now, with <a href="/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs/">PHP configs</a> on the Symfony markets, auto bind parameters became obsolete.
+<br><br>
+Welcome <strong>constant parameters</strong>.</p>
+                    </div>
+                </div>
+
+                <p>In the past, we used YAML to define parameters for Symfony application:</p>
+<pre><code class="language-yaml">parameters:
+    location: Prague</code></pre>
+<p>How do we get parameter in a service? Via name auto binding: <strong>the parameter name = the param name in <code>__construct</code></strong>:</p>
+<pre><code class="language-php">final class SomeService
+{
+    private string $location;
+
+    public function __construct(string $location)
+    {
+        $this-&gt;location = $location;
+
+        dump($location); // "Prague"
+    }
+}</code></pre>
+<p>This allows us to have a typed parameter right in the constructor. We know it's a <code>string</code>.</p>
+<h2 id="yaml-without-knowledge">YAML Without Knowledge</h2>
+<ul>
+<li>But where is the <code>location</code> param defined?</li>
+<li>Where are all the places the parameter is used in?</li>
+<li>Is the <code>string $location</code> in the <code>__construct</code> really a constructor parameter? What if that's a value object?</li>
+</ul>
+<pre><code class="language-php">$valuesObjects = [
+    new SomeService('Prague'),
+    new SomeService('Berlin'),
+    new SomeService('London'),
+];</code></pre>
+<p>We don't know. We can be either anxious about it or not care about this detail at all.</p>
+<p><br></p>
+<p>Or we could <strong>quickly know with 1 click in PHPStorm</strong>. How?</p>
+<h2 id="welcome-constant-parameters">Welcome Constant Parameters</h2>
+<p>With <a href="/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs">Symfony configs in <code>*.php</code> format</a>, this is easypick:</p>
+<pre><code class="language-php">use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set('location', 'Prague');
+};</code></pre>
+<p>Wait, this was just a string. We want <strong>constant parameters</strong>:</p>
+<pre><code class="language-php">use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use App\Configuration\Option;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::LOCATION, 'Prague');
+};</code></pre>
+<h2 id="when-constant-parameter-and-service-parameter-meet">When Constant Parameter and Service Parameter Meet</h2>
+<p>We still want to avoid service configuration... we have 2 options.</p>
+<ul>
+<li>A. Use Symfony <a href="https://symfony.com/blog/new-in-symfony-4-1-getting-container-parameters-as-a-service">parameter bag</a>:</li>
+</ul>
+<pre><code class="language-php">use App\Configuration\Option;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+
+final class SomeService
+{
+    private string $location;
+
+    public function __construct(ParameterBagInterface $parameterBag)
+    {
+        // re-type to (string) is needed, because "get()" return mixed type
+        $this-&gt;location = (string) $parameterBag-&gt;get(Option::LOCATION);
+    }
+}</code></pre>
+<ul>
+<li>B. Use Symplify <a href="https://github.com/symplify/package-builder#get-all-parameters-via-service">ParameterProvider</a>:</li>
+</ul>
+<pre><code class="language-php">use App\Configuration\Option;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
+
+final class SomeService
+{
+    private string $location;
+
+    public function __construct(ParameterProvider $parameterProvider)
+    {
+        // no re-type needed + parameter type validation included inside the ParameterProvider service
+        $this-&gt;location = $parameterProvider-&gt;provideStringParameter(Option::LOCATION);
+    }
+}</code></pre>
+<p>Both services work to find first is out of the box, second is mutable and useful for testing or post-container configurations. Pick the one that suits your project better.</p>
+<p><strong>Are you unsure?</strong> Use the Symfony <code>ParameterBagInterface</code>.</p>
+<h2 id="one-more-thing">One More Thing...</h2>
+<p>We now have a clean design and constant parameters without any name &lt;=&gt; name hacking. That's nice.</p>
+<p>But the best is yet to come. In the previous version, we were missing essential information about the parameter:</p>
+<blockquote class="blockquote text-center mt-5 mb-5">
+    Where are the places the parameter is used in?
+</blockquote>
+<p><br></p>
+<p>Well, why not just <strong>click on the constant</strong> in your IDE?</p>
+<p><br></p>
+<img src="/assets/images/posts/2020/constant_parameter_locations.gif" class="img-thumbnail">
+<p><br></p>
+<p>Happy coding!</p>
+
+                <br>
+
+                <div class="row mb-5 mt-5">
+                    <div class="col-12 mb-5">
+                                                                            <a href="/blog/2020/09/14/how-to-apply-coding-standard-on-php-snippets-in-markdown-files" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                                <em class="fas fa-fw fa-forward"></em>
+                                <strong>Read Next</strong>
+                                <br>
+                                <span class="text-bigger">
+                                    How to Apply Coding Standard on PHP Snippets in Markdown Files?
+                                </span>
+                            </a>
+                                            </div>
+
+                    <div class="col-12">
+                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-09-21-symfony-autobind-parameter-is-dead-long-live-constant-parameters.md" class="d-block btn btn-dark btn-wrappable">
+                            <em class="fab fa-fw fa-github"></em>
+                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                        </a>
+                    </div>
+                </div>
+
+                <br>
+
+                <a name="comments"></a>
+                <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+            </div>
+
+            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+        </div>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cluster-checklist.js"></script>
+<script src="/assets/js/cluster-expanable.js"></script>
+
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p>
+        Thank you <a href="/thank-you">99 people</a>, who contributed this blog
+
+        <span class="pl-2 pr-2">•</span>
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong> again?
+
+        <br>
+
+        Mostly with awesome <a href="https://getrector.org/">instant refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="Symfony AutoBind Parameter is Dead, Long live Constant Parameters" />
+    <meta property="og:description" content="I wrote the [Do you Autowire Services in Symfony? You can Autowire Parameters Too](/blog/2018/11/05/do-you-autowire-services-in-symfony-you-can-autowire-parameters-too/) almost 2 years ago. It seemed like a good idea at that time, to save manual YAML config wiring.
+
+Now, with [PHP configs](/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs/) on the Symfony markets, auto bind parameters became obsolete.
+
+Welcome **constant parameters**.
+" />
+    <meta property="og:url" content="/blog/2020/09/21/symfony-autobind-parameter-is-dead-long-live-constant-parameters" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="Symfony AutoBind Parameter is Dead, Long live Constant Parameters" />
+    <meta name="twitter:description" content="I wrote the [Do you Autowire Services in Symfony? You can Autowire Parameters Too](/blog/2018/11/05/do-you-autowire-services-in-symfony-you-can-autowire-parameters-too/) almost 2 years ago. It seemed like a good idea at that time, to save manual YAML config wiring.
+
+Now, with [PHP configs](/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs/) on the Symfony markets, auto bind parameters became obsolete.
+
+Welcome **constant parameters**.
+" />
