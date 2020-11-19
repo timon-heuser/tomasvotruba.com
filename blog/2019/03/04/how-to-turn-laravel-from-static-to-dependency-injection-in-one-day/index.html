@@ -174,13 +174,12 @@ What then? Switch framework or rewrite? But what if all you need is to <strong>s
 <p></a></p>
 <p>Read the post, it's really beautifully written with respect to the framework by somebody, who uses is for 2 years. Also, I think it's <strong>about the natural evolution of code and how to deal with it</strong>, not Laravel itself.</p>
 <p>Niklas finishes the post with a reasonable statement:</p>
-<blockquote>
-<p>Other frameworks and tools come with better-designed defaults and less magic. So for now, I’ll say goodbye to Laravel.</p>
+<blockquote class="blockquote text-center">
+"Other frameworks and tools come with better-designed defaults and less magic. So for now, I’ll say goodbye to Laravel."
 </blockquote>
 <p>But is switching the framework (language, girlfriends, parents...) really the best solution?</p>
 <h2 id="do-you-leave-your-kid-on-puberty">Do You Leave Your Kid on Puberty?</h2>
-<p>Thing is, every framework (and developer) has this step in evolution. So did <a href="/blog/2018/04/26/how-i-got-into-static-trap-and-made-fool-of-myself/">Symplify with static methods</a>.</p>
-<p>Each framework I used in some period of its evolution used static:</p>
+<p>Thing is, every framework (and developer) has this step in evolution. So did <a href="/blog/2018/04/26/how-i-got-into-static-trap-and-made-fool-of-myself/">Symplify with static methods</a>. Each framework I used in some period of its evolution used static:</p>
 <p><strong>Nette</strong></p>
 <pre><code class="language-php">&lt;?php
 
@@ -194,8 +193,8 @@ $result = $this-&gt;get('some_service')-&gt;someMethod();</code></pre>
 
 $result = SomeService::someMethod();</code></pre>
 <h2 id="help-your-parents-grow">Help Your Parents Grow</h2>
-<p>I don't think the point is to leave the framework but to help it to the quality. E.g. Symfony constructor injection autowiring as we know it today wasn't always there. It was first suggested around Symfony 2.3 but strictly rejected by Fabien as an anti-pattern.</p>
-<p>It took many bundles like Kutny\AutowiringBundle, Skrz\Autowiring or Symplify\Autowiring, closed issues and PRs with proof of concept before the Symfony core team was convinced enough to accept next autowiring-PR, that laid the foundation to autowiring we use today.</p>
+<p>I don't think the point is to leave the framework but to help it to the quality. E.g. Symfony <strong>constructor injection autowiring wasn't always there</strong>. It was first suggested around Symfony 2.3 but strictly rejected by Fabien as an anti-pattern.</p>
+<p>It took many bundles like <code>Kutny\AutowiringBundle</code>, <code>Skrz\Autowiring</code> or <code>symplify\autowiring</code>, closed issues and PRs with proof of concept before the Symfony core team was convinced enough to accept next autowiring-PR, <strong>that laid the foundation to autowiring we use today</strong>.</p>
 <p>This is a completely normal process of community learning.</p>
 <h2 id="quot-so-how-do-i-get-rid-of-static-in-laravel-quot">&quot;So How do I get rid of Static in Laravel?&quot;</h2>
 <p>One option is change pattern by <strong>switching to another framework</strong>, that already promotes the feature you want. I did this once with Nette when the development stopped around 2015. First, I tried to add a feature, make packages with integration and propose PRs and issues. But after a few years of failure, I decided to switch to Symfony.</p>
