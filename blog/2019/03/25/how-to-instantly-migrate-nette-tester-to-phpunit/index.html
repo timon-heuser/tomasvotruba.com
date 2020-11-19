@@ -124,12 +124,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2019-03-Mon">
-            
+            <strike>
                             Mon, Mar 25, 2019
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>We had 🍺 after PHP meetup in Prague and Tomas asked me:
 <br>
 &quot;We don't use Nette, but we still have many tests in Tester. Can Rector migrate them to PHPUnit?&quot;
@@ -155,9 +168,7 @@
                     </div>
                 </div>
 
-                <p><em>If you don't know <a href="https://tester.nette.org/en">Tester</a>, is a PHP unit test framework created in the Czech Republic.</em></p>
-<p><br></p>
-<p>In the last post we looked on <a href="/blog/2019/03/21/how-to-instantly-migrate-phpspec-to-phpunit/">instant migration of PhpSpec to PHPUnit</a>.</p>
+                <p>In the last post we looked on <a href="/blog/2019/03/21/how-to-instantly-migrate-phpspec-to-phpunit">instant migration of PhpSpec to PHPUnit</a>.</p>
 <p>PhpSpec has a different architecture than PHPUnit - e.g.</p>
 <ul>
 <li>PHPUnit creates mocks in body of tested method <code>$this-&gt;createMock()</code> ,</li>
@@ -262,11 +273,28 @@
 
 -(new ExpensiveObjectTest())-&gt;run();</code></pre>
 <h2 id="how-to-instantly-migrate-from-nette-tester-to-phpunit">How to Instantly Migrate from Nette\Tester to PHPUnit?</h2>
-<pre><code class="language-bash">composer require rector/rector --dev
-vendor/bin/rector process spec --set nette-tetser-to-phpunit</code></pre>
-<p>Rector <strong>doesn't replace you</strong>, <strong>it helps you</strong> - so take few minutes to polish the details that Rectors missed and send the PR to your project
+<ol>
+<li>Install Rector</li>
+</ol>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<ol start="2">
+<li>Add <code>rector.php</code> config:</li>
+</ol>
+<pre><code class="language-php">// rector.php
+use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [SetList::NETTE_TESTER_TO_PHPUNIT]);
+};</code></pre>
+<ol start="3">
+<li>Run it on <code>/tests</code> directory</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process tests</code></pre>
+<p>Then take few minutes to polish the details that Rectors missed and send the PR to your project
 <em class="fas fa-fw fa-check text-success fa-lg"></em></p>
-<p>But if it's something daunting, <a href="https://github.com/rectorphp/rector/issues">create an issue</a> - there might be a way to automate it.</p>
 <p><br></p>
 <p>Happy coding!</p>
 

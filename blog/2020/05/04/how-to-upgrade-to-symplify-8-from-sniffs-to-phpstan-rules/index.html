@@ -151,7 +151,7 @@
                         <div class="card-header text-white bg-success">
                             <strong>This post was updated at August 2020</strong>
                         </div>
-                                                    <div class="card-body">
+                                                    <div class="card-body pb-2">
                                 <p>Updated ECS YAML to PHP configuration since <strong>ECS 8</strong>.</p>
                             </div>
                                             </div>
@@ -159,7 +159,7 @@
                     <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Since Symplify 7.3, you might notice a few deprecation notices in your coding standards. As Symplify 8 release is <a href="/blog/2017/10/30/what-can-you-learn-from-menstruation-and-symfony-releases/">synced with Symfony cycle</a>, both will be released at the end of May.
 <br>
 <br>
@@ -208,7 +208,7 @@ It's better to use <em>abstract syntax tree</em> technology, in this case <a hre
 declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\Configuration\Option;use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
+use Symplify\EasyCodingStandard\ValueObject\Option;use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator-&gt;parameters();

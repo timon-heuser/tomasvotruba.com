@@ -113,23 +113,26 @@
 
         <div class="mainContent">
             <div class="container-fluid" id="post">
-                <h1>How to Upgrade Symfony 2.8 to 3.4</h1>
+                <h1>How to Upgrade Symfony&nbsp;2.8&nbsp;to&nbsp;3.4</h1>
 
                 <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
-        <strong>2 min</strong>
+        <strong>3 min</strong>
     </li>
 
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2019-02-Thu">
-            
+            <strike>
                             Thu, Feb 28, 2019
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Are you Symfony programmer? Do you work on a successful project? Then upgrading the Symfony project is a work you can't avoid.
 Almost a year ago I wrote about <a href="https://blog.shopsys.com/5-5-steps-to-migrate-from-symfony-2-8-lts-to-symfony-3-4-lts-in-real-prs-50c98eb0e9f6">Five and Half Steps to Migrate from Symfony 2.8 LTS to Symfony 3.4 LTS in Real PRs</a>.
 <br><br>
@@ -174,24 +187,57 @@ Now it's much easier to jump from one LTS to another - with <strong>instant upgr
 </ul>
 <p>If you split each of these lines into standalone pull-requests, you're the best!</p>
 <h2 id="forget-code-upgrade-md-code">Forget <code>UPGRADE.md</code></h2>
-<p>You probably know I work almost part-time on <a href="https://getrector.org">the Rector project</a>. I gather feedback from conferences and meetups all over Europe and try to make Rector better every day. Recently he also migrated between <a href="/blog/2019/02/21/how-we-migrated-from-nette-to-symfony-in-3-weeks-part-1/">2 PHP frameworks</a>, because why not?</p>
-<p>The PHP community gives me really positive vibes about going the right direction. That helps me to make PHP and Symfony <strong>sets more and more complete</strong>:</p>
-<img src="/assets/images/posts/2019/symfony-up/sets.png" class="img-thumbnail">
+<p>You probably know I work almost part-time on <a href="https://getrector.org">the Rector project</a>. I gather feedback from conferences and meetups all over Europe and try to make Rector better every day. Recently he also migrated between <a href="/blog/2019/02/21/how-we-migrated-from-nette-to-symfony-in-3-weeks-part-1">2 PHP frameworks</a>, because why not?</p>
+<p>The PHP community gives me positive vibes about going the right direction. It helps me to make PHP and Symfony <strong>sets more and more complete</strong>.</p>
 <h2 id="how-to-upgrade-then">How to Upgrade then?</h2>
 <p>All you need to do to upgrade your PHP code is to install Rector and run particular upgrades.</p>
 <p><strong>Do you want to upgrade from Symfony 2.8 to 3.4?</strong></p>
-<pre><code class="language-bash">composer require rector/rector --dev
-vendor/bin/rector process app src --set symfony28
-vendor/bin/rector process app src --set symfony30
-vendor/bin/rector process app src --set symfony31
-vendor/bin/rector process app src --set symfony32
-vendor/bin/rector process app src --set symfony33
-vendor/bin/rector process app src --set symfony34</code></pre>
-<p>You still need to upgrade YAML files, but then you're ready to go.</p>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<p>Create <code>rector.php</code> config:</p>
+<pre><code class="language-bash">vendor/bin/rector init</code></pre>
+<p>Add Symfony sets in it:</p>
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+
+    $parameters-&gt;set(Option::SETS, [
+        SetList::SYMFONY_28,
+        // take it 1 set at a time to so next set works with output of the previous set; I do 1 set per pull-request
+        // SetList::SYMFONY_30,
+        // SetList::SYMFONY_31,
+        // SetList::SYMFONY_32,
+        // SetList::SYMFONY_33,
+        // SetList::SYMFONY_34,
+    ]);
+
+    // set paths to directories with your code
+    $parameters-&gt;set(Option::PATHS, [
+        __DIR__ . '/app',
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ]);
+};</code></pre>
 <p><strong>Are you stuck on old PHP 5.3?</strong> Rector got you covered:</p>
-<pre><code class="language-bash">vendor/bin/rector process app src --set php53
-vendor/bin/rector process app src --set php54
-vendor/bin/rector process app src --set php55</code></pre>
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+
+    $parameters-&gt;set(Option::SETS, [
+        SetList::PHP_53,
+        // again 1 set at a time
+        // SetList::PHP_54,
+        // SetList::PHP_55,
+        // SetList::PHP_56,
+    ]);
+
+    // ...
+};</code></pre>
 <h2 id="awesome-symfony-3-3-dependency-injection">Awesome Symfony 3.3+ Dependency Injection</h2>
 <p>Upgrade to Symfony 3.3 shrunk my configs to 1/5 of its original size. That's the  #1 reason you want to upgrade. If you don't know what I'm talking about, check <a href="/blog/2017/05/07/how-to-refactor-to-new-dependency-injection-features-in-symfony-3-3/">the diff post about those features</a>. But wait, don't do it manually! <strong><a href="/blog/2018/12/27/how-to-convert-all-your-symfony-service-configs-to-autodiscovery/">This tool converts it all</a> for you.</strong></p>
 <p><br></p>

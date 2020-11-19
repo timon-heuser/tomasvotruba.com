@@ -151,7 +151,7 @@
                         <div class="card-header text-white bg-success">
                             <strong>This post was updated at August 2020</strong>
                         </div>
-                                                    <div class="card-body">
+                                                    <div class="card-body pb-2">
                                 <p>Updated Rector/ECS YAML to PHP configuration, as current standard.</p>
                             </div>
                                             </div>
@@ -159,7 +159,7 @@
                     <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>I'm currently working as Rector consultant for <a href="https://spaceflow.io/en">Spaceflow</a>, Prague-based rising startup with very nice codebase. One of the pre-requisites for Rector is to have code that static analyser can work with. PHPStan that Rector uses depends on <code>@var</code> annotations and not every property had that. Well... <strong>over 2500 of them</strong>.
 <br><br>
 I'll show you how we completed them without any manual change of the code and how you can do the same... today.</p>
@@ -453,7 +453,7 @@ composer require slevomat/coding-standard --dev</code></pre>
 declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\Configuration\Option;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator-&gt;services();

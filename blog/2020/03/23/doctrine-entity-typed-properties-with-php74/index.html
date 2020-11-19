@@ -131,7 +131,7 @@
     </li>
 
             <li class="list-inline-item mr-3 text-success">
-            <em class="fas fa-fw fa-sync"></em> Updated Oct, 2020
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
         </li>
     
             <li class="list-inline-item mr-3">
@@ -149,17 +149,18 @@
                 
                                     <div class="card border-success card-bigger mt-5">
                         <div class="card-header text-white bg-success">
-                            <strong>This post was updated at October 2020</strong>
+                            <strong>This post was updated at November 2020</strong>
                         </div>
-                                                    <div class="card-body">
-                                <p>Updated with <strong>PHPStorm and PHPStan friendly</strong> <code>Collection</code> syntax and <a href="https://github.com/rectorphp/rector/pull/4442">Rector rule</a> that handles the change for you.</p>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.
+Updated with <strong>PHPStorm and PHPStan friendly</strong> <code>Collection</code> syntax and <a href="https://github.com/rectorphp/rector/pull/4442">Rector rule</a> that handles the change for you.</p>
                             </div>
                                             </div>
 
                     <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Recently we've upgraded our <a href="https://pehapkari.cz">Czech PHP community website</a> to PHP 7.4. As a side effect, it broke most of our entities.
 Do you love how making language more strict reveals weak points in your code just by using it?
 <br>
@@ -364,13 +365,31 @@ class Training
 <h2 id="upgrade-instantly-with-rector">Upgrade Instantly with Rector</h2>
 <p>I did not do the upgrade pull-request myself (I'm way too lazy for that), <a href="https://getrector.org">Rector</a> did. Thanks to testing out Rector on Doctrine entities, its PHP 7.4 set got much more precise.</p>
 <p><strong>Do you want to see how Rector can upgrade your code?</strong></p>
-<pre><code class="language-bash">composer require rector/rector --dev
-vendor/bin/rector process src --set php74 # add "--dry-run" to check first</code></pre>
-<p>Tip: Do you want to update your <code>Collection</code> syntax for PHPStorm and PHPStan friendly?</p>
-<pre><code class="language-bash">vendor/bin/rector process src --set doctrine-code-quality</code></pre>
+<ol>
+<li>
+<p>Install Rector</p>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+</li>
+<li>
+<p>Create <code>rector.php</code> config</p>
+</li>
+</ol>
+<pre><code class="language-php">// rector.php
+use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [
+        SetList::PHP_74,
+        // Protip: Do you want to update your `Collection` syntax for PHPStorm and PHPStan friendly?
+        SetList::DOCTRINE_CODE_QUALITY,
+    ]);
+};</code></pre>
 <p>If you got any troubles, <a href="https://github.com/rectorphp/rector/issues/new/choose">let us know on GitHub</a>. That's all, folks.</p>
 <p><br></p>
-<p>Happy coding &amp; stay alive!</p>
+<p>Happy coding!</p>
 
                 <br>
 

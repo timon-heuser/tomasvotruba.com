@@ -118,18 +118,21 @@
                 <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
-        <strong>6 min</strong>
+        <strong>7 min</strong>
     </li>
 
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2019-09-Mon">
-            
+            <strike>
                             Mon, Sep 9, 2019
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>A month ago, Symfony 5 has been released. Upgrading of such a small web as our community website <strong>must be easy</strong>, right?
 <br>
 <br>
@@ -171,20 +184,40 @@ Well, that's what we thought. <strong>Were we right or wrong?</strong></p>
 <p><em>Thanks <a href="https://www.reddit.com/r/PHP/comments/ef2nit/how_we_upgraded_pehapkaricz_from_symfony_4_to_5/fbzyhsl">Patrik for the tip</a></em></p>
 <h2 id="2-rector-helps-you-with-php">2. Rector Helps You with PHP</h2>
 <p>Do you want to know, what is needed for the upgrade to Symfony 5? <a href="https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md">Just read upgrade notes</a> in Symfony repository.</p>
-<p>For PHP stuff, use <a href="https://github.com/rectorphp/rector">Rector</a>:</p>
+<ol>
+<li>For PHP stuff, use <a href="https://github.com/rectorphp/rector">Rector</a>:</li>
+</ol>
 <pre><code class="language-bash"># install Rector
 composer require rector/rector --dev
 
 # or in case of conflicts
 composer require rector/rector-prefixed --dev</code></pre>
 <p>Rector has minimal sets, meaning each minor version is standalone and independent.
-What does that mean? For upgrading from Symfony 4 to 5, you need to <strong>run all the minor version sets</strong>:</p>
-<pre><code class="language-bash">vendor/bin/rector process bin src packages --set symfony41</code></pre>
-<p>Verify, check that CI passes and then continue with following Symfony minor versions:</p>
-<pre><code class="language-bash">vendor/bin/rector process bin src packages --set symfony42
-vendor/bin/rector process bin src packages --set symfony43
-vendor/bin/rector process bin src packages --set symfony44
-vendor/bin/rector process bin src packages --set symfony50</code></pre>
+What does that mean? For upgrading from Symfony 4 to 5, you need to <strong>run all the minor version sets</strong>, one by one.</p>
+<ol start="2">
+<li>Update <code>rector.php</code> config</li>
+</ol>
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+
+    $parameters-&gt;set(Option::SETS, [
+        SetList::SYMFONY_41,
+        // take it 1 set at a time to so next set works with output of the previous set; I do 1 set per pull-request
+        // SetList::SYMFONY_42,
+        // SetList::SYMFONY_43,
+        // SetList::SYMFONY_44,
+        // SetList::SYMFONY_50,
+    ]);
+};</code></pre>
+<ol start="3">
+<li>Run Rector</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process app src tests</code></pre>
+<p>Verify, check that CI passes and then continue with next Symfony minor version.</p>
 <h2 id="3-update-code-composer-json-code-before-code-composer-update-code">3. Update <code>composer.json</code> before <code>composer update</code></h2>
 <h3 id="easy-admin-bundle">Easy Admin Bundle</h3>
 <pre><code class="language-diff"> {

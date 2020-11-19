@@ -124,12 +124,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2020-01-Mon">
-            
+            <strike>
                             Mon, Jan 6
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switched from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>With <a href="/blog/2019/09/09/how-we-upgraded-pehapkari-cz-from-symfony-4-to-5-in-25-days/">Symfony 5 upgrade</a>, we need any <em>working</em> Doctrine behaviors.
 <br>
 Month later, we have <a href="/blog/2019/12/30/doctrine-behaviors-2-0-reloaded/#how-do-you-migrate-from-gedmo-stof-to-knplabs-doctrinebehaviors">KnpLabs\DoctrineBehaviors 2.0</a> with full Symfony 5 support.
@@ -678,14 +691,35 @@ class Category implements SoftDeletableInterface
 {
     use SoftDeletableTrait;
 }</code></pre>
-<h2 id="instant-upgrade-what-you-can">Instant Upgrade what you Can</h2>
-<p>All right, for all the behaviors listed above, there is a Rector set:</p>
-<pre><code class="language-bash">composer require rector/rector --dev
-vendor/bin/rector process src --set doctrine-gedmo-to-knplabs</code></pre>
-<p>Instant upgrades never cover the whole migration path - e.g., they lack database migrations - but they're are always <strong>saving you 80 % of boring work</strong>.</p>
-<p>If anything breaks, <a href="https://github.com/rectorphp/rector/issues/new?template=1_Bug_report.md">create and issue on Github</a> so you can enjoy fixed version soon.</p>
+<p>Would you like to avoid doing this manually? Rector has a set just for you:</p>
+<h2 id="3-step-to-migrate-gedmo-to-knplabs-with-rector">3 Step to Migrate Gedmo to KnpLabs with Rector</h2>
+<ol>
+<li>Install Rector</li>
+</ol>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<ol start="2">
+<li>Add <code>rector.php</code> config</li>
+</ol>
+<pre><code class="language-php">// rector.php
+use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;services();
+    $parameters-&gt;set(Option::SETS, [
+        SetList::DOCTRINE_GEDMO_TO_KNPLABS,
+    ]);
+};</code></pre>
+<ol start="3">
+<li>Run Rector</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process src</code></pre>
+<p>That's it!</p>
 <p><br></p>
-<p>Happy migration!</p>
+<p>Instant upgrades never cover the whole migration path - e.g., they lack database migrations - but they're are always <strong>saving you 80 % of boring work</strong>. If anything breaks, <a href="https://github.com/rectorphp/rector/issues/new?template=1_Bug_report.md">create and issue on Github</a> so you can enjoy fixed version soon.</p>
+<p><br></p>
+<p>Happy coding!</p>
 
                 <br>
 

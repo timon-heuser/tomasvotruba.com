@@ -124,12 +124,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2019-03-Thu">
-            
+            <strike>
                             Thu, Mar 21, 2019
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>I'm happy that more and more people try to use Rector upgrade and migrate their code-bases to the ones they really want for a long time.
 <br>
 <br>
@@ -160,7 +173,7 @@ Last week I was approached by 2 different people with single need - <strong>migr
     This is the only source of dreamlike powers."
     <footer class="blockquote-footer">Peter Altenberg
 </footer></blockquote>
-<p><em>Disclaimer: I never used nor saw PhpSpec in code before this mentoring session. All I learned was from my client and his needs (and bit of reading the documentation)</em>.</p>
+<p><em>Disclaimer: I never saw PhpSpec code before this mentoring session. All I learned was from my client and their needs (and bit of reading the documentation)</em>.</p>
 <h2 id="quot-why-do-you-have-2-unit-testing-frameworks-quot">&quot;Why do you Have 2 Unit-Testing Frameworks?&quot;</h2>
 <p>That was my question to one of my clients when I saw both PhpSpec and PHPUnit tests in its code base.</p>
 <ul>
@@ -283,12 +296,30 @@ Last week I was approached by 2 different people with single need - <strong>migr
 <p>Pretty clear, right?</p>
 <h2 id="how-to-instantly-migrate-from-phpspec-to-phpunit">How to Instantly Migrate from PhpSpec to PHPUnit?</h2>
 <p>First, take a 2-week paid vacation... Just kidding. Start with Rector which migrates ~95 % of code cases. It also renames <code>*Spec.php</code> to <code>*Test.php</code> and moves them from <code>/spec</code> to <code>/tests</code> directory:</p>
-<pre><code class="language-bash">composer require rector/rector --dev
-vendor/bin/rector process spec --set phpspec-to-phpunit</code></pre>
-<p>Rector is getting smarter every set, but I bet there are still some missed cases. <strong>When the code doesn't work, just go and <a href="https://github.com/rectorphp/rector/issues">report the issue</a></strong> with expected vs. current output.</p>
-<p>Take 10 more minutes to polish the rest of code and send PR to your project <em class="fas fa-fw fa-check text-success fa-lg"></em></p>
+<ol>
+<li>Add Rector</li>
+</ol>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<ol start="2">
+<li>Create <code>rector.php</code> config</li>
+</ol>
+<pre><code class="language-php">// rector.php
+use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [SetList::PHPSPEC_TO_PHPUNIT]);
+};</code></pre>
+<ol start="3">
+<li>Run Rector on your tests directories</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process tests</code></pre>
 <p><br></p>
-<p>And what was the other unit testing framework that Rector migrated? You'll see in the next post.</p>
+<p>Take couple of minutes to polish the rest of code and send PR to your project <em class="fas fa-fw fa-check text-success fa-lg"></em></p>
+<p><br></p>
+<p>And what was the 2nd testing framework that Rector migrated? <a href="/blog/2019/03/25/how-to-instantly-migrate-nette-tester-to-phpunit">Nette\Tester</a>.</p>
 <p><br></p>
 <p>Happy coding!</p>
 

@@ -118,18 +118,21 @@
                 <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
-        <strong>6 min</strong>
+        <strong>7 min</strong>
     </li>
 
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2019-03-Mon">
-            
+            <strike>
                             Mon, Mar 18, 2019
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>After few long <a href="/clusters/#from-nette-to-symfony/">Nette to Symfony migration series</a>, it's time for relax.
 <br>
 Let's look at 7 snippets of PHP code, that <a href="/blog/2018/05/21/is-your-code-readable-by-humans-cognitive-complexity-tells-you/">happily takes your attention</a> but <strong>is never run</strong>.</p>
@@ -460,8 +473,27 @@ final class SomeController
 </ul>
 <h2 id="have-you-tried-rector">Have you tried Rector?</h2>
 <p>Rector doesn't only refactor applications from one framework to another, upgrade your codebase and get you out of legacy. It can be also <strong>part of your CI</strong>:</p>
-<pre><code class="language-bash">composer require rector/rector --dev
-vendor/bin/rector process src --set dead-code --dry-run</code></pre>
+<ol>
+<li>Install Rector</li>
+</ol>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<ol start="2">
+<li>Update <code>rector.php</code> with dead code set</li>
+</ol>
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [
+        SetList::DEAD_CODE,
+    ]);
+};</code></pre>
+<ol start="3">
+<li>Run Rector</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process src --dry-run</code></pre>
 <p><strong>If Rector detects any dead code, CI will fail</strong>. You can, of course, run it without <code>--dry-run</code> after to actually remove the code.</p>
 <p>See <a href="https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#deadcode">Dead Code set</a> for more features.</p>
 

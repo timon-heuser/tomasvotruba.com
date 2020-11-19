@@ -118,7 +118,7 @@
                 <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
-        <strong>3 min</strong>
+        <strong>2 min</strong>
     </li>
 
     <li class="list-inline-item mr-3">
@@ -146,71 +146,29 @@
                 
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>The standard is still behind the door, but feedback, before it gets accepted, is very important. After accepting it will be written down and it will be difficult to change anything.
 <br><br>
 Try PSR-12 today and see, how it works for your code.</p>
                     </div>
                 </div>
 
-                <h2 id="tl-dr">tl;dr;</h2>
-<pre><code class="language-bash">composer require symplify/easy-coding-standard --dev
-vendor/bin/ecs check /src --set psr12</code></pre>
-<p>And to fix the code:</p>
-<pre><code class="language-bash">vendor/bin/ecs check /src --set psr12 --fix</code></pre>
-<p>Now in more detailed way.</p>
-<h2 id="psr-12-meets-ecs">PSR-12 meets ECS</h2>
-<p>Someone on <a href="https://www.reddit.com/r/PHP/comments/84vafc/phpfig_psr_status_update">Reddit referred a PSR Google Group</a>, where they <strong>asked for real-life PSR-12 ruleset implementation in a coding standard tool</strong>. Korvin Szanto already prepared 1st implementation for PHP CS Fixer, at the moment <a href="https://github.com/KorvinSzanto/PHP-CS-Fixer/commit/c0b642c186d8f666a64937c2d37442dc77f6f393">only as a commit in</a> the fork. I put the ruleset to <code>psr12.yml</code> level in ECS and it looks like this in time of being:</p>
-<pre><code class="language-yaml">imports:
-    - { resource: 'php_cs_fixer/psr2.yml' }
+                <h2 id="psr-12-meets-ecs">PSR-12 meets ECS</h2>
+<p>Someone on <a href="https://www.reddit.com/r/PHP/comments/84vafc/phpfig_psr_status_update">Reddit referred a PSR Google Group</a>, where they <strong>asked for real-life PSR-12 ruleset implementation in a coding standard tool</strong>. Korvin Szanto already prepared 1st implementation for PHP CS Fixer, at the moment <a href="https://github.com/KorvinSzanto/PHP-CS-Fixer/commit/c0b642c186d8f666a64937c2d37442dc77f6f393">only as a commit in</a> the fork.</p>
+<p>I put the ruleset to <code>PSR_12</code> set in ECS, so you can use it:</p>
+<pre><code class="language-php">// ecs.php
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\EasyCodingStandard\ValueObject\Option;
+use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
-services:
-    PhpCsFixer\Fixer\CastNotation\LowercaseCastFixer: ~
-    PhpCsFixer\Fixer\CastNotation\ShortScalarCastFixer: ~
-    PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
-    PhpCsFixer\Fixer\Import\NoLeadingImportSlashFixer: ~
-    PhpCsFixer\Fixer\Import\OrderedImportsFixer:
-        importsOrder:
-            - 'class'
-            - 'const'
-            - 'function'
-    PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer:
-        space: 'none'
-    PhpCsFixer\Fixer\Operator\NewWithBracesFixer: ~
-    PhpCsFixer\Fixer\Basic\BracesFixer:
-        'allow_single_line_closure': false
-        'position_after_functions_and_oop_constructs': 'next'
-        'position_after_control_structures': 'same'
-        'position_after_anonymous_constructs': 'same'
-
-    PhpCsFixer\Fixer\ClassNotation\NoBlankLinesAfterClassOpeningFixer: ~
-    PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer:
-        order:
-            - 'use_trait'
-    PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer:
-        elements:
-            - 'const'
-            - 'method'
-            - 'property'
-    PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer: ~
-    PhpCsFixer\Fixer\Operator\TernaryOperatorSpacesFixer: ~
-    PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
-    PhpCsFixer\Fixer\FunctionNotation\ReturnTypeDeclarationFixer: ~
-    PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer: ~
-
-    PhpCsFixer\Fixer\Operator\ConcatSpaceFixer:
-        spacing: 'one'
-
-    PhpCsFixer\Fixer\Semicolon\NoSinglelineWhitespaceBeforeSemicolonsFixer: ~
-    PhpCsFixer\Fixer\ArrayNotation\NoWhitespaceBeforeCommaInArrayFixer:
-    PhpCsFixer\Fixer\ArrayNotation\WhitespaceAfterCommaInArrayFixer:
-
-parameters:
-    exclude_checkers:
-        - 'PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer'
-        - 'PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer'</code></pre>
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [
+        SetList::PSR_12,
+    ]);
+};</code></pre>
 <h2 id="do-you-agree-or-disagree-with-psr12">Do You Agree or Disagree with PSR12?</h2>
-<p>There are still many <a href="https://github.com/KorvinSzanto/PHP-CS-Fixer/milestones">missed cases to be integrated into the standard</a>, but there is never to soon to get feedback from the community.</p>
+<p>There are still few <a href="https://github.com/KorvinSzanto/PHP-CS-Fixer/milestones">missed cases to be covered</a>, but there is never to soon to get feedback from the community.</p>
 <div class="text-center">
     <img src="/assets/images/posts/2018/psr-12/php-cs-fixer-thing.png" alt="PR in PHP CS Fixer?" class="img-thumbnail"></div>
 <p>It will be <em>a thing</em>: PSR-12 set is definitely coming to PHP CS Fixer and <a href="https://github.com/squizlabs/PHP_CodeSniffer/issues/750">PHP_CodeSniffer has also an active issue</a> as well. Both of these tools are more stable, more popular and thus more rigid than ECS. So it will take time before there will be a pull-request and then stable release with PSR-12 set.</p>
@@ -227,30 +185,21 @@ parameters:
 <p>Symplify code is already checked by PSR-12 (<a href="https://github.com/symplify/symplify/pull/773">see pull-request</a>):</p>
 <div class="text-center">
     <img src="/assets/images/posts/2018/psr-12/symplify-implementation.png" alt="Integration to project with ECS" class="img-thumbnail"></div>
-<p>It was easy to setup and works with 0 changes in the code. But as you can see, there 2 rules I don't fully agree with.</p>
-<h4 id="1-code-phpcsfixer-fixer-phptag-blanklineafteropeningtagfixer-code">1. <code>PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer</code></h4>
-<p>This rule creates this code:</p>
-<pre><code class="language-php">&lt;?php
-
-declare(strict_types=1);</code></pre>
-<p>Namespace changes, file doc changes, <code>use</code>, <code>class</code>, <code>interface</code>... that all changes in every file, so it should be on a standalone line, <strong>that will force you to notice it and orientate</strong>. But not <code>declare(strict_types=1);</code>, that is the same in every file.</p>
-<p>I think our attention deserves to ignore anything that is the same in every file so inline its line:</p>
-<pre><code class="language-php">&lt;?php declare(strict_types=1);</code></pre>
-<p><br></p>
-<h4 id="2-code-phpcsfixer-fixer-operator-unaryoperatorspacesfixex-code">2. <code>PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixex</code></h4>
+<p>It was easy to setup and works with 0 changes in the code. But as you can see, there is 1 rule I don't fully agree with.</p>
+<h4 id="code-phpcsfixer-fixer-operator-unaryoperatorspacesfixex-code"><code>PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixex</code></h4>
 <p>It takes care of spacing around <code>!</code></p>
 <pre><code class="language-php">if (!$isNotTrue) {
 }
 
 if ($isNotTrue) {
 }</code></pre>
-<p>Here we can apply the same approach we did in 1. An important code should be visually clear, an unimportant code should not bother us. Personally, <strong>I prefer seeing the negation clearly</strong>, so I know it's a negation:</p>
+<p>An important code should be visually clear, an unimportant code should not bother us. Personally, <strong>I prefer seeing the negation clearly</strong>, so I know it's a negation:</p>
 <pre><code class="language-php">if (! $isNotTrue) {
 }</code></pre>
 <h2 id="try-it-yourself-today">Try It Yourself Today</h2>
 <p>Communicate, spread the ideas and find your way. This is only PSR - PS <strong>Recommendation</strong>. It's better to keep things standard for others, <a href="/blog/2018/03/12/neon-vs-yaml-and-how-to-migrate-between-them/#why-are-standards-so-important">so they can drink water if they're thirsty and not start a research on bottle colors instead</a>. But not a rigid rule that cannot be improved.</p>
-<p>So just <a href="#tl-dr">try it</a>. Maybe your code is already PSR-12 ready.</p>
-<p>And let me know in the comments, if you love it or rather hate it :)</p>
+<p><br></p>
+<p>You love it or hate it? Let me know in the comments ↓</p>
 <p><br></p>
 <p>Happy coding!</p>
 

@@ -124,12 +124,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2018-11-Thu">
-            
+            <strike>
                             Thu, Nov 8, 2018
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,20 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switched deprecated <code>--set</code> option to <code>rector.php</code> config.
+Switched <strong>YAML</strong> to <strong>PHP</strong> configuration.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>That's right! PHP 5.6 and 7.0 are entering EOL - end of <del>line</del> life this December. Social networks, Slacks, Twitter, Reddit are <a href="https://www.reddit.com/r/PHP/comments/9syr3m/php_56_eol_end_of_life_end_of_2018_and_php_7">full</a> of it. Are you running PHP 7.1? Good, come next year when PHP 7.1 is <em>eoling</em>.
 <br><br>
 For the rest of you, what will you do when PHP will tell you the message in the title?</p>
@@ -215,13 +229,23 @@ I went full-time on writing PHP upgrade rules - in the train, in the buss, in th
 <p class="bigger">
    <strong>Today I'm proud to announce 7 new Rector levels</strong> that were not here a month ago:
 </p>
-<pre><code class="language-bash">vendor/bin/rector process src --set php54
-vendor/bin/rector process src --set php56
-vendor/bin/rector process src --set php70
-vendor/bin/rector process src --set php71
-vendor/bin/rector process src --set php72
-vendor/bin/rector process src --set php73
-vendor/bin/rector process src --set php74</code></pre>
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [
+        SetList::PHP_54,
+        SetList::PHP_55,
+        SetList::PHP_56,
+        SetList::PHP_70,
+        SetList::PHP_71,
+        SetList::PHP_72,
+        SetList::PHP_73,
+        SetList::PHP_74,
+    ]);
+};</code></pre>
 <p><br></p>
 <p>I finally looked over my small framework bubble and <strong>learned a lot about problems of the <a href="https://friendsofphp.org">world PHP community</a></strong>.</p>
 <h3 id="how-to-em-ereg-em-correctly">How to <em>ereg</em> Correctly?</h3>
@@ -242,7 +266,7 @@ ereg('^[a-z]+[.,][a-z]{3,}$', $string);</code></pre>
 <p>Take the Rector out, run it on your code, let it fix what it can and <strong>report the rest you had to do manually in the issues</strong>. Maybe it can be automated.
 You'll be helping each other developer, who upgrades the same PHP version you did. Imagine PHP version 5.3 would be shipped with set like this, covering 100 % of all changes. It's up to us to make a brighter future now.</p>
 <p><br></p>
-<p>Happy stress-free upgrading!</p>
+<p>Happy coding!</p>
 
                 <br>
 

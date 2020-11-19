@@ -146,7 +146,7 @@
                 
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Are you doing code reviews? No? Yes?
 <br>
 <br>
@@ -189,13 +189,7 @@ In the last <a href="/blog/2019/07/29/how-we-completed-thousands-of-missing-var-
 <ol start="2">
 <li>Create <code>rector-ci.php</code> config just for code-reviews</li>
 </ol>
-<pre><code class="language-php">&lt;?php
-
-// rector.php
-
-declare(strict_types=1);
-
-use Rector\Core\Configuration\Option;
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
 use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 

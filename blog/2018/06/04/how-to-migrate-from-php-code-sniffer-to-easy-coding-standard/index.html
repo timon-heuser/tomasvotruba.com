@@ -131,7 +131,7 @@
     </li>
 
             <li class="list-inline-item mr-3 text-success">
-            <em class="fas fa-fw fa-sync"></em> Updated Aug, 2020
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
         </li>
     
             <li class="list-inline-item mr-3">
@@ -149,17 +149,18 @@
                 
                                     <div class="card border-success card-bigger mt-5">
                         <div class="card-header text-white bg-success">
-                            <strong>This post was updated at August 2020</strong>
+                            <strong>This post was updated at November 2020</strong>
                         </div>
-                                                    <div class="card-body">
-                                <p>Updated ECS YAML to PHP configuration since <strong>ECS 8</strong>.</p>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>ecs.php</code> config.
+Switch <strong>YAML</strong> to <strong>PHP</strong> configuration.</p>
                             </div>
                                             </div>
 
                     <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Last year, I helped <a href="https://github.com/shopsys/coding-standards">Shopsys Coding Standards</a> and <a href="https://github.com/lmc-eu/php-coding-standard">LMC PHP Coding Standard</a> to migrate from PHP_CodeSniffer to EasyCodingStandard.
 <br><br>
 There are <strong>a few simple A → B changes</strong>, but one has to know about them or will get stuck.
@@ -168,9 +169,22 @@ There are <strong>a few simple A → B changes</strong>, but one has to know abo
                     </div>
                 </div>
 
-                <p>ECS is a tool build on Symfony 3.4 components that <a href="/blog/2017/05/03/combine-power-of-php-code-sniffer-and-php-cs-fixer-in-3-lines/">combines PHP_CodeSniffer and PHP CS Fixer</a>. It's super easy to start to use from scratch:</p>
-<pre><code class="language-bash">composer require symplify/easy-coding-standard --dev
-vendor/bin/ecs check src --set psr12</code></pre>
+                <p>ECS is a tool build on Symfony components that <a href="/blog/2017/05/03/combine-power-of-php-code-sniffer-and-php-cs-fixer-in-3-lines/">combines PHP_CodeSniffer and PHP CS Fixer</a>. It's easy to use from scratch:</p>
+<pre><code class="language-bash">composer require symplify/easy-coding-standard --dev</code></pre>
+<p>ECS uses standard Symfony PHP config:</p>
+<pre><code class="language-php">// ecs.php
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\EasyCodingStandard\ValueObject\Option;
+use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [
+        SetList::PSR_12,
+    ]);
+};</code></pre>
+<p>And runs as CLI command:</p>
+<pre><code class="language-bash">vendor/bin/ecs check src</code></pre>
 <p>But what if you already have PHP_CodeSniffer on your project and want to switch?</p>
 <h2 id="1-from-string-codes-to-autocompleted-classes">1. From String Codes to Autocompleted Classes</h2>
 <p>You probably use string references to sniffs in your <code>*.xml</code> configuration for PHP_CodeSniffer. You need to remember them, copy paste them and <strong>copy-paste them right</strong>.</p>
@@ -180,12 +194,7 @@ vendor/bin/ecs check src --set psr12</code></pre>
 <pre><code class="language-diff">-&lt;rule ref="Generic.Comenting.DocComment"/&gt;
 +&lt;rule ref="Generic.Commenting.DocComment"/&gt;</code></pre>
 <p>How to do that in EasyCodingStandard? Copy paste the last name <code>DocComment</code> and add rule in <code>set()</code> method. Hit CTRL + Space and  PHPStorm will autocomplete class for you:</p>
-<pre><code class="language-php">&lt;?php
-
-// ecs.php
-
-declare(strict_types=1);
-
+<pre><code class="language-php">// ecs.php
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Commenting\DocCommentSniff;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
@@ -206,14 +215,9 @@ private function isEmail($value)
 }</code></pre>
 <p>One big cons of this is <strong>that all sniffs will skip this code</strong>, not just one. So even if here we need to only allow double quotes <code>"</code>, all other checks will miss it.</p>
 <p>To skip this in EasyCodingStandard just use <code>skip</code> parameter:</p>
-<pre><code class="language-php">&lt;?php
-
-// ecs.php
-
-declare(strict_types=1);
-
+<pre><code class="language-php">// ecs.php
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\Configuration\Option;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\Strings\DoubleQuoteUsageSniff;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -247,7 +251,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\Configuration\Option;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Commenting\DocCommentSniff;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -281,7 +285,7 @@ declare(strict_types=1);
 
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Commenting\DocCommentSniff;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\Configuration\Option;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator-&gt;parameters();

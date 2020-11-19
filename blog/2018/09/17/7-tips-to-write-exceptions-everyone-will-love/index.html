@@ -131,7 +131,7 @@
     </li>
 
             <li class="list-inline-item mr-3 text-success">
-            <em class="fas fa-fw fa-sync"></em> Updated Aug, 2020
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
         </li>
     
             <li class="list-inline-item mr-3">
@@ -149,17 +149,18 @@
                 
                                     <div class="card border-success card-bigger mt-5">
                         <div class="card-header text-white bg-success">
-                            <strong>This post was updated at August 2020</strong>
+                            <strong>This post was updated at November 2020</strong>
                         </div>
-                                                    <div class="card-body">
-                                <p>Updated YAML to PHP configuration, as current standard.</p>
+                                                    <div class="card-body pb-2">
+                                <p>Updated content with simpler examples.
+Switched YAML to PHP configuration, as current standard.</p>
                             </div>
                                             </div>
 
                     <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p><code>InvalidArgumentException</code>, <code>FileNotFoundException</code>, <code>InternalException</code>.
 <br><br>
 Have you ever had that feeling, that <strong>you've seen that exception before and you know what it means and how to solve?</strong> What if that would be clear even for those who see it for the first time? It would save yours and their time.
@@ -340,9 +341,9 @@ throw new FileProcessingException(sprintf(
 ));</code></pre>
 <p><strong>+20 % happier programmer</strong></p>
 <h2 id="6-what-options-do-i-have">6. What Options do I have?</h2>
-<pre><code class="language-bash">vendor/bin/ecs check src --set laravel</code></pre>
+<pre><code class="language-bash">vendor/bin/finder show laravel</code></pre>
 <blockquote class="blockquote">
-     <em>"Laravel" level was not found</em>
+     <em>"laravel" was not found</em>
 </blockquote>
 <ul>
 <li>Is incorrectly loaded?</li>
@@ -351,18 +352,17 @@ throw new FileProcessingException(sprintf(
 </ul>
 <p><a href="https://www.amazon.com/Dont-Make-Think-Revisited-Usability-ebook-dp-B00HJUBRPG/dp/B00HJUBRPG">Don't make the programmer think</a>!</p>
 <blockquote class="blockquote">
-     <em>Level "laravel" was not found. Pick one of: "array", "clean-code", "comments", "common", "control-structures", "docblock", "namespaces", "php70", "php71", "phpunit", "psr12", "psr2", "spaces", "strict", "symfony", "symfony-risky", "symplify"</em>
+     <em>Level "laravel" was not found. Pick one of: "symfony", "nette", "zend"</em>
 </blockquote>
 <p>That's better!</p>
 <p>If there is the limited or reasonable amount of options, don't be shy. Show them!</p>
-<pre><code class="language-php">$allLevels = $this-&gt;findAllLevelsInDirectory($configDirectory);
+<pre><code class="language-php">$allOptions = $this-&gt;findAllLevelsInDirectory($configDirectory);
 
-throw new LevelNotFoundException(sprintf(
-    'Level "%s" was not found. Pick one of: "%s"',
-    $levelName,
-    implode('", "', $allLevels)
+throw new OptionNotFoundException(sprintf(
+    'Option "%s" was not found. Pick one of: "%s"',
+    $optionName,
+    implode('", "', $allOptions)
 ));</code></pre>
-<p>This code is real! It's from <a href="https://github.com/symplify/symplify/blob/aad50fba97046f70416cce4d7c5b094c16bf770d/packages/PackageBuilder/src/Configuration/LevelFileFinder.php#L61-L70">Symplify\PackageBuilder code</a>.</p>
 <p><strong>+40 % happier programmer</strong></p>
 <h2 id="7-link-what-you-can-t-fit-140-chars">7. Link what You can't Fit 140 Chars</h2>
 <p>Sometimes you might find yourself writing a poem instead of an exception:</p>

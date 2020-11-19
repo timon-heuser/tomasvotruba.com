@@ -131,7 +131,7 @@
     </li>
 
             <li class="list-inline-item mr-3 text-success">
-            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2019
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
         </li>
     
             <li class="list-inline-item mr-3">
@@ -146,119 +146,102 @@
         </li>
     </ul>
 
-                                    <div class="card border-danger card-bigger">
-                        <div class="card-header text-white bg-danger">
-                            <strong>This post is deprecated at December 2018</strong>
-                        </div>
-                        <div class="card-body">
-                            <p>Now there is <strong>EasyCodingStandard 5</strong>, so this is rather <em>7 oldies</em>.</p>
-                        </div>
-                    </div>
-
-                    <br>
                 
                                     <div class="card border-success card-bigger mt-5">
                         <div class="card-header text-white bg-success">
-                            <strong>This post was updated at November 2019</strong>
+                            <strong>This post was updated at November 2020</strong>
                         </div>
-                                                    <div class="card-body">
-                                <p>Updated with <strong>EasyCodingStandard 6</strong>, Neon → YAML, config import → <code>sets</code> parameters, <code>checkers</code> → <code>services</code>.</p>
+                                                    <div class="card-body pb-2">
+                                <p>Switched from deprecated <code>--set</code> option to PHP config.
+Switched from YAML to PHP configs in <strong>Symplify 9.</strong></p>
                             </div>
                                             </div>
 
                     <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
-                        <p>After extensive cooperation with <a href="https://twitter.com/geekovo/status/885152407948333056">David Grudl on Nette\CodingStandard</a> EasyCodingStandard got new features, that <strong>moved the project to completely new level of comfort</strong>.</p>
+                    <div class="card-body pb-2">
+                        <p>After extensive cooperation with <a href="https://twitter.com/geekovo/status/885152407948333056">David Grudl on Nette\CodingStandard</a> ECS got new features with <strong>focus on developer experience</strong>. Smart experience.</p>
 <p>Prepared configs, reduction of config to few lines, <code>--config</code> option and more.</p>
                     </div>
                 </div>
 
-                <p>Huge thanks to <a href="https://github.com/dg">David Grudl</a> who gave me the feedback, ideas and Windows bug fixes while working on <a href="https://github.com/nette/coding-standard">Nette\CodingStandard</a> package. I'll write &quot;how to&quot; for Nette\CodingStandard later, but today we'll look on <strong>new features it uses from EasyCodingStandard 2.2</strong>.</p>
+                <p>Today we'll look on <strong>new features it uses from ECS</strong>.</p>
 <h2 id="1-shorter-bin">1. Shorter Bin</h2>
-<p>Are you tired of tyops in <code>vendor/bin/easy-coding-standard</code>?</p>
-<p><strong>Now you can use <code>ecs</code> bin instead</strong>:</p>
-<pre><code class="language-bash">vendor/bin/ecs</code></pre>
-<h2 id="2-prepared-configs">2. Prepared Configs</h2>
-<p>Before you had to name all the checkers manually in your config. There was no <em>PSR2</em> group nor <em>Symfony</em> like there is in other tools.</p>
-<p><strong>Now you can pick from 9 prepared configs</strong>.</p>
-<p><em>PHP_CodeSniffer + PHP CS Fixer</em></p>
-<pre><code class="language-yaml">vendor/symplify/easy-coding-standard/config/php70.yml
-vendor/symplify/easy-coding-standard/config/php71.yml
-vendor/symplify/easy-coding-standard/config/psr2.yml
-vendor/symplify/easy-coding-standard/config/symfony.yml
-vendor/symplify/easy-coding-standard/config/symfony-risky.yml</code></pre>
-<p><em>Custom</em></p>
-<pre><code class="language-yaml">vendor/symplify/easy-coding-standard/config/symplify.yml
-vendor/symplify/easy-coding-standard/config/common/spaces.yml
-vendor/symplify/easy-coding-standard/config/common.yml</code></pre>
-<p>This shortened Symplify config from <a href="https://github.com/symplify/symplify/blob/v2.0.0/easy-coding-standard.neon#L1-L256">256 lines</a> <strong>to <a href="https://github.com/symplify/symplify/blob/458082a5d534182e4ad723958c417399442abc82/easy-coding-standard.neon#L1-L22">just 22 lines</a></strong>.</p>
-<h2 id="3-use-whole-set-but-1-checker">3. Use Whole Set But 1 Checker</h2>
-<p>I like Symfony set from PHP CS Fixer, but <strong>I'd like to remove 4 checkers</strong>. Do I have to put all checkers I want to use explicitly to the config?</p>
-<p>Not anymore!</p>
-<p><strong>Use the set and exclude unwanted checkers in <code>exclude_checkers</code> option</strong>:</p>
-<pre><code class="language-yaml">parameters:
-    sets:
-        - 'symfony'
+<pre><code class="language-bash"># before
+vendor/bin/easy-coding-standard
 
-    exclude_checkers:
-        # from PHP CS Fixer Symfony set
-        - 'PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer'
-        - 'PhpCsFixer\Fixer\Operator\NewWithBracesFixer'
-        - 'PhpCsFixer\Fixer\Phpdoc\PhpdocAlignFixer'
-        - 'PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer'</code></pre>
+# now
+vendor/bin/ecs</code></pre>
+<h2 id="2-prepared-rule-sets">2. Prepared Rule Sets</h2>
+<p>Before you had to name all the checkers manually in your config. There was no <em>PSR2</em> group nor <em>Symfony</em> like there is in other tools. <strong>Now you can pick from 10 prepared configs</strong>.</p>
+<p><em>PHP_CodeSniffer + PHP CS Fixer</em></p>
+<pre><code class="language-php">use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\EasyCodingStandard\ValueObject\Option;
+use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+
+    $parameters-&gt;set(Option::SETS, [
+        SetList::PSR_12,
+        SetList::PHP_70,
+        SetList::PHP_71,
+        SetList::COMMON,
+        SetList::SYMPLIFY,
+        // ...
+        // explore the constants on `SetList` class
+    ]);
+};</code></pre>
+<h2 id="3-use-whole-set-but-1-checker">3. Use Whole Set But 1 Checker</h2>
+<p>Imagine you love the PSR-12 set, <strong>except that 1 checker</strong>. Do you skip the set completely or copy all the rules manually except the one?</p>
+<p>Not anymore!</p>
+<pre><code class="language-php">use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\EasyCodingStandard\ValueObject\Option;
+use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+
+    $parameters-&gt;set(Option::SETS, [
+        SetList::PSR_12,
+    ]);
+
+    $parameters-&gt;set(Option::SKIP, [
+        // ignore 1 rule everywhere
+        UnaryOperatorSpacesFixer::class =&gt; null,
+    ]);
+};
+</code></pre>
 <h2 id="4-skip-more-than-1-file-for-specific-checker">4. Skip More Than 1 File For Specific Checker</h2>
-<p>If you need to skip more files, just <strong>use <a href="https://php.net/manual/en/function.fnmatch.php"><code>fnmatch</code></a> pattern</strong> in <code>skip</code> section.</p>
-<pre><code class="language-yaml">parameters:
-    skip:
-        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff:
-            - '*packages/CodingStandard/src/Sniffs/*/*Sniff.php'</code></pre>
+<p>Do you need to skip more files for 1 specific checker? <strong>Now you can <a href="https://php.net/manual/en/function.fnmatch.php"><code>fnmatch</code></a> pattern</strong>:</p>
+<pre><code class="language-php">use SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff;
+
+// ...
+$parameters-&gt;set(Option::SKIP, [
+    TypeHintDeclarationSniff::class =&gt; [
+        '*packages/CodingStandard/src/Sniffs/*/*Sniff.php'
+    ],
+]);</code></pre>
 <h2 id="5-new-command-code-show-code-display-used-checkers">5. New Command <code>Show</code> Display Used Checkers</h2>
 <p>Do you know, what checkers do you use?</p>
 <pre><code class="language-bash">vendor/bin/ecs show</code></pre>
-<p>Or what checkers are in particular config?</p>
-<pre><code class="language-bash">vendor/bin/ecs show --config vendor/nette/coding-standard/coding-standard-php71.yml</code></pre>
 <p>This is rather debug or info tool, but it might come handy.</p>
-<p><strong>You can find <a href="https://github.com/symplify/easy-coding-standard#show-command-to-display-all-checkers">more options of this command in README</a></strong>.</p>
+<p><strong>You can find <a href="https://github.com/symplify/easy-coding-standard">more options of this command in README</a></strong>.</p>
 <h2 id="6-scan-code-php-code-and-code-phpt-code-files">6. Scan <code>*.php</code> and <code>*.phpt</code> Files</h2>
 <p>EasyCodingStandard checks only <code>*.php</code> files by default. But what if you want to check <code>*.phpt</code> as well as in case of <a href="https://github.com/nette/coding-standard">Nette\CodingStandard</a>?</p>
-<p><strong>To add files with another suffixes you need to add own source provider</strong>:</p>
-<pre><code class="language-php">namespace App\Finder;
-
-use IteratorAggregate;
-use Nette\Utils\Finder;
-use SplFileInfo;
-use Symplify\EasyCodingStandard\Contract\Finder\CustomSourceProviderInterface;
-
-final class PhpAndPhptFilesProvider implements CustomSourceProviderInterface
-{
-    /**
-     * @param string[] $source
-     */
-    public function find(array $source): IteratorAggregate
-    {
-        # $source is "source" argument passed in CLI
-        # inc CLI: "vendor/bin/ecs check /src" =&gt; here: ['/src']
-        return Finder::find('*.php', '*.phpt')-&gt;in($source);
-    }
-}</code></pre>
-<p>And register it as a normal Symfony service:</p>
-<pre><code class="language-yaml"># easy-coding-standard.neon
-services:
-    App\Finder\PhpAndPhptFilesProvider: ~</code></pre>
-<p><a href="https://github.com/symplify/easy-coding-standard#do-you-need-to-include-tests-php-inc-or-phpt-files">Explore README</a> or <a href="https://github.com/nette/coding-standard/blob/2f935070b82fbe4b1da8e564a8dc6dcb9bbeca25/src/Finder/SourceProvider.php"><code>SourceProvider</code></a> in Nette\CodingStandard for more.</p>
+<p>Use <code>Option::FILE_EXTENSIONS</code>:</p>
+<pre><code class="language-php">// ...
+$parameters-&gt;set(Option::FILE_EXTENSIONS, ['php', 'phpt']);</code></pre>
 <h2 id="7-are-you-tabs-person">7. Are you Tabs Person?</h2>
-<p>You're welcomed:</p>
-<pre><code class="language-yaml">parameters:
-    indentation: tab # "spaces" by default</code></pre>
-<p><br></p>
-<p>You can find <a href="https://github.com/symplify/easy-coding-standard">these features in README</a> with more detailed use examples.</p>
+<p>There you go:</p>
+<pre><code class="language-php">// ...
+$parameters-&gt;set(Option::INDENTATION, Option::INDENTATION_TAB);</code></pre>
 <h3 id="like-it-try-it">Like it? Try It</h3>
-<p>If you find these 7 news useful, you can try <a href="https://github.com/symplify/easy-coding-standard">EasyCodingStandard</a> right now:</p>
-<pre><code class="language-bash">composer require symplify/easy-coding-standard --dev
-vendor/bin/ecs check src --set psr12</code></pre>
-<p>Happy code-style checking!</p>
+<p>If you find these 7 news useful, try <a href="https://github.com/symplify/easy-coding-standard">ECS</a> right now.</p>
+<p><br></p>
+<p>Happy coding!</p>
 
                 <br>
 
@@ -371,7 +354,7 @@ vendor/bin/ecs check src --set psr12</code></pre>
 
         <meta property="og:type" content="article" />
     <meta property="og:title" content="7 New Features in Easy Coding Standard 2.2" />
-    <meta property="og:description" content="After extensive cooperation with [David Grudl on Nette\CodingStandard](https://twitter.com/geekovo/status/885152407948333056) EasyCodingStandard got new features, that **moved the project to completely new level of comfort**.
+    <meta property="og:description" content="After extensive cooperation with [David Grudl on Nette\CodingStandard](https://twitter.com/geekovo/status/885152407948333056) ECS got new features with **focus on developer experience**. Smart experience.
 
 Prepared configs, reduction of config to few lines, `--config` option and more.
 " />
@@ -380,7 +363,7 @@ Prepared configs, reduction of config to few lines, `--config` option and more.
         <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@votrubaT">
     <meta name="twitter:title" content="7 New Features in Easy Coding Standard 2.2" />
-    <meta name="twitter:description" content="After extensive cooperation with [David Grudl on Nette\CodingStandard](https://twitter.com/geekovo/status/885152407948333056) EasyCodingStandard got new features, that **moved the project to completely new level of comfort**.
+    <meta name="twitter:description" content="After extensive cooperation with [David Grudl on Nette\CodingStandard](https://twitter.com/geekovo/status/885152407948333056) ECS got new features with **focus on developer experience**. Smart experience.
 
 Prepared configs, reduction of config to few lines, `--config` option and more.
 " />

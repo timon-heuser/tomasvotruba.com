@@ -150,7 +150,7 @@
                 
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Do you prefer composition over inheritance? Yes, that's great. Why aren't your classes <code>final</code> then? Oh, you have tests and you mock your classes. <strong>But why is that a problem?</strong></p>
                     </div>
                 </div>
@@ -230,9 +230,7 @@ final class FinalClass
 </div>
 <p>Hm, where should be put it?</p>
 <h3 id="1-code-bootstrap-php-code-file">1. <code>bootstrap.php</code> File?</h3>
-<pre><code class="language-php">&lt;?php declare(strict_types=1);
-
-require_once __DIR__ . '/../vendor/autoload.php';
+<pre><code class="language-php">require_once __DIR__ . '/../vendor/autoload.php';
 
 DG\BypassFinals::enable();</code></pre>
 <p>Update path in <code>phpunit.xml</code>:</p>

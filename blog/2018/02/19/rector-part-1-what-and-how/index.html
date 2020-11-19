@@ -124,12 +124,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2018-02-Mon">
-            
+            <strike>
                             Mon, Feb 19, 2018
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Rector is a PHP tool that handles 2 things: <strong>instant upgrades</strong> and <strong>architecture refactorings</strong>.
 <br><br>
 What exactly Rector does and how does it work?</p>
@@ -168,10 +181,31 @@ It only does what you tell it to do. You can use it to <em>instantly upgrade</em
 <h2 id="what-are-instant-upgrades">What are Instant Upgrades?</h2>
 <p><em>I'll show examples on <a href="https://symfony.com">Symfony</a>, because that's the framework I know and love the best.</em></p>
 <p>Let's say you have a project on Symfony 2.7. And you have a huge <code>service.yml</code>. You know that Symfony 2.8/3.0 brought an awesome <a href="https://symfony.com/blog/new-in-symfony-2-8-service-auto-wiring">autowiring</a> feature that evolved to pure awesomenes in Symfony 3.3 and <a href="/blog/2017/05/07/how-to-refactor-to-new-dependency-injection-features-in-symfony-3-3/#4-use-psr-4-based-service-autodiscovery-and-registration">PSR-4 services feature</a>.</p>
-<p>Would you like to do this upgrade work manually? No. You can use Rector instead.
-Just run it with target <code>level</code> of <code>symfony33</code> and it will change everything it knows about.</p>
-<p>Such a command looks like this:</p>
-<pre><code class="language-bash">vendor/bin/rector process src --set symfony33</code></pre>
+<p><strong>Would you prefer to do this upgrade manually?</strong> No? Use Rector instead:</p>
+<ol>
+<li>Install Rector</li>
+</ol>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<ol start="2">
+<li>Then create <code>rector.php</code></li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector init</code></pre>
+<ol start="3">
+<li>Configure it with set:</li>
+</ol>
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [SetList::SYMFONY_33]);
+};</code></pre>
+<ol start="4">
+<li>Run Rector on <code>/src</code> directory:</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process src</code></pre>
+<p>That's it!</p>
 <h2 id="what-are-architecture-refactorings">What are Architecture Refactorings?</h2>
 <p>The great task Rector can handle is to architecture refactorings. Your code might use a framework, but that's just 50 % of the code. The other 50 % is up to you, how you decide to use it - I mean static calls, services locators, facades over dependency injections etc.</p>
 <p>I've seen many applications built on Symfony that used very interesting patterns:</p>
@@ -229,7 +263,7 @@ Just run it with target <code>level</code> of <code>symfony33</code> and it will
 
 declare(strict_types=1);
 
-use Rector\Renaming\Rector\MethodCall\RenameMethodRector;use Rector\Set\ValueObject\SetList;
+use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {

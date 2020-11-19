@@ -131,7 +131,7 @@
     </li>
 
             <li class="list-inline-item mr-3 text-success">
-            <em class="fas fa-fw fa-sync"></em> Updated Aug, 2020
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
         </li>
     
             <li class="list-inline-item mr-3">
@@ -149,17 +149,18 @@
                 
                                     <div class="card border-success card-bigger mt-5">
                         <div class="card-header text-white bg-success">
-                            <strong>This post was updated at August 2020</strong>
+                            <strong>This post was updated at November 2020</strong>
                         </div>
-                                                    <div class="card-body">
-                                <p>Updated ECS YAML to PHP configuration since <strong>ECS 8</strong>.</p>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.
+Updated ECS YAML to PHP configuration since <strong>ECS 8</strong>.</p>
                             </div>
                                             </div>
 
                     <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Do you use Easy Coding Standard, Package Builder or Statie? Do you need to upgrade safely? <strong>Do you want to benefit from new features?</strong>
 <br>
 <br>
@@ -182,14 +183,10 @@ vendor/bin/ecs check tests --config tests-only-ecs.php</code></pre>
 <p>That was way too complicated, right?</p>
 <p><br></p>
 <p>In new <em>Symplify 8</em>, you can use just one config with <code>only</code> option instead:</p>
-<pre><code class="language-php">&lt;?php
-
-// ecs.php
-
-declare(strict_types=1);
+<pre><code class="language-php">// ecs.php
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\Configuration\Option;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator-&gt;services();
@@ -224,7 +221,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
  declare(strict_types=1);
 
  use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-+use Symplify\EasyCodingStandard\Configuration\Option;
++use Symplify\EasyCodingStandard\ValueObject\Option;
 +use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
  return static function (ContainerConfigurator $containerConfigurator): void {
@@ -237,14 +234,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
  };</code></pre>
 <h3 id="4-del-exclude-checkers-del-code-skip-code">4. <del>exclude_checkers</del> → <code>skip</code></h3>
 <p>People confused this options and created <em>WTF</em> issues. That's why the <code>exclude_checkers</code> is now merged in <code>skip</code>, so you have less option names to remember:</p>
-<pre><code class="language-diff"> &lt;?php
-
- // ecs.php
-
- declare(strict_types=1);
-
+<pre><code class="language-diff"> // ecs.php
  use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-+use Symplify\EasyCodingStandard\Configuration\Option;
++use Symplify\EasyCodingStandard\ValueObject\Option;
 
  return static function (ContainerConfigurator $containerConfigurator): void {
      $parameters = $containerConfigurator-&gt;parameters();
@@ -264,7 +256,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
  declare(strict_types=1);
 
  use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-+use Symplify\EasyCodingStandard\Configuration\Option;
++use Symplify\EasyCodingStandard\ValueObject\Option;
 
  return static function (ContainerConfigurator $containerConfigurator): void {
      $services = $containerConfigurator-&gt;services();
@@ -292,12 +284,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 <h2 id="codingstandard">CodingStandard</h2>
 <h3 id="7-del-removeuselessdocblockfixer-del-code-nosuperfluousphpdoctagsfixer-code">7. <del>RemoveUselessDocBlockFixer</del> → <code>NoSuperfluousPhpdocTagsFixer</code></h3>
 <p><code>RemoveUselessDocBlockFixer</code> was removed, since <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">PHP CS Fixer</a> now provides <code>NoSuperfluousPhpdocTagsFixer</code> with similar features:</p>
-<pre><code class="language-diff"> &lt;?php
-
- // ecs.php
-
- declare(strict_types=1);
-
+<pre><code class="language-diff"> // ecs.php
  use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
  return static function (ContainerConfigurator $containerConfigurator): void {

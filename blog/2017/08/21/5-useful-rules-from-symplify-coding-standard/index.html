@@ -118,21 +118,18 @@
                 <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
-        <strong>2 min</strong>
+        <strong>1 min</strong>
     </li>
 
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2017-08-Mon">
-            <strike>
+            
                             Mon, Aug 21, 2017
             
             </strike>        </time>
     </li>
 
-            <li class="list-inline-item mr-3 text-success">
-            <em class="fas fa-fw fa-sync"></em> Updated Dec, 2018
-        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -150,7 +147,7 @@
                         <div class="card-header text-white bg-danger">
                             <strong>This post is deprecated at September 2018</strong>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body pb-2">
                             <p><a href="https://github.com/symplify/symplify/tree/v5.0.0">Symplify 5.0</a> was released and with that, many checkers were replaced by better ones.</p>
 <p>Checkers 2, 4 and 5 were replaced by <code>SlamCsFixer\FinalInternalClassFixer</code> - <strong>class is either final or abstract</strong>.</p>
 <p><code>@inject</code> refactoring was replaced by <code>AnnotatedPropertyInjectToConstructorInjectionRector</code> from <a href="https://github.com/rectorphp/rector">Rector</a>.</p>
@@ -159,115 +156,17 @@
 
                     <br>
                 
-                                    <div class="card border-success card-bigger mt-5">
-                        <div class="card-header text-white bg-success">
-                            <strong>This post was updated at December 2018</strong>
-                        </div>
-                                                    <div class="card-body">
-                                <p>Updated with <strong>EasyCodingStandard 5</strong>, Neon to YAML migration and <code>checkers</code> to <code>services</code> migration.</p>
-                            </div>
-                                            </div>
-
-                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p><a href="https://github.com/symplify/coding-standard">Symplify Coding Standard</a> was born from Zenify, back from the days I was only Nette programmer. It focuses on <strong>maintainability and clean architecture</strong>. I try to make them simple: <strong>each of them does one job</strong>.
 <br><br>
 With over 108 000 downloads I think I should write about 5 of them you can use in your projects today.</p>
                     </div>
                 </div>
 
-                <p>I wrote about <a href="/blog/2017/06/26/php-object-calisthenics-rules-made-simple-version-3-0-is-out-now/">Object Calisthenics</a> few weeks ago - they are very strict and not very handy if you're beginner in coding standard worlds.</p>
-<p><strong>Symplify Coding standard is complete opposite.</strong> You can start with 1st checker today and your code will be probably able to handle it. It's combination of 40+ Code Sniffer Sniffs, PHP CS Fixer Fixers and PHPStan rules.</p>
-<p>The simplest would be...</p>
-<h3 id="1-array-property-should-have-default-value-code-code-to-prevent-undefined-array-issues">1. Array property should have default value <code>[]</code> to prevent undefined array issues</h3>
-<p><em class="fas fa-lg fa-times text-danger"></em></p>
-<pre><code class="language-php">class SomeClass
-{
-    /**
-     * @var string[]
-     */
-    public $apples:
-
-    public function run()
-    {
-        foreach ($this-&gt;apples as $mac) {
-            // ...
-        }
-    }
-}</code></pre>
-<p><em class="fas fa-lg fa-check text-success"></em></p>
-<pre><code class="language-php">class SomeClass
-{
-    /**
-     * @var string[]
-     */
-    public $apples = [];
-}</code></pre>
-<p><strong>Use it</strong>:</p>
-<pre><code class="language-php">&lt;?php
-
-// ecs.php
-
-declare(strict_types=1);
-
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\CodingStandard\Fixer\Property\ArrayPropertyDefaultValueFixer;
-
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator-&gt;services();
-
-    $services-&gt;set(ArrayPropertyDefaultValueFixer::class);
-};
-</code></pre>
-<h3 id="2-final-interface">2. Final Interface</h3>
-<p><strong>Note: this Symplify rule was replace by more advanced Rector rule, that also checks for child classes.</strong></p>
-<p>Once I read <a href="https://ocramius.github.io/blog/when-to-declare-classes-final">When to declare classes final</a> by <a href="http://ocramius.github.io">Marco Pivetta</a> with <strong>tl;dr;</strong>:</p>
-<blockquote class="blockquote text-center mt-5 mb-5">
-    "Make your classes always final, if they implement an interface, and no other public methods are defined."
-</blockquote>
-<p>I was working at <a href="https://www.lekarna.cz">Lekarna.cz</a> in that time (finally shipped in the beginning of August, congrats guys!) and we used a lot of interfaces and had lots of code reviews. <strong>So I made a sniff to save us some work.</strong></p>
-<p><em class="fas fa-lg fa-times text-danger"></em></p>
-<pre><code class="language-php">class SomeClass implements SomeInterface
-{
-}</code></pre>
-<p><em class="fas fa-lg fa-check text-success"></em></p>
-<pre><code class="language-php">final class SomeClass implements SomeInterface
-{
-}</code></pre>
-<p><strong>Use it</strong></p>
-<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
-<pre><code class="language-php">&lt;?php
-
-// rector.php
-
-declare(strict_types=1);
-
-use Rector\SOLID\Rector\Class_\FinalizeClassesWithoutChildrenRector;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator-&gt;services();
-    $services-&gt;set(FinalizeClassesWithoutChildrenRector::class);
-};</code></pre>
-<p>and run <a href="https://github.com/rectorphp/rector">Rector</a>:</p>
-<pre><code class="language-bash">vendor/bin/rector process src</code></pre>
-<h3 id="del-4-equal-interface-del"><del>4. Equal Interface</del></h3>
-<p><strong>Note: this rule was removed, as very un-reliable.</strong></p>
-<p><del>What happens if you implement and interface and add few extra public methods?</del></p>
-<h3 id="sold-try-them">Sold? Try Them</h3>
-<p>They are used the best with <a href="/blog/2017/08/07/7-new-features-in-easy-coding-standard-22/">EasyCodingStandard</a>:</p>
-<pre><code class="language-bash">composer require --dev symplify/easy-coding-standard symplify/coding-standard</code></pre>
-<p>Check your code:</p>
-<pre><code class="language-bash">vendor/bin/ecs check --set psr12</code></pre>
-<p>Fix your code:</p>
-<pre><code class="language-bash">vendor/bin/ecs check --set psr12 --fix</code></pre>
-<p>Let me know how much errors will you find in the comments. I dare you to get to 0! :)</p>
-<h2 id="rest-of-the-rules">Rest of the Rules</h2>
-<p>You can find more rules like Abstract Class, Exception, Trait and Interface naming, indexed array indentation, Controllers with 1 method or invoke and so on in <a href="https://github.com/symplify/coding-standard">README</a>.</p>
-<p><br></p>
-<p>Happy coding!</p>
+                <p>Most of the content was outdated for technical changes or idea was proven to be not very helpful. To avoid confusion among readers, to content was removed.</p>
+<p>If you want, you can still see it in the git history, as this blog is <a href="https://github.com/tomasvotruba/tomasvotruba.com">fully open-sourced</a>.</p>
 
                 <br>
 

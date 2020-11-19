@@ -124,12 +124,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2019-04-Thu">
-            
+            <strike>
                             Thu, Apr 4, 2019
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Symfony <a href="https://symfony.com/blog/new-in-twig-namespaced-classes">recently announced a new version of Twig</a> with namespaces as we know it. Before PHP 5.2 there was <code>Underscored_Namespace</code> - I remember because that was the first version I used.
 <br><br>
 Today I'll show you how to upgrade from <code>_</code> to <code>\\</code> in few <del>minutes</del> seconds.</p>
@@ -190,8 +203,28 @@ Today I'll show you how to upgrade from <code>_</code> to <code>\\</code> in few
 <p>In a reaction to the Symfony blog post, I see many developers <a href="https://github.com/sculpin/sculpin/pull/423/files">do upgrades manually</a>. In case of 50 changes, it's ok, but private code bases will go 1000+ use cases.</p>
 <h2 id="del-code-del-pattern-refactoring"><del>Code</del> Pattern Refactoring</h2>
 <p>For <a href="https://github.com/rectorphp/rector">Rector</a> it just 1 pattern to refactor. Just tell him to process your files <code>src</code>:</p>
-<pre><code class="language-bash">composer require rector/rector --dev # make sure you have version 0.4.10+ at least
-vendor/bin/rector process src --set twig-underscore-to-namespace</code></pre>
+<ol>
+<li>Install Rector</li>
+</ol>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<ol start="2">
+<li>Update <code>rector.php</code></li>
+</ol>
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+
+    $parameters-&gt;set(Option::SETS, [
+        SetList::TWIG_UNDERSCORE_TO_NAMESPACE,
+    ]);
+};</code></pre>
+<ol start="3">
+<li>Run Rector</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process src</code></pre>
 <p>Happy coding!</p>
 
                 <br>

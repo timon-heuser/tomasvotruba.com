@@ -124,12 +124,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2019-03-Mon">
-            
+            <strike>
                             Mon, Mar 4, 2019
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,9 +147,19 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switched deprecated <code>--set</code> option to <code>ecs.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>A framework is just a tool. Each teaches you coding habits you need to use them effectively.
 Like Laravel gives you speed at prototyping with static &quot;facades&quot;. But the applications grows, so does the team, so does your skill and <strong>you start to prefer constructor injection</strong>.
 <br><br>
@@ -155,7 +168,7 @@ What then? Switch framework or rewrite? But what if all you need is to <strong>s
                 </div>
 
                 <p>I don't use Laravel in my own life, but I follow the community closely. It likes the idea of Contracts from day 1 and it's also part of Rector upgrade set.</p>
-<p>Recently I read the <a href="https://medium.freecodecamp.org/moving-away-from-magic-or-why-i-dont-want-to-use-laravel-anymore-2ce098c979bd">Moving away from magic — or: why I don’t want to use Laravel anymore</a> on medium by <em>Niklas Schöllhorn</em>.</p>
+<p>Recently I read the <a href="https://www.freecodecamp.org/news/moving-away-from-magic-or-why-i-dont-want-to-use-laravel-anymore-2ce098c979bd/">Moving away from magic—or: why I don’t want to use Laravel anymore</a> on medium by <em>Niklas Schöllhorn</em>.</p>
 <p><a href="https://medium.freecodecamp.org/moving-away-from-magic-or-why-i-dont-want-to-use-laravel-anymore-2ce098c979bd"></p>
 <img src="/assets/images/posts/2019/laravel/best-seller.png" class="img-thumbnail">
 <p></a></p>
@@ -223,8 +236,27 @@ $result = SomeService::someMethod();</code></pre>
 <h2 id="rector-to-the-rescue">Rector to the Rescue</h2>
 <p>These kinds of problems are <em>so 2018</em>. Recently Rector got on board <a href="https://github.com/rectorphp/rector/pulls?utf8=%E2%9C%93&amp;q=laravel">Laravel instant upgrades</a>, first with Laravel 5.8.</p>
 <p>Next impulse was the post by Niklas, so I've <strong>converted his idea to Rector rule</strong>. The change from facades to constructor injection can be done with new <code>laravel-static-to-injection</code>:</p>
-<pre><code class="language-bash">vendor/bin/rector process /src --set laravel-static-to-injection</code></pre>
+<ol>
+<li>Install Rector</li>
+</ol>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<ol start="2">
+<li>Create <code>rector.php</code> config with <code>SetList::LARAVEL_STATIC_TO_INJECTION</code> set</li>
+</ol>
+<pre><code class="language-php">use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [SetList::LARAVEL_STATIC_TO_INJECTION]);
+};</code></pre>
+<ol start="3">
+<li>Run Rector</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process /src</code></pre>
 <p>No need to switch framework and you can enjoy new constructor injection in your Laravel application matter of minutes.</p>
+<p><br></p>
 <p>Happy coding!</p>
 
                 <br>

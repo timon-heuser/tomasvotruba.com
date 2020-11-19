@@ -147,7 +147,7 @@
                         <div class="card-header text-white bg-danger">
                             <strong>This post is deprecated at October 2017</strong>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body pb-2">
                             <p>This was deprecated due to low usage of package and too complicated API. <strong>Use class that implements <code>Nette\Application\IPresenter</code> with <code>run(Request $request)</code> instead</strong>.</p>
 <p>For more, see <a href="https://github.com/symplify/symplify/issues/402">issue on Github</a>.</p>
                         </div>
@@ -157,7 +157,7 @@
                 
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>Symfony and Laravel allow decoupled controllers by default thanks to simple principle: <em>controller/presenter = callback</em>. No base class or interface is needed.</p>
 <p>People around me are already using single action presenters, but still depend on Nette. Why? Coupling of <code>IPresenter</code> in Application and Router.</p>
 <p>I think framework should help you and not limit you in a way how you write your code. <strong>Today we look how to make that happen even for Nette presenters and how to set them free</strong>.</p>

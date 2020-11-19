@@ -124,12 +124,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2018-11-Thu">
-            
+            <strike>
                             Thu, Nov 15, 2018
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Nov, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -144,21 +147,29 @@
     </ul>
 
                 
+                                    <div class="card border-success card-bigger mt-5">
+                        <div class="card-header text-white bg-success">
+                            <strong>This post was updated at November 2020</strong>
+                        </div>
+                                                    <div class="card-body pb-2">
+                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.</p>
+                            </div>
+                                            </div>
+
+                    <br>
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>PHP 5.6 and 7.0 is going to be dangerous <a href="http://php.net/supported-versions.php">since 2019</a>, PHP 7.1 is <a href="https://gophp71.org">new baseline</a> and PHP 7.3 is just about to be released in the end of 2018.
 <br><br>
 Is this <strong>the best time to upgrade your code to PHP 7.4</strong>?</p>
                     </div>
                 </div>
 
-                <p><strong>Probably not</strong>. Unless you're able to compile <a href="https://github.com/php/php-src">PHP repository</a> yourself and live on the edge of the edges. PHP 7.4 can be the smoothest upgrade you've experienced. <strong>If you'll think about in your coding since today</strong>.</p>
-<h2 id="can-code-var-code-annotations-be-really-useful">Can <code>@var</code> Annotations be Really Useful?</h2>
+                <p>Yes, because PHP 7.4 was released 2 years ago.</p>
+<h2 id="can-code-var-code-annotations-be-useful">Can <code>@var</code> Annotations be Useful?</h2>
 <p>Annotations were always in the bottom, ashamed and not considered a <em>real code</em>. They help us to guess the type of the property. Not only to us, but also to <a href="/blog/2018/10/22/brief-history-of-tools-watching-and-changing-your-php-code/#2-static-analysis-tools">static analysis tools</a>.</p>
-<pre><code class="language-php">&lt;?php
-
-final class SomeClass
+<pre><code class="language-php">final class SomeClass
 {
    /**
     * @var int
@@ -257,13 +268,27 @@ final class SomeClass
       */
      public $e = 'string';
 }</code></pre>
-<p>Or you could <strong>be actually rewarded for your daunting <code>@var</code> work</strong>. Good news! Rector will do this one for you:</p>
-<pre><code class="language-bash">composer require rector/rector --dev
-vendor/bin/rector process src --set php74
-# few seconds...
-#
-# Done!</code></pre>
-<p>See <a href="https://github.com/rectorphp/rector/pull/643">pull-request #643</a> to get more insight into how this very nice AST use case works.</p>
+<p>Or you could <strong>be actually rewarded for your daunting <code>@var</code> work</strong>. Good news! Rector handles this for you.</p>
+<h2 id="3-steps-to-add-typed-properties-to-your-code-with-rector">3 Steps to Add Typed Properties to your code With Rector</h2>
+<ol>
+<li>Install Rector</li>
+</ol>
+<pre><code class="language-bash">composer require rector/rector --dev</code></pre>
+<ol start="2">
+<li>Add <code>rector.php</code> config with <code>TypedPropertyRector</code> Rule</li>
+</ol>
+<pre><code class="language-php">// rector.php
+use Rector\Php74\Rector\Property\TypedPropertyRector;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $services = $containerConfigurator-&gt;services();
+    $services-&gt;set(TypedPropertyRector::class);
+};</code></pre>
+<ol start="3">
+<li>Run Rector</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rector process src</code></pre>
 <p><br></p>
 <p>I started this post to show how Rector helps with huge refactorings like <code>@var</code> annotations to types that are about to come next year. But the message is far being that - observing trends, seeing the future and working towards that.</p>
 <h2 id="how-to-make-your-future-self-happy">How To Make Your Future-Self Happy?</h2>

@@ -146,7 +146,7 @@
                 
                 
                 <div class="card card-bigger mb-5">
-                    <div class="card-body">
+                    <div class="card-body pb-2">
                         <p>With typed properties in PHP 7.4, there comes <strong>a natural tendency for using properties as public</strong>. The type check is already there, right? It's a dangerous path that opens the door to static code with public properties everywhere, that is asking for a change in any place.
 <br>
 <br></p>
@@ -259,9 +259,18 @@ final class AirCleaner
 See pull-request
 </a></p>
 <h2 id="in-ci-pipeline-or-won-t-happen">In CI pipeline, or Won't Happen</h2>
-<p>What now? Go to your code and check method one by one clicking on them in PHPStorm to <em>Find Usages</em>, if they're used somewhere else or <em>false public</em> and should be private. It will make your code much more robust and senior.</p>
-<p>Just kidding. Just use new Rector set <code>privatization</code> locally and it to your CI:</p>
-<pre><code class="language-bash">vendor/bin/rector process src --set privatization</code></pre>
+<p>What now? Go to your code and check method one by one clicking on them in PHPStorm to <em>Find Usages</em>, if they're used somewhere else or <em>false public</em> and should be private. It will make your code much more robust and senior...</p>
+<p><em>Just kidding</em>. Let Rector handle it with <code>PRIVATIZATION</code> set:</p>
+<pre><code class="language-php">// rector.php
+use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set(Option::SETS, [SetList::PRIVATIZATION]);
+};</code></pre>
+<pre><code class="language-bash">vendor/bin/rector process src</code></pre>
 <p>It has now 4 rules:</p>
 <ul>
 <li><strong>privatize local-only constant</strong></li>
