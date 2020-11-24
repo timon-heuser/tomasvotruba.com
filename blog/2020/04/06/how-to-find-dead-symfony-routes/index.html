@@ -194,13 +194,13 @@ Luckily, you have an emergency fund to keep them running... well, just 15 of the
 <p>Coffee shop with a property of specific size, location, number of chairs, and toilets - that's static analysis. It won't help us here. What if the shop with the smallest area is making more money than the biggest one?</p>
 <p>Let's use <strong>dynamic analysis</strong> here - you <strong>measure data in time</strong> and decide based on it. E.g., income for last year from all of them compared to expenses to run them.</p>
 <h2 id="2-steps-to-add-route-usage-to-your-symfony-app">2 Steps to add Route Usage to Your Symfony App</h2>
-<p>Inspired by the Laravel package, I've made a <a href="https://github.com/migrify/symfony-route-usage">Symfony Route Usage</a>.</p>
+<p>Inspired by the Laravel package, I've made a <a href="https://github.com/symplify/symfony-route-usage">Symfony Route Usage</a>.</p>
 <h3 id="1-install-it">1. Install it</h3>
-<pre><code class="language-bash">composer require migrify/symfony-route-usage</code></pre>
+<pre><code class="language-bash">composer require symplify/symfony-route-usage</code></pre>
 <h3 id="2-enable-bundle">2. Enable Bundle</h3>
 <pre><code class="language-php">// config/bundles.php
 return [
-    Migrify\SymfonyRouteUsage\SymfonyRouteUsageBundle::class =&gt; ['all' =&gt; true],
+    Symplify\SymfonyRouteUsage\SymfonyRouteUsageBundle::class =&gt; ['all' =&gt; true],
 ];</code></pre>
 <p><br></p>
 <p>Collect data for a couple of weeks (depends on the size of your site) and see for yourself, <strong>what routes have been used</strong>:</p>
@@ -214,7 +214,7 @@ return [
 <p>↓</p>
 <img src="/assets/images/posts/2020/dead_routes_dead_routes.png" class="img-thumbnail mt-4 mb-2">
 <p><br></p>
-<p><strong>What about the performance?</strong> Pehapkari website takes 72 ms to load, of which 10 ms (13 %) is Symfony Route Visit. If that would be too much for your website, add partial logging by overloading <a href="https://github.com/migrify/symfony-route-usage/blob/master/src/EventSubscriber/LogRouteUsageEventSubscriber.php">the subscriber</a> - e.g., every 100th or 1000th request.</p>
+<p><strong>What about the performance?</strong> Pehapkari website takes 72 ms to load, of which 10 ms (13 %) is Symfony Route Visit. If that would be too much for your website, add partial logging by overloading <a href="https://github.com/symplify/symfony-route-usage/blob/master/src/EventSubscriber/LogRouteUsageEventSubscriber.php">the subscriber</a> - e.g., every 100th or 1000th request.</p>
 <p><br></p>
 <p>This package is freshly baked. Do you have some ideas how to make it better? Let me know ↓</p>
 <p><br></p>

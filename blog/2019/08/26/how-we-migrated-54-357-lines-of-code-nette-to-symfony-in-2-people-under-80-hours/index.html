@@ -152,7 +152,7 @@
                             <strong>This post was updated at June 2020</strong>
                         </div>
                                                     <div class="card-body pb-2">
-                                <p>Updated with <a href="http://github.com/migrify">Migrify</a> packages and local links.</p>
+                                <p>Updated with <a href="http://github.com/symplify">Symplify</a> packages and local links.</p>
                             </div>
                                             </div>
 
@@ -202,10 +202,10 @@ Just to have an idea, the pehapkari.cz website has 35 routes.</p>
 <p>The first is <a href="https://github.com/rectorphp/rector">Rector</a>, a tool I made that can change any code that runs at least on PHP 5.3 from pattern A to pattern B. It can instantly update the code from PHP 5.3, 5.4, 5.5, 5.6... to 7.4, Symfony from 2.8 to 4.2, Laravel from static code to constructor injection, and more. You can add your own rules tailored to migrate your specific code, that can handle anything that PHP programmer can do (A → B) in a fraction of the time.</p>
 </li>
 <li>
-<p>The second is <a href="https://github.com/migrify/neon-to-yaml">NeonToYaml</a> - as you can guess, it converts NEON syntax to YAML</p>
+<p>The second is <a href="https://github.com/symplify/neon-to-yaml-converter">NeonToYamlConverter</a> - as you can guess, it converts NEON syntax to YAML</p>
 </li>
 <li>
-<p>The third assistant is <a href="https://github.com/migrify/latte-to-twig">LatteToTwigConverter</a> - it migrates Latte files to TWIG syntax</p>
+<p>The third assistant is <a href="https://github.com/symplify/latte-to-twig-converter">LatteToTwigConverter</a> - it migrates Latte files to TWIG syntax</p>
 </li>
 </ul>
 <p>During those <strong>17 days, we put in 80 hours of work</strong> for both of us together (= 40 hours each).</p>
@@ -266,7 +266,7 @@ final class FirstServiceFactory
 <p>Automatic tools did another 80% of the pull-request you saw above. The first one was enough to write, the other one to set it up.</p>
 <h2 id="neon-to-yaml">Neon to YAML</h2>
 <p>Neon and YAML are de facto fields <a href="/blog/2018/03/12/neon-vs-yaml-and-how-to-migrate-between-them/">with minor differences in syntax</a>, but when it comes to services, each framework writes a little differently. Config with services had 316 lines in the services section. You don't want to migrate it manually, the Neon entities. Besides, just one error in related migration, and you can do it all over again.</p>
-<p>I took few hours and wrote <a href="https://github.com/migrify/neon-to-yaml">Migrify/NeonToYaml</a>. Just pass the path to the <code>*.neon</code> file, and it will convert into a beautiful <code>*.yaml</code> file.</p>
+<p>I took few hours and wrote <a href="https://github.com/symplify/neon-to-yaml-converter">Symplify/NeonToYamlConverter</a>. Just pass the path to the <code>*.neon</code> file, and it will convert into a beautiful <code>*.yaml</code> file.</p>
 <h2 id="php-migration">PHP Migration</h2>
 <p>Again to the factory pattern - there were several custom Response classes in the code that inherited from Nette Response and added extra logic. We could edit them manually, but it was easier to extract them into the factory method:</p>
 <pre><code class="language-diff"> &lt;?php
@@ -406,7 +406,7 @@ vendor/bin/rector process app src --level nette-to-symfony</code></pre>
 <p><br></p>
 <p>As you can see, any application can be migrated from one framework to another under a month. Dare us!</p>
 <p><br></p>
-<p>Happy migrating!</p>
+<p>Happy coding!</p>
 
                 <br>
 

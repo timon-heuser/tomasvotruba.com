@@ -203,10 +203,10 @@ abstract class AbstactSomePresenter
 <h2 id="patching-for-dummies">Patching For Dummies</h2>
 <p>Idea behind <a href="https://github.com/cweagans/composer-patches">composer patches</a> is great, but the user experience with making the patch not so much. It's classic pixel coding - you have to edit the patch file the one slash or dot char. If you do it wrong, or the whole process collides with &quot;fatal error&quot;. That's why there is <a href="https://pehapkari.cz/blog/2017/01/20/jak-snadno-a-rychle-upravovat-soubory-ve-vendoru">over 10 comments under Czech post by Tomas Pilar</a>, asking about the pixel coding.</p>
 <p>I don't want developers to be frustrated over pixel coding. I want developers to play and explore their abilities to their limits.</p>
-<p>We made a Migrify package that adds UX layer <strong>that handles the tedious maintenance for you</strong>.</p>
+<p>We made a Symplify package that adds UX layer <strong>that handles the tedious maintenance for you</strong>.</p>
 <h2 id="4-steps-to-generate-your-first-patch">4 Steps to Generate Your First Patch</h2>
 <h3 id="1-install-packages">1. Install Packages</h3>
-<pre><code class="language-bash">composer require cweagans/composer-patches migrify/vendor-patches --dev</code></pre>
+<pre><code class="language-bash">composer require cweagans/composer-patches symplify/vendor-patches --dev</code></pre>
 <h3 id="2-create-a-copy-of-code-vendor-code-file-you-want-to-change-with-code-old-code-suffix">2. Create a Copy of <code>/vendor</code> file you Want To Change with <code>*.old</code> Suffix</h3>
 <p>For example, if you edit:</p>
 <pre><code class="language-bash">vendor/nette/di/src/DI/Extensions/InjectExtension.php</code></pre>
@@ -221,7 +221,7 @@ abstract class AbstactSomePresenter
 <p>Only <code>*.php</code> file is loaded, not the <code>*.php.old</code> one. This way, you can <strong>be sure the new code</strong> is working before you generate patches.</p>
 <h3 id="4-run-code-generate-code-command-to-create-patch-file-and-register-it">4. Run <code>generate</code> command to Create Patch File and Register it</h3>
 <pre><code class="language-bash">vendor/bin/vendor-patches generate</code></pre>
-<p>The Migrify tool will generate patch files for all files created this way in <code>/patches</code> directory:</p>
+<p>The Symplify tool will generate patch files for all files created this way in <code>/patches</code> directory:</p>
 <pre><code class="language-bash">/patches/nette-di-di-extensions-injectextension.php.patch</code></pre>
 <p>The patch path is created from the original file path, so <strong>the patch name is always unique</strong>.</p>
 <p>Also, the configuration for <code>cweagans/composer-patches</code> is added your <code>composer.json</code>:</p>

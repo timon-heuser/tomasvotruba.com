@@ -152,7 +152,7 @@
                             <strong>This post was updated at July 2020</strong>
                         </div>
                                                     <div class="card-body pb-2">
-                                <p>Updated to Migrify package.</p>
+                                <p>Updated to Symplify package.</p>
                             </div>
                                             </div>
 
@@ -174,10 +174,10 @@
 <li>One of your dependency decided to migrate configuration from <code>*.neon</code> to <code>*.yaml</code> (e.g. ECS)</li>
 </ul>
 <h2 id="how-to-use-it">How to Use it?</h2>
-<p>To use <a href="https://github.com/migrify/neon-to-yaml">migrify/neon-to-yaml</a>, require it a composer dependency:</p>
-<pre><code class="language-bash">composer require migrify/neon-to-yaml --dev</code></pre>
+<p>To use <a href="https://github.com/symplify/neon-to-yaml-converter">symplify/neon-to-yaml-converter</a>, require it a composer dependency:</p>
+<pre><code class="language-bash">composer require symplify/neon-to-yaml-converter --dev</code></pre>
 <p>Run it on one file or directory - it takes all <code>*.neon</code>, <code>*.yml</code> and <code>*.yaml</code> files:</p>
-<pre><code class="language-bash">vendor/bin/neon-to-yaml convert file.neon</code></pre>
+<pre><code class="language-bash">vendor/bin/neon-to-yaml-converter convert file.neon</code></pre>
 <h2 id="the-2-most-problematic-places-converter-tool-handles">The 2 Most Problematic Places Converter Tool Handles</h2>
 <p>In Neon there are nested parameters = you can use <code>%payu.user%</code> to get parameter <code>user</code> in <code>payu</code> array. In YAML used in Symfony code, there are only one level parameters. That means you can use only the <code>payu</code> parameter, nothing nested.</p>
 <p>That's why all parameters have to be converted to the <strong>single level of nesting</strong>, here to <code>payu_user</code>:</p>
@@ -206,8 +206,8 @@
 <p>Those of you who don't use Neon for years, would you guess that?</p>
 <p>All this converter handles for you.</p>
 <p><br></p>
-<p>Next time you <strong>migrate your config, package or whole application</strong> from Neon to YAML, let <a href="https://github.com/migrify/neon-to-yaml">migrify/neon-to-yaml
-</a> do the work for you.</p>
+<p>Next time you <strong>migrate your config, package or whole application</strong> from Neon to YAML, let <a href="https://github.com/symplify/neon-to-yaml-converter">symplify/neon-to-yaml-conveter</a> do the work for you.</p>
+<p><br></p>
 <p>Happy coding!</p>
 
                 <br>

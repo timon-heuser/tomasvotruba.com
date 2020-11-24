@@ -193,10 +193,10 @@ Meet <em>Static Detector</em>.</p>
 <p>But you already know that, right? Anyone can remove method that is never used.
 What is the hard problem? How can we be sure the method is not really used?</p>
 <h2 id="static-detector-to-the-rescue">Static Detector to the Rescue</h2>
-<p>To get these data, we use a handy tool <a href="https://github.com/migrify/static-detector">migrify/static-detector</a>.</p>
+<p>To get these data, we use a handy tool <a href="https://github.com/symplify/static-detector">symplify/static-detector</a>.</p>
 <p><br></p>
 <p>Install it:</p>
-<pre><code class="language-bash">composer require migrify/static-detector --dev</code></pre>
+<pre><code class="language-bash">composer require symplify/static-detector --dev</code></pre>
 <p>Run it on your directory:</p>
 <pre><code class="language-bash">vendor/bin/static-detector detect src</code></pre>
 <p>We'll see the overview of all static methods, with all related static calls.</p>

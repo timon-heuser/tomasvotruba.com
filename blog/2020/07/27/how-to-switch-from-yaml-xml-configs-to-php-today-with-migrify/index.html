@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>How to Switch from YAML/XML Configs to PHP Today with Migrify | Tomas Votruba</title>
+    <title>How to Switch from YAML/XML Configs to PHP Today with Symplify | Tomas Votruba</title>
     <meta charset="utf-8">
     <meta name="robots" content="index, follow">
 
@@ -113,7 +113,7 @@
 
         <div class="mainContent">
             <div class="container-fluid" id="post">
-                <h1>How to Switch from YAML/XML Configs to PHP Today with Migrify</h1>
+                <h1>How to Switch from YAML/XML Configs to PHP Today with Symplify</h1>
 
                 <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
@@ -174,13 +174,13 @@ Or maybe... <strong>5 minute job</strong>?</p>
                 <h2 id="break-even-automation">Break-Even Automation</h2>
 <p>With legacy migrations, we have to handle a lot of processes that are automated. If you work on 1 project for many years, it's a matter of habit to handle it manually. But <strong>handling 3 projects a month makes you think, how to automated any repeated work</strong>. It's cheaper, faster, and more reliable. The same way the writing tests are.</p>
 <p><br></p>
-<p>We made <a href="https://github.com/migrify/config-transformer">migrify/config-transformer</a> to handle this work for us.</p>
+<p>We made <a href="https://github.com/symplify/config-transformer">symplify/config-transformer</a> to handle this work for us.</p>
 <img src="/assets/images/posts/2020/yaml_to_php.png" class="img-thumbnail">
 <p><br></p>
-<p><strong>Credit</strong> for inspiration first reported bugs, feature feedback, and exceptional test cases <strong>goes to <a href="https://github.com/archeoprog">archeoprog</a> and <a href="https://github.com/weaverryan">Ryan Weaver</a></strong>. Their input helped get the migrify package to high quality and covered Symfony features I didn't even know. Thank you, guys!</p>
+<p><strong>Credit</strong> for inspiration first reported bugs, feature feedback, and exceptional test cases <strong>goes to <a href="https://github.com/archeoprog">archeoprog</a> and <a href="https://github.com/weaverryan">Ryan Weaver</a></strong>. Their input helped get the Symplify package to high quality and covered Symfony features I didn't even know. Thank you, guys!</p>
 <p><br></p>
-<h2 id="1-install-migrify-config-transformer">1. Install migrify/config-transformer</h2>
-<pre><code class="language-bash">composer require migrify/config-transformer --dev</code></pre>
+<h2 id="1-install-symplify-config-transformer">1. Install symplify/config-transformer</h2>
+<pre><code class="language-bash">composer require symplify/config-transformer --dev</code></pre>
 <h2 id="2-run-code-switch-format-code-command">2. Run <code>switch-format</code> Command</h2>
 <p>This command has 2 requires options and 1 argument:</p>
 <ul>
@@ -242,7 +242,7 @@ Again, it's valid to handle it manually with search &amp; replace in PHPStorm.</
 <p>Setup <code>rector.php</code>:</p>
 <pre><code class="language-php">&lt;?php
 
-use Migrify\ConfigTransformer\FormatSwitcher\ValueObject\Format;
+use Symplify\ConfigTransformer\FormatSwitcher\ValueObject\Format;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\Symfony\Rector\Class_\ChangeFileLoaderInExtensionAndKernelRector;
 
@@ -271,7 +271,7 @@ return function (ContainerConfigurator $containerConfigurator): void {
 </ul>
 <h2 id="let-us-know-help-you-grow">Let Us Know, Help You Grow</h2>
 <p><strong>Is something broken? Have you found a space for improvement?</strong></p>
-<p>Create <a href="https://github.com/migrify/migrify/issues/new">an issue</a> and let us know. We'd love to hear it.</p>
+<p>Create <a href="https://github.com/symplify/symplify/issues/new">an issue</a> and let us know. We'd love to hear it.</p>
 <p><br></p>
 <p>Happy coding!</p>
 
@@ -385,7 +385,7 @@ return function (ContainerConfigurator $containerConfigurator): void {
 </html>
 
         <meta property="og:type" content="article" />
-    <meta property="og:title" content="How to Switch from YAML/XML Configs to PHP Today with Migrify" />
+    <meta property="og:title" content="How to Switch from YAML/XML Configs to PHP Today with Symplify" />
     <meta property="og:description" content="In [previous post](/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs/), we looked 10 reasons to switch from YAML to PHP configs. Still asking *why*? I dare you to [disagree with 1 reason there](/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs/).
 
 If you have 1 config file, you already are on PHP side now. Close this post and enjoy life.
@@ -399,7 +399,7 @@ Or maybe... **5 minute job**?
 
         <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@votrubaT">
-    <meta name="twitter:title" content="How to Switch from YAML/XML Configs to PHP Today with Migrify" />
+    <meta name="twitter:title" content="How to Switch from YAML/XML Configs to PHP Today with Symplify" />
     <meta name="twitter:description" content="In [previous post](/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs/), we looked 10 reasons to switch from YAML to PHP configs. Still asking *why*? I dare you to [disagree with 1 reason there](/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs/).
 
 If you have 1 config file, you already are on PHP side now. Close this post and enjoy life.
