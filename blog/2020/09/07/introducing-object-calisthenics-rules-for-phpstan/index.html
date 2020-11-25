@@ -198,8 +198,8 @@ services:
 <h2 id="how-to-switch-from-php-codesniffer-to-phpstan-rules">How to Switch from PHP_CodeSniffer to PHPStan rules?</h2>
 <p>Most likely, you're not using all the rules at once, so we look at migrating particular rules.</p>
 <ul>
-<li>Look at the <a href="https://github.com/symplify/coding-standard/blob/master/docs/phpstan_rules_object_calisthenics.md">list of PHPStan rules</a></li>
-<li>Look at the full set - <a href="https://github.com/symplify/coding-standard/blob/master/packages/object-calisthenics/config/object-calisthenics-rules.neon"><code>object-calisthenics-rules.neon</code></a></li>
+<li>Look at the <a href="https://github.com/symplify/phpstan-rules/blob/master/docs/rules_overview.md">list of PHPStan rules</a></li>
+<li>Look at the full set - <a href="https://github.com/symplify/phpstan-rules/blob/master/packages/object-calisthenics/config/object-calisthenics-rules.neon"><code>object-calisthenics-rules.neon</code></a></li>
 <li>Pick the rules you need and copy-paste them to your <code>phpstan.neon</code></li>
 <li>You can use parameters to configure them, or explicit values (like in 2 cases above)</li>
 <li>Add only <strong>1 rule at a time</strong> and then try to run PHPStan (<code>vendor/bin/phpstan analyse</code>) to make sure, it works</li>
