@@ -61,7 +61,7 @@
                     <a href="/contact">Contact</a>
                 </li>
                 <li id="top-menu-search">
-                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -103,7 +103,7 @@
     </nav>
 
     <div class="hidden-md-up text-center" id="top-menu-search-mobile">
-        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -270,7 +270,7 @@ foreach ($configFiles as $configFile) {
 <p><strong>If you want to get deeper into this thinking and find more inspiration, read the <em>Pragmatic Programmer</em> book</strong>. I personally found useful about 60 % of the content (compared to usual ~30 % in technical books), so <em class="fas fa-2x fa-thumbs-up text-success"></em>.</p>
 <img src="/assets/images/posts/2019/one-time/pragmatic_programmer.jpg" class="img-thumbnail">
 <p>I use this approach in Rector to create new rule + test in 1 file:</p>
-<p>Just edit <code>create-rector.php</code> (see in <a href="https://github.com/rectorphp/rector/blob/master/create-rector.php.dist">Github repo</a>) and then run:</p>
+<p>Just copy <code>create-rector.php.dist</code> to <code>rector-recipe.php</code>, edit it and then run:</p>
 <pre><code class="language-bash">bin/rector create</code></pre>
 <p>It:</p>
 <ul>

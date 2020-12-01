@@ -61,7 +61,7 @@
                     <a href="/contact">Contact</a>
                 </li>
                 <li id="top-menu-search">
-                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -103,7 +103,7 @@
     </nav>
 
     <div class="hidden-md-up text-center" id="top-menu-search-mobile">
-        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -163,8 +163,8 @@ Today, it's a much bigger project with over...</p>
 <blockquote class="blockquote text-center">
     1, 2, 3... <strong>1023 groups</strong>
 </blockquote>
-<p>I bet there is one group out there that isn't listed yet. It might have a local non-PHP name like <a href="https://friendsofphp.org/groups/#france">&quot;AFUP&quot; community in France</a>.</p>
-<p>Whoever finds this group wins 🍺!</p>
+<p>I bet there is one group out there that isn't listed yet. It might have a local non-PHP name like &quot;AFUP&quot; community in France.</p>
+<p>Whoever finds this group wins🍺!</p>
 <h2 id="the-most-active-region">The Most Active Region</h2>
 <p>I assumed the Czech Republic or Germany is the most active in Europe. I was wrong! Look at Benelux with <strong>over 20 meetups in a month</strong>!</p>
 <p>It would be easy to get lost among all these pins, so we put 2 more colors in.</p>
@@ -211,7 +211,7 @@ Today, it's a much bigger project with over...</p>
 <p>Any tips? <a href="https://github.com/TomasVotruba/friendsofphp.org/issues">Add new issue</a></p>
 <h2 id="how-does-the-website-work">How Does the Website Work?</h2>
 <p>Meetups are downloaded every day by Travis CRON job from Meetup.com for each group. You'll find them manually added in <a href="https://github.com/TomasVotruba/friendsofphp.org/blob/master/config/_data/groups.yaml">this YAML file in repository</a>. No surprise <strong>it runs on <a href="https://github.com/symplify/symfony-static-dumper">Symfony Static Dumper</a> and is fully <a href="https://github.com/tomasvotruba/friendsofphp.org">open-sourced on Github</a></strong>.</p>
-<p>Although there <a href="https://www.meetup.com/meetup_api">Meetup API</a> often works as documented, it's impossible to find all PHP groups with it. There is <a href="https://github.com/meetup/api/issues/249">an issue</a> <strong>when you search for groups in a specific location, it ignores the area and sets back to your origin city</strong>. Pity, that exactly what we need here.</p>
+<p>Although there <a href="https://www.meetup.com/meetup_api">Meetup API</a> often works as documented, it's impossible to find all PHP groups with it. There is an issue <strong>when you search for groups in a specific location, it ignores the area and sets back to your origin city</strong>. Pity, that exactly what we need here.</p>
 <h3 id="what-now">What now?</h3>
 <p>Maybe instead of API... a <strong>crawler could help</strong> - <a href="https://github.com/meetup/api/issues/249#issuecomment-427548572">and it did</a>:</p>
 <pre><code class="language-php">&lt;?php

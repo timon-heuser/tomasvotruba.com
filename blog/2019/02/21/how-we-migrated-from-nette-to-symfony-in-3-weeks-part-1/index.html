@@ -61,7 +61,7 @@
                     <a href="/contact">Contact</a>
                 </li>
                 <li id="top-menu-search">
-                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -103,7 +103,7 @@
     </nav>
 
     <div class="hidden-md-up text-center" id="top-menu-search-mobile">
-        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -180,33 +180,17 @@ Yet, you'd laugh if you knew what took us the most time.</p>
 <p>In the start, we run <strong>Rector with generic rules with brute-force way</strong>. Don't think, just try it. That gave us more idea about the code - we started to spot places we can write in Rector rule.</p>
 <p>In the end, <a href="https://getrector.org">Rector</a> helped us with many following changes:</p>
 <ul>
-<li>
-<p>Response and Request <em class="fas fa-fw fa-lg fa-check text-success"></em></p>
-</li>
-<li>
-<p>Presenter to Controller <em class="fas fa-fw fa-lg fa-check text-success"></em></p>
-</li>
-<li>
-<p>RouterFactory to Controller Annotation <em class="fas fa-fw fa-lg fa-check text-success"></em> - REST Routes and Invocable Controllers included</p>
-</li>
-<li>
-<p>Kdyby/Events and Contributte/Events to Symfony/EventDispatcher <em class="fas fa-fw fa-lg fa-check text-success"></em></p>
-</li>
-<li>
-<p>Kdyby/Doctrine to Doctrine/DoctrineBundle <em class="fas fa-fw fa-lg fa-check text-success"></em></p>
-</li>
-<li>
-<p>Kdyby/Events to Symfony/EventDispatcher <em class="fas fa-fw fa-lg fa-check text-success"></em></p>
-</li>
-<li>
-<p>Kdyby/Translation to Symfony/Translation <em class="fas fa-fw fa-lg fa-check text-success"></em></p>
-</li>
-<li>
-<p>Nette DI methods to Symfony/DependendyInjection <em class="fas fa-fw fa-lg fa-check text-success"></em></p>
-</li>
+<li>Response and Request <em class="fas fa-fw fa-lg fa-check text-success"></em></li>
+<li>Presenter to Controller <em class="fas fa-fw fa-lg fa-check text-success"></em></li>
+<li>RouterFactory to Controller Annotation <em class="fas fa-fw fa-lg fa-check text-success"></em> - REST Routes and Invocable Controllers included</li>
+<li>Kdyby/Events and Contributte/Events to Symfony/EventDispatcher <em class="fas fa-fw fa-lg fa-check text-success"></em></li>
+<li>Kdyby/Doctrine to Doctrine/DoctrineBundle <em class="fas fa-fw fa-lg fa-check text-success"></em></li>
+<li>Kdyby/Events to Symfony/EventDispatcher <em class="fas fa-fw fa-lg fa-check text-success"></em></li>
+<li>Kdyby/Translation to Symfony/Translation <em class="fas fa-fw fa-lg fa-check text-success"></em></li>
+<li>Nette DI methods to Symfony/DependendyInjection <em class="fas fa-fw fa-lg fa-check text-success"></em></li>
 </ul>
 <p>The tricky part was to discover differences and create the bridge between both frameworks - <em>&quot;In Nette, you use this, in Symfony you'd use this.&quot;</em></p>
-<p><strong>Now it's done</strong>, so you can use them <a href="https://github.com/rectorphp/rector/blob/master/config/level/framework-migration/nette-to-symfony.yaml">in <code>nette-to-symfony</code></a> level in Rector 0.4 to migrate your code.</p>
+<p><strong>Now it's done</strong>, so you can use them <a href="https://github.com/rectorphp/rector/blob/267989bb05372db937a5e9ece7f2d68cfdec34bf/config/set/nette-to-symfony.php">in <code>NETTE_TO_SYMFONY</code> set</a> Rector set to migrate your code.</p>
 <p><br></p>
 <p>We didn't have to change any of these parts, because the code didn't use them:</p>
 <ul>

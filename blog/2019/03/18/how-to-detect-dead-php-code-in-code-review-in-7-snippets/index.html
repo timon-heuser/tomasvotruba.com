@@ -61,7 +61,7 @@
                     <a href="/contact">Contact</a>
                 </li>
                 <li id="top-menu-search">
-                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -103,7 +103,7 @@
     </nav>
 
     <div class="hidden-md-up text-center" id="top-menu-search-mobile">
-        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -495,7 +495,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 </ol>
 <pre><code class="language-bash">vendor/bin/rector process src --dry-run</code></pre>
 <p><strong>If Rector detects any dead code, CI will fail</strong>. You can, of course, run it without <code>--dry-run</code> after to actually remove the code.</p>
-<p>See <a href="https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#deadcode">Dead Code set</a> for more features.</p>
+<p>See <a href="https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md#deadcode">Dead Code set</a> for more features.</p>
 
                 <br>
 

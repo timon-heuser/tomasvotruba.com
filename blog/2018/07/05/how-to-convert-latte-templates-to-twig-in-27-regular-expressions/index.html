@@ -61,7 +61,7 @@
                     <a href="/contact">Contact</a>
                 </li>
                 <li id="top-menu-search">
-                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -103,7 +103,7 @@
     </nav>
 
     <div class="hidden-md-up text-center" id="top-menu-search-mobile">
-        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -420,28 +420,15 @@ That way we catch everything we don't really work with.</p>
 <pre><code class="language-bash">composer require symplify/latte-to-twig-converter:@dev --dev
 vendor/bin/latte-to-twig-converter convert app/templates</code></pre>
 <p>It will find all the <code>*.twig</code> files, look for Latte code in it and if that matches, it will convert it to Twig. That way your <code>*.latte</code> files will keep Latte as long as you don't rename them.</p>
-<p>I'd link you to <a href="http://github.com/symplify/lattetotwigconverter">README</a> now for more, but actually, there is no more, this is all the usage.</p>
+<p>I'd link you to <a href="https://github.com/symplify/lattetotwigconverter">README</a> now for more, but actually, there is no more, this is all the usage.</p>
 <p><br></p>
 <h3 id="how-does-this-set-work-in-real-project">How Does This Set Work in Real Project?</h3>
 <p>Just see <a href="https://github.com/TomasVotruba/tomasvotruba.com/pull/380">the PR on this website</a>
 or <a href="https://github.com/pehapkari/pehapkari.cz/pull/486">the PR to Pehapkari.cz website</a>.</p>
 <img src="/assets/images/posts/2018/latte-twig/diff.png" class="img-thumbnail">
-<h2 id="twig-to-latte-converter">Twig To Latte Converter?</h2>
-<p>Are you Latte fan and do you want to migrate to Latte? Let's do this! There <a href="https://github.com/symplify/symplify/tree/a6b7c71a90fd984d2f31c5ed28957e2927608001/packages/LatteToTwigConverter/tests/LatteToTwigConverterSource">is a test set of both engines</a>, that can help you to start.</p>
-<p>All you need to do is create the <strong>exact reverse of the match to replace rules</strong>:</p>
-<p>For example from <a href="https://github.com/symplify/symplify/blob/master/packages/LatteToTwigConverter/src/CaseConverter/ConditionCaseConverter.php"><code>Symplify\LatteToTwigConverter\CaseConverter\ConditionCaseConverter</code></a>:</p>
-<pre><code class="language-php"># Twig to Latte
-use Nette\Utils\String;
-
-$content = Strings::replace($content, '{% else %}', '#{else}#');</code></pre>
-<p>↓</p>
-<pre><code class="language-php"># Latte to Twig
-use Nette\Utils\String;
-
-$content = Strings::replace($content, '#{else}#', '{% else %}');</code></pre>
-<p><br><br></p>
+<p><br></p>
 <h2 id="go-out-and-play">Go Out and Play</h2>
-<p>In the end, I'd like to encourage you to do more of such experiments. I meet many programmers over meetups all across Europe and they often don't have space - either the time in work or they won't allow themselves - to do such experiments.</p>
+<p>In the end, I'd like to encourage you to do more of such experiments. I meet many programmers on meetups all across the Europe and they often don't have space - either the time in work or they won't allow themselves - to <strong>do such experiments</strong>.</p>
 <p>In my open-source experience, these experiments give you the most knowledge. Instead of choosing the first solution because <em>I don't have time and I have to deliver the value</em>, I tried 3-4, tested them and then picked the one that worked the best. It was not the first one of course, and even if it was, I'd be much more convinced the solution is right instead of just blindly believing it.</p>
 <p>I learned a lot about regular expressions, about delimiters and universal capturing groups (easter egg: seek &quot;http&quot; in the source code and you'll find all the tips I found and found useful) thanks to StackOverflow and <a href="https://regex101.com">regex101.com</a>. I also must thank Jáchym Toušek and Ondra Mirtes with PHPStan who got me more engaged in regular expressions in a useful and not-so-frustrating way.</p>
 <p><br>

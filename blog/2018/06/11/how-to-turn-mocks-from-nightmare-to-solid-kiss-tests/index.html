@@ -61,7 +61,7 @@
                     <a href="/contact">Contact</a>
                 </li>
                 <li id="top-menu-search">
-                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -103,7 +103,7 @@
     </nav>
 
     <div class="hidden-md-up text-center" id="top-menu-search-mobile">
-        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -168,7 +168,7 @@ Did you know there is easier and more clear way to do &quot;mocking&quot;?</p>
                     </div>
                 </div>
 
-                <p>At the time being, there is only 1 post about <a href="http://mnapoli.fr/anonymous-classes-in-tests">anonymous classes in tests</a> (thanks to Matthieu!). Compared to that, there are many PHP tool made just for mocking: Prophecy, Mockery, PHPUnit native mocks, Mockista and so on. If you're a developer who uses one of them, knows that he needs to add proper annotations to make autocomplete work, has the PHPStom plugin that fixes bugs in this autocomplete and it works well for you, just stop reading.</p>
+                <p>At the time being, there is only 1 post about <a href="https://mnapoli.fr/anonymous-classes-in-tests/">anonymous classes in tests</a> (thanks to Matthieu!). Compared to that, there are many PHP tool made just for mocking: Prophecy, Mockery, PHPUnit native mocks, Mockista and so on. If you're a developer who uses one of them, knows that he needs to add proper annotations to make autocomplete work, has the PHPStom plugin that fixes bugs in this autocomplete and it works well for you, just stop reading.</p>
 <p>This post is for developers who struggle with mocking and have a feeling, that they're doing something wrong.</p>
 <p><strong>You're not. It's the mocking part</strong>. Mocks are often the bottleneck of understanding in tests. They're so easy to make, that they can overpopulate your tests... the same way units test can test every getter and setter of all your entities in 20 minutes <em>(hint: not a way to go)</em>.</p>
 <h2 id="was-it-code-willreturn-code-code-willreturnany-code-or-code-willreturnexact-code">Was it <code>willReturn()</code>, <code>willReturnAny()</code> or <code>willReturnExact()</code>?</h2>

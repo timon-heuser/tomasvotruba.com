@@ -61,7 +61,7 @@
                     <a href="/contact">Contact</a>
                 </li>
                 <li id="top-menu-search">
-                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -103,7 +103,7 @@
     </nav>
 
     <div class="hidden-md-up text-center" id="top-menu-search-mobile">
-        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
     <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
     <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
     <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
@@ -202,7 +202,7 @@ final class PostRepository
 <p>And we also have <strong>autocomplete in TWIG templates</strong> (thanks to <a href="/blog/2018/08/23/9-features-of-symfony-plugin-you-should-not-miss-in-gifs/">amazing</a> <a href="/blog/2019/01/28/2-files-that-your-symfony-application-misses">Symfony plugin</a>/):</p>
 <img src="/assets/images/posts/2020/easy_hydrator_twig.png" class="img-thumbnail">
 <h2 id="what-now-with-all-the-arrays">What now with all the Arrays?</h2>
-<p>Each local PHP community produces videos, livestreams, or talk recordings. We make such videos too, and we store <a href="https://github.com/pehapkari/pehapkari.cz/blob/master/config/_data/youtube_videos.yaml">them in YAML</a>. How can we get objects from that?</p>
+<p>Each local PHP community produces videos, livestreams, or talk recordings. We make such videos too, and we store them in YAML format. How can we get objects from that?</p>
 <p>Let's use the most straightforward example possible.</p>
 <h3 id="1-the-data">1. The Data</h3>
 <pre><code class="language-yaml">parameters:
