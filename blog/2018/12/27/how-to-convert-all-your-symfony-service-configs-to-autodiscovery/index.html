@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>How To Convert All Your Symfony Service Configs to Autodiscovery</h1>
+        <div class="container-fluid" id="post">
+            <h1>How To Convert All Your Symfony Service Configs to Autodiscovery</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>3 min</strong>
@@ -125,8 +124,10 @@
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2018-12-Thu">
             <strike>
-                            Thu, Dec 27, 2018
+                            Dec, 2018
             
+                                                Dec, 2018
+                            
             </strike>        </time>
     </li>
 
@@ -146,29 +147,29 @@
         </li>
     </ul>
 
-                
-                                    <div class="card border-success card-bigger mt-5">
-                        <div class="card-header text-white bg-success">
-                            <strong>This post was updated at April 2020</strong>
+            
+                            <div class="card border-success card-bigger mt-5">
+                    <div class="card-header text-white bg-success">
+                        <strong>This post was updated at April 2020</strong>
+                    </div>
+                                            <div class="card-body pb-2">
+                            <p>Updated to Symfony 5+ syntax with <a href="https://github.com/symfony/symfony/pull/27075">per-line excludes</a>.</p>
                         </div>
-                                                    <div class="card-body pb-2">
-                                <p>Updated to Symfony 5+ syntax with <a href="https://github.com/symfony/symfony/pull/27075">per-line excludes</a>.</p>
-                            </div>
-                                            </div>
+                                    </div>
 
-                    <br>
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>Do you use Symfony autodiscovery services registration everywhere and your configs have no extra lines?
+                <br>
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Do you use Symfony autodiscovery services registration everywhere and your configs have no extra lines?
 Skip this post and rather read another one.
 <br>
 <br>
 But if <strong>you have many configs with manual service registration</strong>, tagging, and autowiring, keep reading. I'll show you how you can convert them easily be new Symplify package.</p>
-                    </div>
                 </div>
+            </div>
 
-                <h2 id="tl-dr">tl;dr;</h2>
+            <h2 id="tl-dr">tl;dr;</h2>
 <img src="/assets/images/posts/2018/autodiscovery/demo.gif" class="img-thumbnail">
 <p><br></p>
 <p>I've been consulting a few Symfony e-commerce projects recently that all have <code>service.yml</code>. Big configs with manual service registration:</p>
@@ -282,32 +283,32 @@ services:
 <p><br></p>
 <p><strong>Do you want minimalist configs for your application?</strong> <a href="#3-steps-to-your-minimalistic-configs">Give Autodiscovery a try</a>.</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2018/12/24/thank-you" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    Thank You
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2018/2018-12-27-how-to-convert-all-your-symfony-service-configs-to-autodiscovery.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2018/12/24/thank-you" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                Thank You
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2018/2018-12-27-how-to-convert-all-your-symfony-service-configs-to-autodiscovery.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -326,10 +327,9 @@ services:
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

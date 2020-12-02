@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>5 Steps to Your First Fixer or Sniff Test</h1>
+        <div class="container-fluid" id="post">
+            <h1>5 Steps to Your First Fixer or Sniff Test</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>2 min</strong>
@@ -127,6 +126,8 @@
             
                             Mon, Apr 16, 2018
             
+                                                Mon, Apr 16, 2018
+                            
             </strike>        </time>
     </li>
 
@@ -143,19 +144,19 @@
         </li>
     </ul>
 
-                
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>When <a href="/blog/2017/07/17/how-to-write-custom-sniff-for-code-sniffer-3/">I wrote my first Sniff</a> 4 years ago I wanted to test it. I expected testing class, that would register sniff, provide ugly code and compare it to fixed one. So I started to explore PHP_CodeSniffer looking for such feature. Found one class, second class, warnings, errors, uff and after 10th error, I closed it.
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>When <a href="/blog/2017/07/17/how-to-write-custom-sniff-for-code-sniffer-3/">I wrote my first Sniff</a> 4 years ago I wanted to test it. I expected testing class, that would register sniff, provide ugly code and compare it to fixed one. So I started to explore PHP_CodeSniffer looking for such feature. Found one class, second class, warnings, errors, uff and after 10th error, I closed it.
 <br><br>
 When <a href="/blog/2017/07/24/how-to-write-custom-fixer-for-php-cs-fixer-24/">I wrote my first Fixer</a>, the story was a bit shorter but very similar. No wonder people don't test when the entry barrier is so huge.
 <br><br>
 <strong>Since I use both of them and I want to motivate people to write their own sniffs and fixers, I turned this barrier to just 5 short steps</strong> for both of them.</p>
-                    </div>
                 </div>
+            </div>
 
-                <p>Imagine you have a <code>LowerBoolConstantsFixer</code> that fixes all uppercase bool constants to lowercase ones:</p>
+            <p>Imagine you have a <code>LowerBoolConstantsFixer</code> that fixes all uppercase bool constants to lowercase ones:</p>
 <pre><code class="language-diff">-$value = TRUE;
 +$value = true;</code></pre>
 <p>And nothing more. How do we take this test case to PHPUnit? That is what <a href="https://github.com/symplify/easy-coding-standardTester">ECS Tester</a> package will help us with.</p>
@@ -249,32 +250,32 @@ $value = false;</code></pre>
 <p><br><br></p>
 <p>Enjoy simple testing!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2018/04/12/the-best-5-of-256-bloghacks-book" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    The Best 5 of 256 Bloghacks Book
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2018/2018-04-16-5-steps-to-your-first-fixer-or-sniff-test.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2018/04/12/the-best-5-of-256-bloghacks-book" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                The Best 5 of 256 Bloghacks Book
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2018/2018-04-16-5-steps-to-your-first-fixer-or-sniff-test.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -293,10 +294,9 @@ $value = false;</code></pre>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

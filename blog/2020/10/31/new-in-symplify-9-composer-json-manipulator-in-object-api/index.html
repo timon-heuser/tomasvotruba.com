@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>New in Symplify 9: Composer Json Manipulator - In Object API</h1>
+        <div class="container-fluid" id="post">
+            <h1>New in Symplify 9: Composer Json Manipulator - In Object API</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>2 min</strong>
@@ -124,6 +123,8 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2020-10-Sat">
+            
+                            Sat, Oct 31, 2020
             
                             Sat, Oct 31
             
@@ -143,19 +144,19 @@
         </li>
     </ul>
 
-                
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>Have you ever needed to modify <code>composer.json</code> with PHP code? Then you're family <code>$json['require']['php'] ?? null</code> structures.
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Have you ever needed to modify <code>composer.json</code> with PHP code? Then you're family <code>$json['require']['php'] ?? null</code> structures.
 They're hell to work with as any other array - verify the value if it's null, how deeply nested it is, etc.
 <br>
 <br>
 This is typical use case for <a href="/blog/2019/10/28/all-you-always-wanted-to-know-about-monorepo-but-were-afraid-to-ask">a monorepo</a>, where we need to <strong>merge many nested <code>composer.json</code> files</strong> into a root <code>composer.json</code>.</p>
-                    </div>
                 </div>
+            </div>
 
-                <p>With an array, it's mission impossible. What about intuitive methods on simple value object? You'd expect such package to exist in PHP world - but there <a href="https://packagist.org/?query=composer-json">is none</a>. So we made <strong>an object wrapper that handles all your worries</strong>:</p>
+            <p>With an array, it's mission impossible. What about intuitive methods on simple value object? You'd expect such package to exist in PHP world - but there <a href="https://packagist.org/?query=composer-json">is none</a>. So we made <strong>an object wrapper that handles all your worries</strong>:</p>
 <pre><code class="language-php">/** @var \Symplify\ComposerJsonManipulator\ValueObject\ComposerJson $composerJson */
 $composerJson = ...;
 
@@ -258,32 +259,32 @@ class SomeClass
 <p><br></p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2020/10/26/the-bullet-proof-symfony-command-naming" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    The Bullet Proof Symfony Command Naming
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-10-31-new-in-symplify-9-composer-json-manipulator-in-object-api.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/10/26/the-bullet-proof-symfony-command-naming" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                The Bullet Proof Symfony Command Naming
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-10-31-new-in-symplify-9-composer-json-manipulator-in-object-api.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -302,10 +303,9 @@ class SomeClass
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

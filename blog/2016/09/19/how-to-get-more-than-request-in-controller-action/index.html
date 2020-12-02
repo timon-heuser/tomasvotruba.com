@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>How to get more than Request in Controller Action</h1>
+        <div class="container-fluid" id="post">
+            <h1>How to get more than Request in Controller Action</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>3 min</strong>
@@ -127,6 +126,8 @@
             
                             Mon, Sep 19, 2016
             
+                                                Mon, Sep 19, 2016
+                            
             </strike>        </time>
     </li>
 
@@ -143,28 +144,28 @@
         </li>
     </ul>
 
-                                    <div class="card border-danger card-bigger">
-                        <div class="card-header text-white bg-danger">
-                            <strong>This post is deprecated at May 2017</strong>
-                        </div>
-                        <div class="card-body pb-2">
-                            <p>You can <a href="https://github.com/symfony/symfony/pull/21771">inject services into actions</a> using <code>controller.service_arguments</code> tag since <strong>Symfony 3.3</strong>.</p>
+                            <div class="card border-danger card-bigger">
+                    <div class="card-header text-white bg-danger">
+                        <strong>This post is deprecated at May 2017</strong>
+                    </div>
+                    <div class="card-body pb-2">
+                        <p>You can <a href="https://github.com/symfony/symfony/pull/21771">inject services into actions</a> using <code>controller.service_arguments</code> tag since <strong>Symfony 3.3</strong>.</p>
 <p>Combined with <a href="https://github.com/symfony/symfony/pull/21289">PSR4-based service discovery and registration</a> and <a href="https://symfony.com/blog/new-in-symfony-3-3-service-autoconfiguration">autoconfiguration</a> this is amazing feature.</p>
 <p>I recommend using it instead!</p>
-                        </div>
-                    </div>
-
-                    <br>
-                
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>You already know you can get <code>Request</code> object in your controller action. Cool, but there is more.</p>
-<p>In <em>Symfony 3.1</em> is new <a href="https://symfony.com/doc/current/controller/argument_value_resolver.html">Action Argument Resolving feature</a>, so you can <strong>get any service you need</strong>. With a bit of work. Today I will show you how.</p>
                     </div>
                 </div>
 
-                <h2 id="disclaimer-what-happened-to-controller-constructor-injection">Disclaimer: What happened to controller constructor injection?</h2>
+                <br>
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>You already know you can get <code>Request</code> object in your controller action. Cool, but there is more.</p>
+<p>In <em>Symfony 3.1</em> is new <a href="https://symfony.com/doc/current/controller/argument_value_resolver.html">Action Argument Resolving feature</a>, so you can <strong>get any service you need</strong>. With a bit of work. Today I will show you how.</p>
+                </div>
+            </div>
+
+            <h2 id="disclaimer-what-happened-to-controller-constructor-injection">Disclaimer: What happened to controller constructor injection?</h2>
 <p><strong>I still prefer constructor injection in controllers</strong>. Are you asking why and how to achieve that in Symfony?</p>
 <p>In 3 minutes <a href="/blog/2016/03/10/autowired-controllers-as-services-for-lazy-people/">you will find out in my other article</a>.
 I will wait here...</p>
@@ -290,32 +291,32 @@ class MeetupController extends Controller
 <h2 id="made-for-you">Made for you</h2>
 <p>Missing some feature or found a bug? Let me know. I want to make this package suit your needs and work as best as possible.</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2016/09/16/how-to-write-open-source-in-php-2-enjoy-skeletons" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    How to write open-source in PHP 2: Rise value of your package with help of skeleton
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2016/2016-09-19-how-to-get-more-than-request-in-controller-action.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2016/09/16/how-to-write-open-source-in-php-2-enjoy-skeletons" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                How to write open-source in PHP 2: Rise value of your package with help of skeleton
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2016/2016-09-19-how-to-get-more-than-request-in-controller-action.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -334,10 +335,9 @@ class MeetupController extends Controller
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

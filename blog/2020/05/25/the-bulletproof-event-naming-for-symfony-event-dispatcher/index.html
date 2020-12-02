@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>The Bulletproof Event Naming For Symfony Event Dispatcher</h1>
+        <div class="container-fluid" id="post">
+            <h1>The Bulletproof Event Naming For Symfony Event Dispatcher</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>4 min</strong>
@@ -125,6 +124,8 @@
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2020-05-Mon">
             <strike>
+                            May, 2020
+            
                             Mon, May 25
             
             </strike>        </time>
@@ -146,24 +147,24 @@
         </li>
     </ul>
 
-                
-                                    <div class="card border-success card-bigger mt-5">
-                        <div class="card-header text-white bg-success">
-                            <strong>This post was updated at May 2020</strong>
-                        </div>
-                                            </div>
+            
+                            <div class="card border-success card-bigger mt-5">
+                    <div class="card-header text-white bg-success">
+                        <strong>This post was updated at May 2020</strong>
+                    </div>
+                                    </div>
 
-                    <br>
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>I wrote <a href="/blog/2019/08/05/standalone-symfony-event-dispatcher-from-the-scratch/">intro to Symfony\EventDispatcher</a> and how to use it with simple event.
+                <br>
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>I wrote <a href="/blog/2019/08/05/standalone-symfony-event-dispatcher-from-the-scratch/">intro to Symfony\EventDispatcher</a> and how to use it with simple event.
 <br><br>
 But when it comes to dispatching events, you can choose from 4 different ways. Which one to choose and why? Today I will show you pros and cons of them to make it easier for you.</p>
-                    </div>
                 </div>
+            </div>
 
-                <h2 id="1-start-with-em-stringly-em">1. Start with <em>Stringly</em></h2>
+            <h2 id="1-start-with-em-stringly-em">1. Start with <em>Stringly</em></h2>
 <p>You can start with simple <em>string named event</em>:</p>
 <pre><code class="language-php">$postEvent = new PostEvent($post);
 $this-&gt;eventDispatcher-&gt;dispatch('post_added', $postEvent);</code></pre>
@@ -323,32 +324,32 @@ $this-&gt;eventDispatcher-&gt;dispatch(new PostAddedEvent($post));</code></pre>
 <p><br></p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2020/05/18/the-future-of-pehapkari-meetups-and-trainings-you" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    The Future of Pehapkari Meetups and Training - You
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-05-25-the-bulletproof-event-naming-for-symfony-event-dispatcher.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/05/18/the-future-of-pehapkari-meetups-and-trainings-you" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                The Future of Pehapkari Meetups and Training - You
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-05-25-the-bulletproof-event-naming-for-symfony-event-dispatcher.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -367,10 +368,9 @@ $this-&gt;eventDispatcher-&gt;dispatch(new PostAddedEvent($post));</code></pre>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>Filters Pattern in Nette Database</h1>
+        <div class="container-fluid" id="post">
+            <h1>Filters Pattern in Nette Database</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>4 min</strong>
@@ -127,6 +126,8 @@
             
                             Fri, Jun 17, 2016
             
+                                                Fri, Jun 17, 2016
+                            
             </strike>        </time>
     </li>
 
@@ -143,28 +144,28 @@
         </li>
     </ul>
 
-                                    <div class="card border-danger card-bigger">
-                        <div class="card-header text-white bg-danger">
-                            <strong>This post is deprecated at January 2017</strong>
-                        </div>
-                        <div class="card-body pb-2">
-                            <p>I have deprecated this package, because it was not very active - it has been downloaded only 5 times during past 4 months.</p>
-<p>It is still available <a href="https://github.com/DeprecatedPackages/NetteDatabaseFilters">here for inspiration</a> though.</p>
-                        </div>
+                            <div class="card border-danger card-bigger">
+                    <div class="card-header text-white bg-danger">
+                        <strong>This post is deprecated at January 2017</strong>
                     </div>
-
-                    <br>
-                
-                
-                <div class="card card-bigger mb-5">
                     <div class="card-body pb-2">
-                        <p>You want to delete comments, so your readers won't see any spam or violent content.
-But you want to see them in administration. So you would have to create 2 different methods.
-Today I will show you, how to make only single one.</p>
+                        <p>I have deprecated this package, because it was not very active - it has been downloaded only 5 times during past 4 months.</p>
+<p>It is still available <a href="https://github.com/DeprecatedPackages/NetteDatabaseFilters">here for inspiration</a> though.</p>
                     </div>
                 </div>
 
-                <h2 id="current-way-to-do-this">Current way to do this</h2>
+                <br>
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>You want to delete comments, so your readers won't see any spam or violent content.
+But you want to see them in administration. So you would have to create 2 different methods.
+Today I will show you, how to make only single one.</p>
+                </div>
+            </div>
+
+            <h2 id="current-way-to-do-this">Current way to do this</h2>
 <p>Let's say we have a <code>CommentRepository</code> class, where we put all methods that work with &quot;comment&quot; table.</p>
 <p>In it, we have 2 methods:</p>
 <ul>
@@ -345,24 +346,24 @@ private function isSoftdelable(Selection $selection)
 <p>If you have some tips how to this simpler or want to share your experience with filters, just let me know below.</p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                    </div>
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                        </div>
 
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2016/2016-06-17-filters-pattern-in-nette-database.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
-                        </a>
-                    </div>
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2016/2016-06-17-filters-pattern-in-nette-database.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -381,10 +382,9 @@ private function isSoftdelable(Selection $selection)
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

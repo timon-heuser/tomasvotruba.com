@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>New in Symplify 9: Monorepo Split with GitHub Action | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 287 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/talks">Talks</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="container-fluid" id="post">
+            <h1>New in Symplify 9: Monorepo&nbsp;Split with GitHub&nbsp;Action</h1>
+
+            <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>6 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-11-Mon">
+            
+                            Mon, Nov 9, 2020
+            
+                            Mon, Nov 9
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-11-09-new-in-symplify-9-monorepo-split-with-github-action.md">Edit Post</a>
+        </li>
+    </ul>
+
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Until now, monorepo split in Symplify was <a href="/blog/2020/11/02/symplify-monorepo-builder-split-fractal-of-bad-design/">one big fractal of bad design</a>. In Symplify 9 and with technologies of 2020, we've decided to change that.
+<br>
+<br>
+<strong>To simple setup in a single GitHub Action.</strong></p>
+                </div>
+            </div>
+
+            <p>In past years, the <code>split</code> command was one of the poorest part of whole Symplify code base. <a href="/blog/2020/11/02/symplify-monorepo-builder-split-fractal-of-bad-design/">Here is why</a>.</p>
+<p><br></p>
+<p>In Symplify 9, <strong>we've finally fixed it</strong> - with a <a href="https://github.com/symplify/monorepo-split-github-action"><code>symplify/monorepo-split-github-action</code></a> ↓</p>
+<div class="text-center mt-3 mb-5">
+    <img src="/post_images/2020/split_monorepo.png" class="img-thumbnail"><br><em>42 packages split under <strong>3,5 minutes</strong></em>
+</div>
+<h2 id="battle-tested">Battle Tested</h2>
+<p>We've been testing it last 3 weeks on 3 different monorepos. Nathan, good friend of mine, was eager to test them too on <a href="https://github.com/eonx-com/easy-monorepo/blob/master/.github/workflows/split_packages.yml">eonx-com monorepo</a>.</p>
+<p>This week, also <a href="https://github.com/ruudk">Ruud Kamphuis</a> <a href="https://github.com/symplify/github-actions/commits?author=ruudk">pushed</a> the package even further - thank you Ruud.</p>
+<p>After dozens of successful GitHub Actions runs we're ready to go public - <strong>to you</strong>!</p>
+<h2 id="github-actions-composer-for-your-ci">GitHub Actions - Composer for your CI</h2>
+<p>The idea of GitHub Actions is as simple as Composer or Dependency Injection: <strong>Do you need something? Ask for it.</strong></p>
+<p>If you're not yet familiar with GitHub Actions, give them a try. <a href="/blog/2020/01/27/switch-travis-to-github-actions-to-reduce-stress/">I first tried them almost a year ago</a>, and every month I found something new to fell in love with.</p>
+<h2 id="the-simplest-github-action-for-1-package-split">The Simplest GitHub Action for 1 Package Split</h2>
+<p>Do you need a monorepo split? Ask for it:</p>
+<pre><code class="language-yaml"># .github/workflows_monorepo_split.yaml
+name: 'Monorepo Split'
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    monorepo_split:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   uses: actions/checkout@v2
+
+            -
+                uses: "symplify/monorepo-split-github-action@master"
+                env:
+                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                with:
+                    # ↓ split "packages/easy-coding-standard" directory
+                    package-directory: 'packages/easy-coding-standard'
+
+                    # ↓ into https://github.com/symplify/easy-coding-standard repository
+                    split-repository-organization: 'symplify'
+                    split-repository-name: 'easy-coding-standard'
+
+                    # ↓ the user signed under the split commit
+                    user-name: "kaizen-ci"
+                    user-email: "info@kaizen-ci.org"</code></pre>
+<p>The section <code>with:</code> is where you configure the output.</p>
+<ul>
+<li>
+<p><code>package-directory</code> is a local path to your split package, e.g. 'packages/easy-coding-standard'</p>
+</li>
+<li>
+<p><code>split-repository-organization</code> and <code>split-repository-name</code> is name of repository on GitHub - basically <code>symplify/easy-coding-standard</code></p>
+</li>
+</ul>
+<h2 id="how-to-split-with-tags">How to Split with Tags?</h2>
+<p>What is splitting good for without tags, right?</p>
+<p>We need a tag, so we ask for it <a href="https://github.com/WyriHaximus/github-action-get-previous-tag">WyriHaximus/github-action-get-previous-tag</a>:</p>
+<pre><code class="language-diff"> # .github/workflows_monorepo_split.yaml
+ name: 'Monorepo Split'
+
+ on:
+     push:
+         branches:
+             - master
+
+ jobs:
+     monorepo_split:
+         runs-on: ubuntu-latest
+
+         steps:
+             -
+                 uses: actions/checkout@v2
++                # this is required for "WyriHaximus/github-action-get-previous-tag" workflow
++                # see https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
++                with:
++                    fetch-depth: 0
+
++            # get a tag see https://github.com/WyriHaximus/github-action-get-previous-tag
++            -
++                id: previous_tag
++                uses: "WyriHaximus/github-action-get-previous-tag@master"
+
+            -
+                uses: "symplify/monorepo-split-github-action@master"
+                env:
+                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                with:
+                    package-directory: 'packages/easy-coding-standard'
+                    split-repository-organization: 'symplify'
+                    split-repository-name: 'easy-coding-standard'
+
++                   tag: ${{ steps.previous_tag.outputs.tag }}
+
+                    # ↓ the user signed under the split commit
+                    user-name: "kaizen-ci"
+                    user-email: "info@kaizen-ci.org"</code></pre>
+<h2 id="how-to-split-multiple-packages">How to Split Multiple Packages?</h2>
+<p>But wait, that's just one package. How can we do it for all 15 of them? Do we need 15 workflows files like this?</p>
+<p>No, GitHub Actions are ready for this - add <code>strategy</code> section:</p>
+<pre><code class="language-diff"> ...
+ jobs:
+     monorepo_split:
+         runs-on: ubuntu-latest
+
++        strategy:
++           fail-fast: false
++           matrix:
++               package:
++                    # list your packages here
++                    - easy-coding-standard
++                    - phpstan-rules</code></pre>
+<p>And update <code>with:</code> section with dynamic content:</p>
+<pre><code class="language-diff">                with:
+-                   package-directory: 'packages/easy-coding-standard'
++                   package-directory: 'packages/${{ matrix.package }}'
+                    split-repository-organization: 'symplify'
+-                   split-repository-name: 'easy-coding-standard'
++                   split-repository-name: '${{ matrix.package }}'</code></pre>
+<p><strong>This is a vast performance improvement</strong>, just like a parallel run.</p>
+<p>Now GitHub Actions will run a standalone build for each package provided.</p>
+<p>That's it!</p>
+<p><br></p>
+<h2 id="how-to-migrate-symplify-8-to-symplify-9">How to migrate Symplify 8 to Symplify 9?</h2>
+<p>The <code>split</code> command <a href="https://github.com/symplify/symplify/pull/2490/files#diff-f4265307118be2f5d2389968d183656ebf8a0e8a7e711ed42101bd1bb179034f">was dropped in Symplify 9</a>. Do you use it?</p>
+<p><br></p>
+<p>We've prepared a 3 step switch for you:</p>
+<ol>
+<li>Remove <code>directories_to_repositories</code> parameter <code>from monorepo-builder.(yaml|php)</code>:</li>
+</ol>
+<pre><code class="language-diff"> use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+ use Symplify\MonorepoBuilder\ValueObject\Option;
+
+ return static function (ContainerConfigurator $containerConfigurator): void {
+     $parameters = $containerConfigurator-&gt;parameters();
+-    $parameters-&gt;set(Option::DIRECTORIES_TO_REPOSITORIES, [
+-        'packages/*' =&gt; 'git@github.com:symplify/*.git',
+-    ]);
+};</code></pre>
+<ol start="2">
+<li>Remove current <code>split</code> command from GitHub Action:</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/monorepo-builder split</code></pre>
+<ol start="3">
+<li>Add GitHub Action with a list of your packages in a <code>matrix</code></li>
+</ol>
+<p><br></p>
+<p>Happy coding!</p>
+
+            <br>
+
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/11/02/symplify-monorepo-builder-split-fractal-of-bad-design" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                Symplify Monorepo Builder Split - Fractal of Bad Design
+                            </span>
+                        </a>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-11-09-new-in-symplify-9-monorepo-split-with-github-action.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
+                </div>
+            </div>
+
+            <br>
+
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cluster-checklist.js"></script>
+<script src="/assets/js/cluster-expanable.js"></script>
+
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p>
+        Thank you <a href="/thank-you">99 people</a>, who contributed this blog
+
+        <span class="pl-2 pr-2">•</span>
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong> again?
+
+        <br>
+
+        Mostly with awesome <a href="https://getrector.org/">instant refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="New in Symplify 9: Monorepo Split with GitHub Action" />
+    <meta property="og:description" content="Until now, monorepo split in Symplify was [one big fractal of bad design](/blog/2020/11/02/symplify-monorepo-builder-split-fractal-of-bad-design/). In Symplify 9 and with technologies of 2020, we&#039;ve decided to change that.
+
+
+**To simple setup in a single GitHub Action.**
+" />
+    <meta property="og:url" content="/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="New in Symplify 9: Monorepo Split with GitHub Action" />
+    <meta name="twitter:description" content="Until now, monorepo split in Symplify was [one big fractal of bad design](/blog/2020/11/02/symplify-monorepo-builder-split-fractal-of-bad-design/). In Symplify 9 and with technologies of 2020, we&#039;ve decided to change that.
+
+
+**To simple setup in a single GitHub Action.**
+" />

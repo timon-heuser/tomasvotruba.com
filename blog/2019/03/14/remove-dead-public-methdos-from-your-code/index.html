@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>Remove Dead Public Methods from Your Code</h1>
+        <div class="container-fluid" id="post">
+            <h1>Remove Dead Public Methods from Your Code</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>2 min</strong>
@@ -127,6 +126,8 @@
             
                             Thu, Mar 14, 2019
             
+                                                Thu, Mar 14, 2019
+                            
             </strike>        </time>
     </li>
 
@@ -143,28 +144,28 @@
         </li>
     </ul>
 
-                                    <div class="card border-danger card-bigger">
-                        <div class="card-header text-white bg-danger">
-                            <strong>This post is deprecated at April 2020</strong>
-                        </div>
-                        <div class="card-body pb-2">
-                            <p><code>UnusedPublicMethodSniff</code> was added in 2017. It's been useful in those times, but now it's more and more crappy. As we have AST, dead code analysis in PHPStorm and <a href="https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md#deadcode">Rector dead code set</a>, <strong>these tools should be used instead</strong>.</p>
-                        </div>
+                            <div class="card border-danger card-bigger">
+                    <div class="card-header text-white bg-danger">
+                        <strong>This post is deprecated at April 2020</strong>
                     </div>
-
-                    <br>
-                
-                
-                <div class="card card-bigger mb-5">
                     <div class="card-body pb-2">
-                        <p>We already have sniffs and rectors to remove unused private methods. But what about public methods? If you're creating open-source packages, public methods might be used by anyone.
-<br><br>
-But what if you're creating an application - you can remove unused with peace in mind.
-There is only one problem to resolve - <strong>find public unused methods</strong>.</p>
+                        <p><code>UnusedPublicMethodSniff</code> was added in 2017. It's been useful in those times, but now it's more and more crappy. As we have AST, dead code analysis in PHPStorm and <a href="https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md#deadcode">Rector dead code set</a>, <strong>these tools should be used instead</strong>.</p>
                     </div>
                 </div>
 
-                <p><em>Too long to read? Look at <a href="https://www.youtube.com/watch?v=sKFB6XVmO_Q">3:45 min practical video</a> by a friend of mine <a href="https://jankuchar.cz">Jan Kuchař</a>.</em></p>
+                <br>
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>We already have sniffs and rectors to remove unused private methods. But what about public methods? If you're creating open-source packages, public methods might be used by anyone.
+<br><br>
+But what if you're creating an application - you can remove unused with peace in mind.
+There is only one problem to resolve - <strong>find public unused methods</strong>.</p>
+                </div>
+            </div>
+
+            <p><em>Too long to read? Look at <a href="https://www.youtube.com/watch?v=sKFB6XVmO_Q">3:45 min practical video</a> by a friend of mine <a href="https://jankuchar.cz">Jan Kuchař</a>.</em></p>
 <p><br></p>
 <p>As we code on an application for many years, some methods may be replaced by a few new-ones:</p>
 <pre><code class="language-diff"> $person = new Person('Tomas');
@@ -234,32 +235,32 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 <p><br></p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2019/03/11/why-we-migrated-from-nette-to-symfony-in-3-weeks-part-3" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    Why we Migrated from Nette to Symfony in 3 Weeks - Part 3 - Brain Drain Dead Packages-Lock
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2019/2019-03-14-remove-dead-public-methdos-from-your-code.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2019/03/11/why-we-migrated-from-nette-to-symfony-in-3-weeks-part-3" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                Why we Migrated from Nette to Symfony in 3 Weeks - Part 3 - Brain Drain Dead Packages-Lock
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2019/2019-03-14-remove-dead-public-methdos-from-your-code.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -278,10 +279,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

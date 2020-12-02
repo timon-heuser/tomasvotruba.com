@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>Alias as a Code Smell</h1>
+        <div class="container-fluid" id="post">
+            <h1>Alias as a Code Smell</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>2 min</strong>
@@ -125,8 +124,10 @@
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2019-05-Thu">
             <strike>
-                            Thu, May 2, 2019
+                            May, 2019
             
+                                                May, 2019
+                            
             </strike>        </time>
     </li>
 
@@ -146,28 +147,28 @@
         </li>
     </ul>
 
-                
-                                    <div class="card border-success card-bigger mt-5">
-                        <div class="card-header text-white bg-success">
-                            <strong>This post was updated at August 2020</strong>
+            
+                            <div class="card border-success card-bigger mt-5">
+                    <div class="card-header text-white bg-success">
+                        <strong>This post was updated at August 2020</strong>
+                    </div>
+                                            <div class="card-body pb-2">
+                            <p>Updated with <strong>PHPStan rules</strong> available in Symplify 8.</p>
                         </div>
-                                                    <div class="card-body pb-2">
-                                <p>Updated with <strong>PHPStan rules</strong> available in Symplify 8.</p>
-                            </div>
-                                            </div>
+                                    </div>
 
-                    <br>
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>Do you have 2 class with the same name? <code>App\Entity\Product</code> and <code>App\Entity\Product</code>? Of course not. But <strong>I bet you have at least 2 classes with the same <em>short name</em> <code>*\Product</code> and <code>*\Product</code></strong>.
+                <br>
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Do you have 2 class with the same name? <code>App\Entity\Product</code> and <code>App\Entity\Product</code>? Of course not. But <strong>I bet you have at least 2 classes with the same <em>short name</em> <code>*\Product</code> and <code>*\Product</code></strong>.
 <br>
 <br>
 And that smells... Why?</p>
-                    </div>
                 </div>
+            </div>
 
-                <p>In recent projects, I consult I start to notice an interesting pattern. It's how important are uniquely named short classes. Short class name = the part after last <code>\</code>.</p>
+            <p>In recent projects, I consult I start to notice an interesting pattern. It's how important are uniquely named short classes. Short class name = the part after last <code>\</code>.</p>
 <p>How would you like to use this code?</p>
 <img src="/assets/images/posts/2019/alias/too_many.gif" class="img-thumbnail">
 <h2 id="duplicated-short-classes-sponsored-by-ddd">Duplicated Short Classes sponsored by DDD</h2>
@@ -243,32 +244,32 @@ rules:
 <p><br></p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2019/04/29/rector-european-tour-in-may-june-2019" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    Rector European Tour in May &amp; June 2019
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2019/2019-05-02-alias-as-a-code-smell.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2019/04/29/rector-european-tour-in-may-june-2019" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                Rector European Tour in May &amp; June 2019
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2019/2019-05-02-alias-as-a-code-smell.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -287,10 +288,9 @@ rules:
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

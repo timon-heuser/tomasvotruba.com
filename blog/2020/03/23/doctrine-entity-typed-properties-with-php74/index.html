@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>Doctrine Entity Typed Properties With PHP 7.4</h1>
+        <div class="container-fluid" id="post">
+            <h1>Doctrine Entity Typed Properties With PHP 7.4</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>4 min</strong>
@@ -125,6 +124,8 @@
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2020-03-Mon">
             <strike>
+                            Mar, 2020
+            
                             Mon, Mar 23
             
             </strike>        </time>
@@ -146,30 +147,30 @@
         </li>
     </ul>
 
-                
-                                    <div class="card border-success card-bigger mt-5">
-                        <div class="card-header text-white bg-success">
-                            <strong>This post was updated at November 2020</strong>
-                        </div>
-                                                    <div class="card-body pb-2">
-                                <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.
+            
+                            <div class="card border-success card-bigger mt-5">
+                    <div class="card-header text-white bg-success">
+                        <strong>This post was updated at November 2020</strong>
+                    </div>
+                                            <div class="card-body pb-2">
+                            <p>Switch from deprecated <code>--set</code> option to <code>rector.php</code> config.
 Updated with <strong>PHPStorm and PHPStan friendly</strong> <code>Collection</code> syntax and <a href="https://github.com/rectorphp/rector/pull/4442">Rector rule</a> that handles the change for you.</p>
-                            </div>
-                                            </div>
+                        </div>
+                                    </div>
 
-                    <br>
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>Recently we've upgraded our <a href="https://pehapkari.cz">Czech PHP community website</a> to PHP 7.4. As a side effect, it broke most of our entities.
+                <br>
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Recently we've upgraded our <a href="https://pehapkari.cz">Czech PHP community website</a> to PHP 7.4. As a side effect, it broke most of our entities.
 Do you love how making language more strict reveals weak points in your code just by using it?
 <br>
 <br>
 Today we'll look at <strong>the impact of typed properties on weak points of Doctrine entities and how to solve them</strong>.</p>
-                    </div>
                 </div>
+            </div>
 
-                <h2 id="the-collections">The Collections</h2>
+            <h2 id="the-collections">The Collections</h2>
 <p>In the Czech PHP community, we have skilled trainers that share their knowledge with others on training. We help them to share the knowledge by handling the tedious organization processes for them and let them enjoy the training day itself.</p>
 <p>Each trainer has many trainings, so the <code>Trainer</code> entity looks like this in PHP 7.3-:</p>
 <pre><code class="language-php">&lt;?php
@@ -391,32 +392,32 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 <p><br></p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2020/03/16/statie-is-dead-long-live-symfony-static-dumper" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    Statie is Dead, Long live Symfony Static Dumper
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-03-23-doctrine-entity-typed-properties-with-php74.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/03/16/statie-is-dead-long-live-symfony-static-dumper" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                Statie is Dead, Long live Symfony Static Dumper
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-03-23-doctrine-entity-typed-properties-with-php74.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -435,10 +436,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

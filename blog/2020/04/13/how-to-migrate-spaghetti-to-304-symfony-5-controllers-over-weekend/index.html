@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>How to Migrate Spaghetti to 304&nbsp;Symfony 5 Controllers Over Weekend</h1>
+        <div class="container-fluid" id="post">
+            <h1>How to Migrate Spaghetti to 304&nbsp;Symfony 5 Controllers Over Weekend</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>7 min</strong>
@@ -124,6 +123,8 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2020-04-Mon">
+            
+                            Mon, Apr 13, 2020
             
                             Mon, Apr 13
             
@@ -143,17 +144,17 @@
         </li>
     </ul>
 
-                
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>During Easter weekend, usually, people take a break and have a rest. Instead, we used these 4 days of <em>holiday</em> to migrate the 304-controller application. At least that was the goal on Friday.
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>During Easter weekend, usually, people take a break and have a rest. Instead, we used these 4 days of <em>holiday</em> to migrate the 304-controller application. At least that was the goal on Friday.
 <br><br>
 Me in my colleague in the migrated project accepted the challenge. We got into many minds and code-traps. We'd like to share this experience with you and <strong>inspire those who are still stuck on non-MVC code</strong> and think it might take weeks or even months to switch to a framework.</p>
-                    </div>
                 </div>
+            </div>
 
-                <h2 id="what-is-the-goal">What is the Goal?</h2>
+            <h2 id="what-is-the-goal">What is the Goal?</h2>
 <p><em class="fas fa-fw mt-4 fa-times text-danger"></em> <strong>We didn't want a  hybrid</strong> with static dependency injection container, legacy controller, request separation for new website and for old website. It only creates more legacy code than in the beginning.</p>
 <p><em class="fas fa-fw mt-4 fa-star-half text-warning"></em> <strong>We were ok with</strong> keeping original business logic code untouched. We will handle spaghetti decoupling to Controller and Twig in the next phase. This was just a 1st step of many.</p>
 <p><em class="fas fa-fw mt-4 fa-check text-success"></em> <strong>We wanted</strong> to be able to use Symfony dependency injection, Twig templates, Controller rendering, Symfony Security, Events, Repository, connection to database, <code>.env</code>, Flex, Bundles, YAML configs, <a href="/blog/2020/02/17/local-packages-3-years-later/">local packages</a>.</p>
@@ -442,32 +443,32 @@ final class ContactController extends AbstractController
 <p><br></p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2020/04/06/how-to-find-dead-symfony-routes" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    How to Find Dead Symfony Routes
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-04-13-how-to-migrate-spaghetti-to-304-symfony-5-controllers-over-weekend.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/04/06/how-to-find-dead-symfony-routes" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                How to Find Dead Symfony Routes
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-04-13-how-to-migrate-spaghetti-to-304-symfony-5-controllers-over-weekend.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -486,10 +487,9 @@ final class ContactController extends AbstractController
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

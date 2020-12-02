@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>4 Ways to Add Global Option or Argument to Symfony Console Application</h1>
+        <div class="container-fluid" id="post">
+            <h1>4 Ways to Add Global Option or Argument to Symfony Console Application</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>5 min</strong>
@@ -127,6 +126,8 @@
             
                             Mon, Sep 3, 2018
             
+                                                Mon, Sep 3, 2018
+                            
             </strike>        </time>
     </li>
 
@@ -143,15 +144,15 @@
         </li>
     </ul>
 
-                
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>I'm working on <a href="https://github.com/symplify/changeloglinker">ChangelogLinker</a>, a package that makes managing <code>CHANGELOG.md</code> very easy - it generates it. It a CLI Application with a <a href="https://github.com/Symplify/ChangelogLinker/tree/master/src/Console/Command">3 Console Commands</a>. All was good, until <strong>I needed to add an argument to all commands at once</strong>... and in lazy, extensible, maintainable way.</p>
-                    </div>
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>I'm working on <a href="https://github.com/symplify/changeloglinker">ChangelogLinker</a>, a package that makes managing <code>CHANGELOG.md</code> very easy - it generates it. It a CLI Application with a <a href="https://github.com/Symplify/ChangelogLinker/tree/master/src/Console/Command">3 Console Commands</a>. All was good, until <strong>I needed to add an argument to all commands at once</strong>... and in lazy, extensible, maintainable way.</p>
                 </div>
+            </div>
 
-                <p>Why? Symplify <code>CHANGELOG.md</code> was growing and growing, keeping upgrade data about 3 major versions. Then I realized there can be more <code>CHANGELOG.md</code> files, right?</p>
+            <p>Why? Symplify <code>CHANGELOG.md</code> was growing and growing, keeping upgrade data about 3 major versions. Then I realized there can be more <code>CHANGELOG.md</code> files, right?</p>
 <img src="/assets/images/posts/2018/global-option/multiple-changelog.png" class="img-thumbnail">
 <p>At that time, the path to file was hardcoded as <code>getcwd() . '/CHANGELOG.md'</code>, so each command worked only with that file:</p>
 <pre><code class="language-bash">vendor/bin/changelog dump-merges
@@ -341,32 +342,32 @@ cd ../..</code></pre>
 <p><br></p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2018/08/30/ways-i-fucked-up-open-source-code-mock-everything-and-test-units" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    Ways I Fucked Up Open Source Code: Mock Everything and Test Units
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2018/2018-09-03-4-ways-to-add-global-option-or-argument-to-symfony-console-application.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2018/08/30/ways-i-fucked-up-open-source-code-mock-everything-and-test-units" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                Ways I Fucked Up Open Source Code: Mock Everything and Test Units
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2018/2018-09-03-4-ways-to-add-global-option-or-argument-to-symfony-console-application.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -385,10 +386,9 @@ cd ../..</code></pre>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

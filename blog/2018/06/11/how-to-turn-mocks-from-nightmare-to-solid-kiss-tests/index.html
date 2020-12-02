@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>How to Turn Mocks from Nightmare to Solid Kiss Tests</h1>
+        <div class="container-fluid" id="post">
+            <h1>How to Turn Mocks from Nightmare to Solid Kiss Tests</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>6 min</strong>
@@ -125,8 +124,10 @@
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2018-06-Mon">
             <strike>
-                            Mon, Jun 11, 2018
+                            Jun, 2018
             
+                                                Jun, 2018
+                            
             </strike>        </time>
     </li>
 
@@ -146,29 +147,29 @@
         </li>
     </ul>
 
-                
-                                    <div class="card border-success card-bigger mt-5">
-                        <div class="card-header text-white bg-success">
-                            <strong>This post was updated at August 2020</strong>
+            
+                            <div class="card border-success card-bigger mt-5">
+                    <div class="card-header text-white bg-success">
+                        <strong>This post was updated at August 2020</strong>
+                    </div>
+                                            <div class="card-body pb-2">
+                            <p>Updated with shift from sniffs to Rector rules, that handle these cases much better.</p>
                         </div>
-                                                    <div class="card-body pb-2">
-                                <p>Updated with shift from sniffs to Rector rules, that handle these cases much better.</p>
-                            </div>
-                                            </div>
+                                    </div>
 
-                    <br>
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p><a href="http://mhlavac.net">Martin Hlaváč</a> had a very nice talk about testing in <a href="http://www.bephpug.de/2018/06/05/june.html">Berlin PHP Meetup</a> last week (while I hosted with <a href="https://github.com/rectorphp/rector">Rector</a>), and one of the topic was mocking.
+                <br>
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p><a href="http://mhlavac.net">Martin Hlaváč</a> had a very nice talk about testing in <a href="http://www.bephpug.de/2018/06/05/june.html">Berlin PHP Meetup</a> last week (while I hosted with <a href="https://github.com/rectorphp/rector">Rector</a>), and one of the topic was mocking.
 <br><br>
 I often see developers fighting with this, in places they don't have to, just because this topic is so widespread all over the internet and unit tools.
 <br><br>
 Did you know there is easier and more clear way to do &quot;mocking&quot;?</p>
-                    </div>
                 </div>
+            </div>
 
-                <p>At the time being, there is only 1 post about <a href="https://mnapoli.fr/anonymous-classes-in-tests/">anonymous classes in tests</a> (thanks to Matthieu!). Compared to that, there are many PHP tool made just for mocking: Prophecy, Mockery, PHPUnit native mocks, Mockista and so on. If you're a developer who uses one of them, knows that he needs to add proper annotations to make autocomplete work, has the PHPStom plugin that fixes bugs in this autocomplete and it works well for you, just stop reading.</p>
+            <p>At the time being, there is only 1 post about <a href="https://mnapoli.fr/anonymous-classes-in-tests/">anonymous classes in tests</a> (thanks to Matthieu!). Compared to that, there are many PHP tool made just for mocking: Prophecy, Mockery, PHPUnit native mocks, Mockista and so on. If you're a developer who uses one of them, knows that he needs to add proper annotations to make autocomplete work, has the PHPStom plugin that fixes bugs in this autocomplete and it works well for you, just stop reading.</p>
 <p>This post is for developers who struggle with mocking and have a feeling, that they're doing something wrong.</p>
 <p><strong>You're not. It's the mocking part</strong>. Mocks are often the bottleneck of understanding in tests. They're so easy to make, that they can overpopulate your tests... the same way units test can test every getter and setter of all your entities in 20 minutes <em>(hint: not a way to go)</em>.</p>
 <h2 id="was-it-code-willreturn-code-code-willreturnany-code-or-code-willreturnexact-code">Was it <code>willReturn()</code>, <code>willReturnAny()</code> or <code>willReturnExact()</code>?</h2>
@@ -340,32 +341,32 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 <p><br><br></p>
 <p>Happy anonymocking!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2018/06/07/how-to-migrate-from-php-cs-fixer-to-easy-coding-standard" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    How to Migrate From PHP CS Fixer to EasyCodingStandard in 6 Steps
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2018/2018-06-11-how-to-turn-mocks-from-nightmare-to-solid-kiss-tests.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2018/06/07/how-to-migrate-from-php-cs-fixer-to-easy-coding-standard" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                How to Migrate From PHP CS Fixer to EasyCodingStandard in 6 Steps
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2018/2018-06-11-how-to-turn-mocks-from-nightmare-to-solid-kiss-tests.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -384,10 +385,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

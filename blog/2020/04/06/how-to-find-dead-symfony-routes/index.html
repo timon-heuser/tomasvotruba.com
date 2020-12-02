@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>How to Find Dead Symfony Routes</h1>
+        <div class="container-fluid" id="post">
+            <h1>How to Find Dead Symfony Routes</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>2 min</strong>
@@ -125,6 +124,8 @@
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2020-04-Mon">
             <strike>
+                            Apr, 2020
+            
                             Mon, Apr 6
             
             </strike>        </time>
@@ -146,28 +147,28 @@
         </li>
     </ul>
 
-                
-                                    <div class="card border-success card-bigger mt-5">
-                        <div class="card-header text-white bg-success">
-                            <strong>This post was updated at April 2020</strong>
+            
+                            <div class="card border-success card-bigger mt-5">
+                    <div class="card-header text-white bg-success">
+                        <strong>This post was updated at April 2020</strong>
+                    </div>
+                                            <div class="card-body pb-2">
+                            <p>Route visit table structure has changed and new command <code>show-dead-routes</code> was added.</p>
                         </div>
-                                                    <div class="card-body pb-2">
-                                <p>Route visit table structure has changed and new command <code>show-dead-routes</code> was added.</p>
-                            </div>
-                                            </div>
+                                    </div>
 
-                    <br>
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>Almost half a year ago, I spotted a post called <a href="https://laravel-news.com/route-usage-package-for-laravel">Route Usage Package for Laravel</a>. It's nice to have to see what routes are used and how often.
+                <br>
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Almost half a year ago, I spotted a post called <a href="https://laravel-news.com/route-usage-package-for-laravel">Route Usage Package for Laravel</a>. It's nice to have to see what routes are used and how often.
 <br>
 <br>
 But when dealing with legacy code, knowing <strong>dead routes will save you dozens of hours in refactoring</strong>.</p>
-                    </div>
                 </div>
+            </div>
 
-                <h2 id="why-are-dead-routes-important-for-your-code">Why are Dead Routes Important for Your Code?</h2>
+            <h2 id="why-are-dead-routes-important-for-your-code">Why are Dead Routes Important for Your Code?</h2>
 <p>If you know that 20 % is never used, you can <strong>drop it and ease your maintenance</strong>. Also, it's a must-have pre-step <a href="/blog/2019/12/16/8-steps-you-can-make-before-huge-upgrade-to-make-it-faster-cheaper-and-more-stable/">to code migrations</a>.</p>
 <p><strong>Static analysis</strong> can help you with <a href="/blog/2019/03/18/how-to-detect-dead-php-code-in-code-review-in-7-snippets/">dead code that is never used</a> and with <a href="/blog/2019/03/14/remove-dead-public-methdos-from-your-code/">public methods that are never called</a>, e.g.:</p>
 <pre><code class="language-diff">-$discount = $this-&gt;getDiscount();
@@ -220,32 +221,32 @@ return [
 <p><br></p>
 <p>Happy coding!</p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                            <a href="/blog/2020/03/30/dont-show-your-privates-to-public" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
-                                <em class="fas fa-fw fa-forward"></em>
-                                <strong>Read Next</strong>
-                                <br>
-                                <span class="text-bigger">
-                                    Don&#039;t Show Your Privates to Public
-                                </span>
-                            </a>
-                                            </div>
-
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-04-06-how-to-find-dead-symfony-routes.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/03/30/dont-show-your-privates-to-public" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                Don&#039;t Show Your Privates to Public
+                            </span>
                         </a>
-                    </div>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-04-06-how-to-find-dead-symfony-routes.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -264,10 +265,9 @@ return [
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>

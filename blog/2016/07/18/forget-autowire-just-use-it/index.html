@@ -111,11 +111,10 @@
     </div>
 </div>
 
-        <div class="mainContent">
-            <div class="container-fluid" id="post">
-                <h1>Forget "autowire" and just use it</h1>
+        <div class="container-fluid" id="post">
+            <h1>Forget "autowire" and just use it</h1>
 
-                <ul class="list-inline post-metadata">
+            <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
         <strong>1 min</strong>
@@ -127,6 +126,8 @@
             
                             Mon, Jul 18, 2016
             
+                                                Mon, Jul 18, 2016
+                            
             </strike>        </time>
     </li>
 
@@ -143,29 +144,29 @@
         </li>
     </ul>
 
-                                    <div class="card border-danger card-bigger">
-                        <div class="card-header text-white bg-danger">
-                            <strong>This post is deprecated at May 2017</strong>
-                        </div>
-                        <div class="card-body pb-2">
-                            <p>You can set autowiring via <a href="https://symfony.com/blog/new-in-symfony-3-3-simpler-service-configuration#default-service-configuration">new <code>_defaults</code> per config file feature</a> since <strong>Symfony 3.3</strong>.</p>
+                            <div class="card border-danger card-bigger">
+                    <div class="card-header text-white bg-danger">
+                        <strong>This post is deprecated at May 2017</strong>
+                    </div>
+                    <div class="card-body pb-2">
+                        <p>You can set autowiring via <a href="https://symfony.com/blog/new-in-symfony-3-3-simpler-service-configuration#default-service-configuration">new <code>_defaults</code> per config file feature</a> since <strong>Symfony 3.3</strong>.</p>
 <p>It does pretty much the same thing, with <strong>advantage of having it under control and explicitly defined</strong>.</p>
 <p>I recommend using it instead!</p>
-                        </div>
-                    </div>
-
-                    <br>
-                
-                
-                <div class="card card-bigger mb-5">
-                    <div class="card-body pb-2">
-                        <p>Autowiring is a great feature that was added in Symfony 2.8. It moves Dependency Injection pattern to the next level.
-If you want to use it to its full potential, you still have to add 1 extra line to every service configuration.
-Today I will show you, how to get rid of that line.</p>
                     </div>
                 </div>
 
-                <h2 id="when-to-autowire">When to autowire?</h2>
+                <br>
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Autowiring is a great feature that was added in Symfony 2.8. It moves Dependency Injection pattern to the next level.
+If you want to use it to its full potential, you still have to add 1 extra line to every service configuration.
+Today I will show you, how to get rid of that line.</p>
+                </div>
+            </div>
+
+            <h2 id="when-to-autowire">When to autowire?</h2>
 <p>If you use autowiring daily, you might came across this thinking process before you place <code>autowired: true</code> to your config:</p>
 <p><em>1) Has this service constructor dependency?</em></p>
 <ul>
@@ -228,24 +229,24 @@ final class AppKernel extends Kernel
 <p>And that's it!</p>
 <p>For further use, <strong>just check Readme for <a href="https://github.com/Symplify/DefaultAutowire">Symplify/DefaultAutowire</a>.</strong></p>
 
-                <br>
+            <br>
 
-                <div class="row mb-5 mt-5">
-                    <div class="col-12 mb-5">
-                                                                    </div>
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                        </div>
 
-                    <div class="col-12">
-                        <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2016/2016-07-18-forget-autowire-just-use-it.md" class="d-block btn btn-dark btn-wrappable">
-                            <em class="fab fa-fw fa-github"></em>
-                            <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
-                        </a>
-                    </div>
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2016/2016-07-18-forget-autowire-just-use-it.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <a name="comments"></a>
-                <div id="disqus_thread"></div>
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
 
 <script>
     /**
@@ -264,10 +265,9 @@ final class AppKernel extends Kernel
         (d.head || d.body).appendChild(s);
     })();
 </script>
-            </div>
-
-            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
         </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
 
         <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="/assets/js/cluster-checklist.js"></script>
