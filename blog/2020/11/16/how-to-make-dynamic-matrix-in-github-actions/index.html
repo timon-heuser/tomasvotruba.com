@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>How to make a Dynamic Matrix in GitHub Actions | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 288 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/talks">Talks</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="container-fluid" id="post">
+            <h1>How to make a Dynamic Matrix in GitHub Actions</h1>
+
+            <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>6 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-11-Mon">
+            
+                                            Mon, Nov 16
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/11/16/how-to-make-dynamic-matrix-in-github-actions/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-11-16-how-to-make-dynamic-matrix-in-github-actions.md">Edit Post</a>
+        </li>
+    </ul>
+
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Do you want <a href="/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action">split monorepo</a> for each package?
+Instead of 20 workflows with copy-paste steps, you can define <strong>just one with a static matrix for packages</strong>.
+<br><br>
+Yet, nothing in real life is static but rather dynamic. A new package can be added, old can be removed.
+How could we automate this even more with a <strong>dynamic matrix?</strong></p>
+                </div>
+            </div>
+
+            <p>In the last post we talked about <a href="/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action">monorepo split</a> with GitHub Actions.</p>
+<p>Today we'll look on a rather general idea for any GitHub Action - <strong>dynamic matrix</strong>.</p>
+<h2 id="static-matrix">Static Matrix</h2>
+<p>We've already talked about the use case for the split of many packages into many repositories. Instead of repeating each workflow with a different package, we can use <strong>a static matrix</strong>.</p>
+<p>A typical static matrix looks like this:</p>
+<pre><code class="language-yaml">jobs:
+    monorepo_split:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                package:
+                    # list your packages here
+                    - coding-standard
+                    - phpstan-rules</code></pre>
+<p>After you define the <code>strategy</code>, add steps that use <code>${{ matrix.package }}</code>.</p>
+<pre><code class="language-yaml">        # ...
+        steps:
+            -   uses: actions/checkout@v2
+
+            -
+                uses: symplify/github-action-monorepo-split@master
+                env:
+                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                with:
+                    package-directory: 'packages/${{ matrix.package }}'
+                    split-repository-organization: 'symplify'
+                    split-repository-name: '${{ matrix.package }}'</code></pre>
+<p>For each item in <code>package:</code> a new workflow run will be triggered. So, in this case - matrix <strong>triggers 3 parallel runs</strong>.</p>
+<p><br></p>
+<h2 id="matrix-is-an-array">Matrix is an Array</h2>
+<p>The above could be written in PHP like:</p>
+<pre><code class="language-php">$matrix = [
+    'package' =&gt; [
+        'coding-standard',
+        'phpstan-rules',
+    ]
+];
+
+foreach ($matrix['packages'] as $package) {
+    $packageDirectory = 'packages/' . $package;
+    $splitRepositoryName = $package;
+    // ... do the magic
+}</code></pre>
+<p>Is there new package? Add it to the matrix:</p>
+<pre><code class="language-diff">            matrix:
+                package:
+                    # list your packages here
+                    - coding-standard
+                    - phpstan-rules
++                   - easy-coding-standard</code></pre>
+<p>That's it!</p>
+<p><br></p>
+<p>Any static opens up the door to troubles... How easy do you think <strong>is to <a href="/blog/2018/08/27/why-and-how-to-avoid-the-memory-lock/">forget to extend</a></strong> the workflow <strong>after</strong> adding a new package?</p>
+<h2 id="from-static-array-to-json">From Static Array to JSON</h2>
+<p>GitHub Actions are ready to make our life easier. Since April 2020, there is <a href="https://github.blog/changelog/2020-04-15-github-actions-new-workflow-features/#new-fromjson-method-in-expressions">a <code>fromJson()</code> function</a> to help us. What does it do?</p>
+<p>It converts a json to an array, like this:</p>
+<pre><code class="language-diff">-           matrix:
+-                 package:
+-                   - coding-standard
+-                   - phpstan-rules
++           matrix: ${{ fromJson({"packages": ["coding-standard", "phpstan-rules"]}) }}</code></pre>
+<p>You are probably thinking, <em>&quot;Well, that's just terrible, Tomas&quot;</em>. Thank you, and you're right.</p>
+<ul>
+<li>But where is JSON, there is... an endpoint.</li>
+<li><strong>And where is an endpoint, there is a space for dynamic output</strong>.</li>
+</ul>
+<p>The <a href="https://github.com/symplify/monorepo-builder">Symplify\MonorepoBuilder</a> is using this trick to <strong>get all the packages from <code>/packages</code> directory in handy json format</strong>:</p>
+<pre><code class="language-bash">vendor/bin/monorepo-builder packages-json --names</code></pre>
+<p>↓</p>
+<pre><code class="language-json">{
+    "packages": [
+        "coding-standard",
+        "phpstan-rules"
+    ]
+}</code></pre>
+<p>This version is not final, but very roughly the command above would be written like this:</p>
+<pre><code class="language-diff">-           matrix: ${{ fromJson({"packages": ["coding-standard", "phpstan-rules"]}) }}
++           matrix: ${{ fromJson(vendor/bin/monorepo-builder packages-json --names) }}</code></pre>
+<h2 id="from-json-to-fully-dynamic-matrix">From Json to Fully Dynamic Matrix</h2>
+<p>If we run the command above as it is, it would fail. Setting up a matrix is like the <code>setUp()</code> method in a PHPUnit test case - there is zero code executed before it.</p>
+<ul>
+<li><strong>That's why we use <code>setUp()</code> method</strong> to actually <em>set</em> what we need first.</li>
+<li>Then run <code>test()</code> method.</li>
+</ul>
+<p><br></p>
+<p>We have to do the same here:</p>
+<ul>
+<li>In the 1st step, we create the JSON with all packages</li>
+<li>In the 2nd step, we use this JSON as input for the matrix, <strong>that will create a standalone run for each package</strong></li>
+</ul>
+<p><strong>How does the code look like?</strong></p>
+<pre><code class="language-yaml">jobs:
+    # phase 1
+    provide_packages_json:
+        runs-on: ubuntu-latest
+
+        steps:
+            # git clone + use PHP + composer install
+            -   uses: actions/checkout@v2
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 7.4
+            -   run: composer install --no-progress --ansi
+
+            # here we create the json, we need the "id:" so we can use it in "outputs" bellow
+            -
+                id: set-matrix
+                run: echo "::set-output name=matrix::$(vendor/bin/monorepo-builder packages-json --names)"
+
+        # here, we save the result of this 1st phase to the "outputs"
+        outputs:
+            matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    # phase 2
+    split_monorepo:
+        # this means, wait for the "provide_packages_json" phase 1 to finish
+        needs: provide_packages_json
+
+        runs-on: ubuntu-latest
+        strategy:
+            # ↓ the real magic happens here - create dynamic matrix from the json
+            matrix: ${{fromJson(needs.provide_packages_json.outputs.matrix)}}
+
+        steps:
+            # ...</code></pre>
+<p>That's it!</p>
+<p>This way, we'll <strong>never forget</strong> to split nor test a new package. Never.</p>
+<p><br></p>
+<p>Check fully functional <a href="https://github.com/symplify/symplify/blob/master/.github/workflows/split_monorepo.yaml"><code>.github/workflows/split_monorepo.yaml</code></a> in Symplify monorepo for more details.</p>
+<p>Is this something niche? Not really. This week, Kamil <a href="https://github.com/Sylius/Sylius/blob/3464e8d0ae6673d9ee1da3d538a6b399cfcb9852/.github/workflows/packages.yml#L48">has added this approach to Sylius too</a>.</p>
+<h2 id="use-for-del-monorepo-split-del-anything-dynamic">Use for <del>Monorepo Split</del> Anything Dynamic!</h2>
+<p>This <code>fromJson()</code> trick is not something exclusive to monorepo package splitting. It's just one of the possible use cases.</p>
+<p>The primary use case <strong>is already in your mind</strong>.</p>
+<ul>
+<li>What is repeated static in your CI?</li>
+<li>What lists can be delegated to simple command that already knows the data?</li>
+<li><strong>How could you use the dynamic matrix in your workflows today?</strong></li>
+</ul>
+<p><br></p>
+<p>Happy coding!</p>
+
+            <br>
+
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                New in Symplify 9: Monorepo Split with GitHub Action
+                            </span>
+                        </a>
+                                    </div>
+
+                <div class="col-12">
+                    <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/config/data/2020/2020-11-16-how-to-make-dynamic-matrix-in-github-actions.md" class="d-block btn btn-dark btn-wrappable">
+                        <em class="fab fa-fw fa-github"></em>
+                        <strong>Found a typo?</strong> Fix it and join team of 99&nbsp;contributors
+                    </a>
+                </div>
+            </div>
+
+            <br>
+
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cluster-checklist.js"></script>
+<script src="/assets/js/cluster-expanable.js"></script>
+
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p>
+        Thank you <a href="/thank-you">99 people</a>, who contributed this blog
+
+        <span class="pl-2 pr-2">•</span>
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong> again?
+
+        <br>
+
+        Mostly with awesome <a href="https://getrector.org/">instant refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to make a Dynamic Matrix in GitHub Actions" />
+    <meta property="og:description" content="Do you want [split monorepo](/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action) for each package?
+Instead of 20 workflows with copy-paste steps, you can define **just one with a static matrix for packages**.
+
+Yet, nothing in real life is static but rather dynamic. A new package can be added, old can be removed.
+How could we automate this even more with a **dynamic matrix?**
+" />
+    <meta property="og:url" content="/blog/2020/11/16/how-to-make-dynamic-matrix-in-github-actions" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="How to make a Dynamic Matrix in GitHub Actions" />
+    <meta name="twitter:description" content="Do you want [split monorepo](/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action) for each package?
+Instead of 20 workflows with copy-paste steps, you can define **just one with a static matrix for packages**.
+
+Yet, nothing in real life is static but rather dynamic. A new package can be added, old can be removed.
+How could we automate this even more with a **dynamic matrix?**
+" />
