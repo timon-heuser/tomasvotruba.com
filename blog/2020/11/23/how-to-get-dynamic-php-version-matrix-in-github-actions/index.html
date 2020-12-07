@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>How to get a Dynamic PHP Version Matrix in GitHub Actions | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 289 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="container-fluid" id="post">
+            <h1>How to get a Dynamic PHP Version Matrix in GitHub Actions</h1>
+
+            <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>3 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-11-Mon">
+            
+                                            Mon, Nov 23
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/11/23/how-to-get-dynamic-php-version-matrix-in-github-actions/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/data/2020/2020-11-23-how-to-get-dynamic-php-version-matrix-in-github-actions.md">Found a typo? Edit me</a>
+        </li>
+    </ul>
+
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Do you want to run your tests on each PHP version you support? PHP 7.3, 7.4 and 8.0?
+Instead of 3 workflows with copy-paste steps, you can define <strong>just one with a matrix for PHP versions</strong>.
+<br><br>
+But PHP is released every year. The version constraints are already defined in <code>composer.json</code>.
+Hmm, how could we use this knowledge to provide a list of PHP version for a dynamic matrix?</p>
+                </div>
+            </div>
+
+            <p>Do you know <a href="/blog/2018/08/27/why-and-how-to-avoid-the-memory-lock/">memory locks</a>? An &quot;if this then that&quot; code smell. E.g., you always have to put keys into your left pocket, after you lock your office door.</p>
+<p>If we have tests, we want <strong>them run on all PHP versions</strong> we support. To be sure, no PHP 8 features are running on PHP 7.4.</p>
+<p><br></p>
+<p><strong>When</strong> new PHP version <a href="/blog/2017/10/30/what-can-you-learn-from-menstruation-and-symfony-releases/">once a year</a>, <strong>then</strong> we have to:</p>
+<ul>
+<li>
+<p>update <code>composer.json</code></p>
+<img src="/assets/images/posts/2020/php-json-composer.png" class="img-thumbnail">
+</li>
+<li>
+<p>update test workflow</p>
+<img src="/assets/images/posts/2020/php-json-useless.png" class="img-thumbnail">
+</li>
+</ul>
+<p><strong>This is utterly useless operation</strong> = double the work and double the maintenance—no gain, except the fear of control.</p>
+<h2 id="memory-lock-is-expensive">Memory Lock is Expensive</h2>
+<p>Could you guess how much time it took to send both commits? 2 minutes? 10 minutes?</p>
+<img src="/assets/images/posts/2020/php-json-time.png" class="img-thumbnail">
+<p>Almost <strong>2 hours</strong>. I had to send a new commit based on feedback in code-review. That's a hidden cost of memory lock code smell.
+Hidden cost in attention, work and <a href="/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers/">slow feedback loop</a>.</p>
+<h2 id="trust-code-composer-json-code">Trust <code>composer.json</code></h2>
+<p>What PHP version should be tested? The information is already in <code>composer.json</code>:</p>
+<pre><code class="language-json">{
+    "require": {
+        "php": "^7.2|^8.0"
+    }
+}</code></pre>
+<p>You're right. It's this list:</p>
+<ul>
+<li>7.2</li>
+<li>7.3</li>
+<li>7.4</li>
+<li>8.0</li>
+</ul>
+<p>So <strong>why should we duplicate</strong> this information in the GitHub Actions workflow config?</p>
+<p>We can do better with <a href="/blog/2020/11/16/how-to-make-dynamic-matrix-in-github-actions/">dynamic matrix</a>.</p>
+<h2 id="easyci-to-the-rescue">EasyCI to the Rescue</h2>
+<p>Symplify 9 is coming with a brand new package called <a href="https://github.com/symplify/easy-ci">EasyCI</a>. This package helps you with CI maintenance, like in our case above:</p>
+<pre><code class="language-bash">composer require symplify/easy-ci --dev
+
+vendor/bin/easy-ci php-json
+# "[7.2, 7.3, 7.4, 8.0]"</code></pre>
+<p>Now we have a problem, the command to provide JSON data and GitHub Actions. Let's put them together.</p>
+<h2 id="workflow-with-dynamic-php-versions">Workflow with Dynamic PHP Versions</h2>
+<p>There are <strong>2 steps</strong> in our unit tests workflow:</p>
+<ul>
+<li>first provides the list of PHP version</li>
+<li>the other creates a dynamic job run with each PHP version</li>
+</ul>
+<h3 id="the-first-step">The First Step</h3>
+<pre><code class="language-yaml">jobs:
+    # first step
+    provide_php_versions_json:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    # this is the only place we have to use PHP to avoid the lock to bash scripting
+                    php-version: 8.0
+
+            -   run: composer install --no-progress --ansi
+
+            # to see the provided output, just to be sure
+            -   run: vendor/bin/easy-ci php-versions-json
+
+            # here we create the json, we need the "id:" so we can use it in "outputs" bellow
+            -
+                id: output_data
+                run: echo "::set-output name=matrix::$(vendor/bin/easy-ci php-versions-json)"
+
+        # here, we save the result of this 1st phase to the "outputs"
+        outputs:
+            matrix: ${{ steps.output_data.outputs.matrix }}</code></pre>
+<h3 id="the-second-step">The Second Step</h3>
+<pre><code class="language-yaml">    # continue from above
+    unit_tests:
+        needs: provide_php_versions_json
+
+        runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php: ${{ fromJson(needs.provide_php_versions_json.outputs.matrix) }}
+
+        # continue with tests
+        steps:
+            # ...
+            -   run: vendor/bin/phpunit</code></pre>
+<p><br></p>
+<p>This workflow is not just a theory. <strong>It's tested for last week on Symplify repository</strong> and it works :).</p>
+<p>Here is full <a href="https://github.com/symplify/symplify/blob/aeb8e03dfb2948474f5a7d267ab05541ee00d90b/.github/workflows/unit_tests.yaml"><code>.github/workflows/unit_tests.yaml</code></a> worfklow to explore.</p>
+<p><br></p>
+<p>Happy coding!</p>
+
+            <br>
+
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/11/16/how-to-make-dynamic-matrix-in-github-actions" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                How to make a Dynamic Matrix in GitHub Actions
+                            </span>
+                        </a>
+                                    </div>
+            </div>
+
+            <br>
+
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p>
+
+
+        <span class="pl-2 pr-2">•</span>
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong>?
+
+        <br>
+
+        With awesome <a href="https://getrector.org/">Instant Refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to get a Dynamic PHP Version Matrix in GitHub Actions" />
+    <meta property="og:description" content="Do you want to run your tests on each PHP version you support? PHP 7.3, 7.4 and 8.0?
+Instead of 3 workflows with copy-paste steps, you can define **just one with a matrix for PHP versions**.
+
+But PHP is released every year. The version constraints are already defined in `composer.json`.
+Hmm, how could we use this knowledge to provide a list of PHP version for a dynamic matrix?
+" />
+    <meta property="og:url" content="/blog/2020/11/23/how-to-get-dynamic-php-version-matrix-in-github-actions" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="How to get a Dynamic PHP Version Matrix in GitHub Actions" />
+    <meta name="twitter:description" content="Do you want to run your tests on each PHP version you support? PHP 7.3, 7.4 and 8.0?
+Instead of 3 workflows with copy-paste steps, you can define **just one with a matrix for PHP versions**.
+
+But PHP is released every year. The version constraints are already defined in `composer.json`.
+Hmm, how could we use this knowledge to provide a list of PHP version for a dynamic matrix?
+" />
