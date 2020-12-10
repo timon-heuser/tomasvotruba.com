@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>New in Symplify 9: Documentation Generator for PHP CS Fixer, Code Sniffer, PHPStan and Rector Rules | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 290 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="container-fluid" id="post">
+            <h1>New in Symplify 9: Documentation Generator for PHP CS Fixer, Code Sniffer, PHPStan and Rector Rules</h1>
+
+            <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>3 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-11-Mon">
+            
+                                            Mon, Nov 30
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/11/30/new-in-symplify-9-documentation-generator-for-rules/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/data/2020/2020-11-30-new-in-symplify-9-documentation-generator-for-rules.md">Found a typo? Edit me</a>
+        </li>
+    </ul>
+
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Rector is providing rules, so is PHPStan and PHP CS Fixer, and Code Sniffer. If you use only 5-10 rules and want to share them with the world, you create a README and describe them.
+<br>
+<br>
+In Rector, we now have over 640 rules, in Symplify 110 rules for PHPStan and 15 rules for PHP CS Fixer. <strong>How can we handle documentation for this amount of rules without going crazy?</strong></p>
+                </div>
+            </div>
+
+            <p>This post is for rules-based package maintainers.</p>
+<ul>
+<li>If we add one new rule, how do we document it?</li>
+<li>What is some rule is configurable? It must be mentioned in the documentation.</li>
+<li>If somebody sends a pull-request, we should tell them to do this.</li>
+<li><a href="/blog/2018/08/27/why-and-how-to-avoid-the-memory-lock/">But what if we forget?</a> What file should the documentation be placed?</li>
+<li>What if the rule is configurable, but the example doesn't show how?</li>
+</ul>
+<p>But the critical question is:</p>
+<ul>
+<li><strong>How can users quickly see what the rule does?</strong></li>
+</ul>
+<h2 id="status-quo-manual-documentation">Status Quo: Manual Documentation</h2>
+<p>Today, we create documentation manually. Add a new rule, new option, update the name or describe an example. Here are 4 examples from such documentations:</p>
+<div class="row">
+    <div class="col-3">
+        <img src="/assets/images/posts/2020/rules-docs-second.png" class="img-thumbnail"></div>
+    <div class="col-3">
+        <img src="/assets/images/posts/2020/rules-docs-first.png" class="img-thumbnail"></div>
+    <div class="col-3">
+        <img src="/assets/images/posts/2020/rules-docs-third.png" class="img-thumbnail"></div>
+    <div class="col-3">
+        <img src="/assets/images/posts/2020/rules-docs-fourth.png" class="img-thumbnail"></div>
+</div>
+<p>There are roughly <strong>1500-2000 rules in the whole rules-ecosystem</strong> and growing every day. We don't have time to read about each rule. Nor deduct from the text how it will confront our code.</p>
+<p>How do we adapt? <strong>We scan</strong>. We go quickly through README and look for something we like. <a href="https://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555">When we scan</a>, we look for colors, <strong>bold</strong>, patterns or pictures.</p>
+<p><br></p>
+<p>Have a guess, what does this rule do?</p>
+<img src="/assets/images/posts/2020/rules-example.png" class="img-thumbnail">
+<p>You're right. It makes line-length fit <code>x</code>.</p>
+<p><br></p>
+<h2 id="easy-for-maintainers-and-sexy-for-users">Easy for Maintainers and Sexy for Users?</h2>
+<p>The diff example above is beautiful, but it requires extra work with diff formatting, precise code indent, and don't even start about maintenance in case of change...</p>
+<blockquote class="blockquote text-center">
+    "Give me the tools to solve my problem, and I'll consider it.<br>
+    Give me extra work, and I'll pass."
+</blockquote>
+<p>...but wait. There might be a way to less work.</p>
+<p><br></p>
+<p>In Rector, we have over 640 rules. That would be hell to maintain, so eventually, we came up with a documentation generator. One command line hit, and a whole file with examples, rule names is generated:</p>
+<pre><code class="language-bash">bin/rector generate-rule-docs</code></pre>
+<p>We already maintained <a href="https://github.com/symplify/coding-standard">Symplify\CodingStandard</a>
+documentation with 40 rules <strong>manually</strong>. There was some itching on every new rule, but we always learned to ignore it. That was about to change.</p>
+<p>During summer 2020 a new packaged started to grow - <a href="https://github.com/symplify/phpstan-rules">Symplify\PHPStanRules</a>. Just during summer, 50 rules were added, now growing over 110. Constant reminders in pull-request &quot;Could you add it to documentation?&quot; were <strong>the last nail in the coffin</strong>.</p>
+<p>We had to automate it.</p>
+<h2 id="every-rule-is-the-documentation">Every Rule is the Documentation</h2>
+<p>The first step to automation is to merge rule documentation and rule into a single place. There is no markdown file, just a PHP code rule.</p>
+<p>We got inspired in <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/ae6fceca37615fcd08183e9c3cfb8f296d2de8c2/src/Fixer/Phpdoc/PhpdocTypesFixer.php#L87">php-cs-fixer</a> where <code>RuleDefinition</code> is part of every rule.</p>
+<p><br></p>
+<p>Add an <code>DocumentedRuleInterface</code> interface and implement <code>getRuleDefinition()</code>:</p>
+<pre><code class="language-php">namespace App\CodingStandard\Fixer;
+
+use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
+use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
+use Symplify\RuleDocGenerator\Contract\DocumentedRuleInterface;
+
+final class RemoveCommentedCodeFixer implements DocumentedRuleInterface
+{
+    public function getRuleDefinition(): RuleDefinition
+    {
+        return new RuleDefinition('Remove commented code', [
+            new CodeSample(
+                &lt;&lt;&lt;'CODE_SAMPLE'
+// $one = 1;
+// $two = 2;
+// $three = 3;
+CODE_SAMPLE
+                ,
+                &lt;&lt;&lt;'CODE_SAMPLE'
+CODE_SAMPLE
+            ),
+        ]);
+    }
+}</code></pre>
+<p>That's it!</p>
+<h2 id="3-steps-to-generated-documentation">3 steps to Generated Documentation</h2>
+<p>The <a href="https://github.com/symplify/rule-doc-generator">Symplify\RuleDocGenerator</a> packages take care of full documentation. There is just one interface to implement for Rector, PHP CS Fixer, CodeSniffer, and PHPStan rules.</p>
+<ol>
+<li>Install Package</li>
+</ol>
+<pre><code class="language-bash">composer require symplify/rule-doc-generator</code></pre>
+<ol start="2">
+<li>Implement <code>DocumentedRuleInterface</code> interface</li>
+</ol>
+<p>You can pick from more code sample classes:</p>
+<ul>
+<li><code>CodeSample</code></li>
+<li><code>ConfiguredCodeSample</code></li>
+</ul>
+<p>For read-only rules, e.g. Sniff or PHPStan, the second argument of <code>CodeSample</code> is for correct code:</p>
+<pre><code class="language-php">use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
+
+// ...
+return new CodeSample('bad code', 'good code');</code></pre>
+<ol start="3">
+<li>Generate Documentation in CLI</li>
+</ol>
+<pre><code class="language-bash">vendor/bin/rule-doc-generator generate &lt;directories-with-rules&gt;</code></pre>
+<p>There is also implicit <code>--output-file docs/rules_overview.md</code> option.</p>
+<pre><code class="language-bash">vendor/bin/rule-doc-generator generate src/Rules</code></pre>
+<p>↓</p>
+<p>You've just created smart documentation with <strong>nice and clear design</strong>:</p>
+<img src="/assets/images/posts/2020/rules-nesting-full.png" class="img-thumbnail mt-4 mb-5">
+<p><strong>Tired of screenshots? See the Real Documentation on GitHub</strong></p>
+<p>See our 3 documentations re-generated everyday with GitHub Actions cron:</p>
+<ul>
+<li><a href="https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md">Rector with 640 rules</a></li>
+<li><a href="https://github.com/symplify/phpstan-rules/blob/master/docs/rules_overview.md">Symplify\PHPStanRules with 110 rules</a></li>
+<li><a href="https://github.com/symplify/coding-standard/blob/master/docs/rules_overview.md">Symplify\CodingStandard with 15 rules</a></li>
+</ul>
+<p><br></p>
+<p>That's it!</p>
+<p><br></p>
+<p>Happy coding!</p>
+
+            <br>
+
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/11/23/how-to-get-dynamic-php-version-matrix-in-github-actions" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                How to get a Dynamic PHP Version Matrix in GitHub Actions
+                            </span>
+                        </a>
+                                    </div>
+            </div>
+
+            <br>
+
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p>
+
+
+        <span class="pl-2 pr-2">•</span>
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong>?
+
+        <br>
+
+        With awesome <a href="https://getrector.org/">Instant Refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="New in Symplify 9: Documentation Generator for PHP CS Fixer, Code Sniffer, PHPStan and Rector Rules" />
+    <meta property="og:description" content="Rector is providing rules, so is PHPStan and PHP CS Fixer, and Code Sniffer. If you use only 5-10 rules and want to share them with the world, you create a README and describe them.
+
+
+In Rector, we now have over 640 rules, in Symplify 110 rules for PHPStan and 15 rules for PHP CS Fixer. **How can we handle documentation for this amount of rules without going crazy?**
+" />
+    <meta property="og:url" content="/blog/2020/11/30/new-in-symplify-9-documentation-generator-for-rules" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="New in Symplify 9: Documentation Generator for PHP CS Fixer, Code Sniffer, PHPStan and Rector Rules" />
+    <meta name="twitter:description" content="Rector is providing rules, so is PHPStan and PHP CS Fixer, and Code Sniffer. If you use only 5-10 rules and want to share them with the world, you create a README and describe them.
+
+
+In Rector, we now have over 640 rules, in Symplify 110 rules for PHPStan and 15 rules for PHP CS Fixer. **How can we handle documentation for this amount of rules without going crazy?**
+" />
