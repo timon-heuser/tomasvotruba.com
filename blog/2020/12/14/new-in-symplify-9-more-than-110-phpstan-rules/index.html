@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>New in Symplify 9: More than 110 PHPStan Rules | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 293 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="container-fluid" id="post">
+            <h1>New in Symplify 9: More than 110 PHPStan Rules</h1>
+
+            <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>2 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-12-Mon">
+            
+                                            Mon, Dec 14
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/12/14/new-in-symplify-9-more-than-110-phpstan-rules/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/data/2020/2020-12-14-new-in-symplify-9-more-than-110-phpstan-rules.md">Found a typo? Edit me</a>
+        </li>
+    </ul>
+
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>In Symplify 8, a bunch of PHP rules was part of the symplify/coding-standard package.
+It was a mix of too many tools, so we decided to <strong>decouple a new package - symplify/phpstan-rules</strong>.
+<br><br>
+During summer 2020, our Rector team grew from 1 member to 4. To keep onboarding smooth, we started to use PHPStan <strong>to help with code-reviews in Rector</strong>. We got obsessed with <a href="/blog/2019/11/18/how-to-delegate-code-reviews-to-ci/">moving human code-reviews to CI</a>.
+<br><br>
+Was it worth it? Hell yea!</p>
+                </div>
+            </div>
+
+            <p>That's how we grew from 20 rules to 110 PHPStan Rules in ~3 months. I'd say we are barely <strong>scratching the surface of what CI can handle</strong> for us in code-reviews, but 110 rules is a solid base to start from.</p>
+<p><br></p>
+<p>Since Symplify 9, released on December 9th, you can use them in your code. Give it a try:</p>
+<pre><code class="language-bash">composer require symplify/phpstan-rules --dev</code></pre>
+<p>This is not a typical PHPStan package you're used to. That you just install, add to <code>phpstan.neon</code> and forget.</p>
+<p>symplify/phpstan-rules is more <strong>like a bucket of lego bricks</strong>. It has prepared parts that you can use, but it's up to you to configure them.</p>
+<p><br></p>
+<p>symplify/phpstan-rules has <strong>3 main areas</strong>:</p>
+<ul>
+<li>static rules</li>
+<li>prepared sets</li>
+<li>configurable rules</li>
+</ul>
+<p>We'll take them one by one, from the simplest to most powerful.
+<br></p>
+<h2 id="1-static-rules">1. Static Rules</h2>
+<p>These rules are not configurable. You either use them or not. Dare to try them all and see what happens?</p>
+<pre><code class="language-yaml">includes:
+    - vendor/symplify/phpstan-rules/config/static-rules.neon</code></pre>
+<p>Or do you want to <strong>cherry-pick rule by rule</strong>? Go through the <a href="https://github.com/symplify/phpstan-rules/blob/master/docs/rules_overview.md">rules overview with PHP code snippets</a> and copy-paste those you like:</p>
+<pre><code class="language-yaml">rules:
+    - Symplify\PHPStanRules\Rules\CheckRequiredInterfaceInContractNamespaceRule</code></pre>
+<p><br></p>
+<p>Some rules require extra services. To avoid service duplications, they're in the separate config that you can easily include:</p>
+<pre><code class="language-yaml">includes:
+    - vendor/symplify/phpstan-rules/config/services/services.neon</code></pre>
+<p>That's it!</p>
+<h2 id="2-prepared-sets">2. Prepared Sets</h2>
+<p>Special group of static rules are <a href="https://github.com/symplify/phpstan-rules/tree/master/config/symplify-rules">prepared sets</a>. Similar to ECS sets, each has one area it focuses on:</p>
+<pre><code class="language-yaml">includes:
+    - vendor/symplify/phpstan-rules/config/array-rules.neon
+    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
+    - vendor/symplify/phpstan-rules/config/doctrine-rules.neon
+    - vendor/symplify/phpstan-rules/config/naming-rules.neon
+    - vendor/symplify/phpstan-rules/config/regex-rules.neon
+    - vendor/symplify/phpstan-rules/config/services-rules.neon
+    - vendor/symplify/phpstan-rules/config/size-rules.neon
+    - vendor/symplify/phpstan-rules/config/forbid-static-rules.neon
+    - vendor/symplify/phpstan-rules/config/string-to-constant-rules.neon
+    - vendor/symplify/phpstan-rules/config/symfony-rules.neon
+    - vendor/symplify/phpstan-rules/config/test-rules.neon</code></pre>
+<p>Pick what you like and drop the rest.</p>
+<h2 id="3-configurable-rules">3. Configurable Rules</h2>
+<p>This is the powerful part that PHPStan advanced users will appreciate.</p>
+<p><strong>You can tune configurable rules to your project context</strong>. Do you need more strict <a href="/blog/2018/05/21/is-your-code-readable-by-humans-cognitive-complexity-tells-you/">cognitive complexity</a>? No problem. Do you want to allow fewer dependencies in the constructor? Just set it.</p>
+<p>Configurable rules are configured for Symplify by defaults. You can find them in:</p>
+<pre><code class="language-yaml">includes:
+    - vendor/symplify/phpstan-rules/config/configurable-rules.neon</code></pre>
+<p>Symplify standards might not fit your standard, so it's better to use rules separately.</p>
+<h3 id="example-configuring-code-forbiddennoderule-code">Example: Configuring <code>ForbiddenNodeRule</code></h3>
+<p>Let's look at <a href="https://github.com/symplify/phpstan-rules/blob/master/docs/rules_overview.md#forbiddennoderule"><code>ForbiddenNodeRule</code></a>. In this rule, you can say what <a href="https://github.com/rectorphp/rector/blob/master/docs/nodes_overview.md">nodes</a> are forbidden to use.</p>
+<p>We don't like <code>switch()</code>, <code>empty()</code> and <code>@</code>, so we forbid them:</p>
+<pre><code class="language-yaml">services:
+    -
+        class: Symplify\PHPStanRules\Rules\ForbiddenNodeRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            forbiddenNodes:
+                - PhpParser\Node\Expr\Empty_
+                - PhpParser\Node\Stmt\Switch_
+                - PhpParser\Node\Expr\ErrorSuppress</code></pre>
+<p>Now on each CI run, PHPStan makes sure our code is clean and with high standard :)</p>
+<p><br></p>
+<p>That's it!</p>
+
+            <br>
+
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/12/10/new-in-symplify-9-skipper-skipping-files-and-rules-made-simple" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                New in Symplify 9: Skipper - Skipping Files and Rules made Simple
+                            </span>
+                        </a>
+                                    </div>
+            </div>
+
+            <br>
+
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p>
+
+
+        <span class="pl-2 pr-2">•</span>
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong>?
+
+        <br>
+
+        With awesome <a href="https://getrector.org/">Instant Refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="New in Symplify 9: More than 110 PHPStan Rules" />
+    <meta property="og:description" content="In Symplify 8, a bunch of PHP rules was part of the symplify/coding-standard package.
+It was a mix of too many tools, so we decided to **decouple a new package - symplify/phpstan-rules**.
+
+During summer 2020, our Rector team grew from 1 member to 4. To keep onboarding smooth, we started to use PHPStan **to help with code-reviews in Rector**. We got obsessed with [moving human code-reviews to CI](/blog/2019/11/18/how-to-delegate-code-reviews-to-ci/).
+
+Was it worth it? Hell yea!
+" />
+    <meta property="og:url" content="/blog/2020/12/14/new-in-symplify-9-more-than-110-phpstan-rules" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="New in Symplify 9: More than 110 PHPStan Rules" />
+    <meta name="twitter:description" content="In Symplify 8, a bunch of PHP rules was part of the symplify/coding-standard package.
+It was a mix of too many tools, so we decided to **decouple a new package - symplify/phpstan-rules**.
+
+During summer 2020, our Rector team grew from 1 member to 4. To keep onboarding smooth, we started to use PHPStan **to help with code-reviews in Rector**. We got obsessed with [moving human code-reviews to CI](/blog/2019/11/18/how-to-delegate-code-reviews-to-ci/).
+
+Was it worth it? Hell yea!
+" />
