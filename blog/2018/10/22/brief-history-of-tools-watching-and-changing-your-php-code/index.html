@@ -120,12 +120,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2018-10-Mon">
-            
-                            Mon, Oct 22, 2018
+            <strike>
+                            Oct, 2018
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Dec, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -140,6 +143,16 @@
     </ul>
 
             
+                            <div class="card border-success card-bigger mt-5">
+                    <div class="card-header text-white bg-success">
+                        <strong>This post was updated at December 2020</strong>
+                    </div>
+                                            <div class="card-body pb-2">
+                            <p>Removed deprecated and unused tools, to keep focus on relevant ones.</p>
+                        </div>
+                                    </div>
+
+                <br>
             
             <div class="card card-bigger mb-5">
                 <div class="card-body pb-2">
@@ -195,11 +208,6 @@ $object-&gt;missing(); // here we know that "missing" does not exist in "SomeObj
 <a href="https://github.com/phpstan/phpstan/releases/tag/0.1">* 2016</a>
 </span></p>
 <p>If you don't use any static analysis tool, give PHPStan a try. I've made <a href="/blog/2017/01/28/why-I-switched-scrutinizer-for-phpstan-and-you-should-too/">minimalist intro that will help you with first steps </a>. It's worth investing even day or two to set it up because <strong>these tools will join toolkit of everyday use</strong>, like Composer or PHPUnit.</p>
-<h3 id="a-href-https-github-com-phan-phan-phan-a-by-rasmus-lerdorf"><a href="https://github.com/phan/phan">Phan</a> by Rasmus Lerdorf</h3>
-<p><span class="badge badge-danger">AST</span>
-<span class="badge badge-info">
-<a href="https://github.com/phan/phan/releases/tag/0.1">* 2015</a>
-</span></p>
 <h3 id="a-href-https-github-com-vimeo-psalm-vimeo-psalm-a-by-matthew-brown"><a href="https://github.com/vimeo/psalm">vimeo/psalm</a> by Matthew Brown</h3>
 <p><span class="badge badge-danger">AST</span>
 <span class="badge badge-info">
@@ -209,14 +217,6 @@ $object-&gt;missing(); // here we know that "missing" does not exist in "SomeObj
 <p>Psalm is a very interesting tool that was born to fight Vimeo code complexity. It was the first tool from this group of 3, <strong>that started <a href="https://psalm.dev/docs/manipulating_code/fixing/">fixing the code</a></strong>.</p>
 <h2 id="3-deprecation-detectors">3. Deprecation Detectors</h2>
 <p>This group is widely used in the framework-agnostic PHP community.</p>
-<h3 id="a-href-https-github-com-sstalle-php7cc-php-7-compatibility-checker-a"><a href="https://github.com/sstalle/php7cc">PHP 7 Compatibility Checker</a></h3>
-<p><span class="badge badge-secondary">Deprecated</span>
-<span class="badge badge-danger">AST</span></p>
-<p>This tool checked for compatibility with PHP 7.</p>
-<h3 id="a-href-https-github-com-sensiolabs-de-deprecation-detector-sensiolabs-de-deprecation-detector-a"><a href="https://github.com/sensiolabs-de/deprecation-detector">sensiolabs-de/deprecation-detector</a></h3>
-<p><span class="badge badge-secondary">Deprecated</span>
-<span class="badge badge-danger">AST</span></p>
-<p>This package helped to look for Symfony 3 deprecations in your code.</p>
 <h3 id="a-href-https-github-com-phpcompatibility-phpcompatibility-phpcompatibility-phpcompatibility-a"><a href="https://github.com/PHPCompatibility/PHPCompatibility">PHPCompatibility/PHPCompatibility</a></h3>
 <p><span class="badge badge-light">Tokens</span></p>
 <p>This tool checks for PHP cross-version compatibility. It allows you to analyze your code for compatibility with higher and lower versions of PHP.</p>
@@ -229,14 +229,6 @@ $object-&gt;missing(); // here we know that "missing" does not exist in "SomeObj
 <span class="badge badge-secondary">Deprecated</span></p>
 <p>This tool was created in <strong>2015</strong> and it's revolutionary. Why? It wisely connects the token analysis of PHP CS Fixer with deprecations in Symfony 2 to 3. Imagine it like PHP CS Fixer + <code>sensiolabs-de/deprecation-detector</code> <strong>working for you</strong>.</p>
 <p>Isn't that amazing? <strong>You just sit, run this tool and send invoices. Genius!</strong> The features are limited due to Tokens, but still, I love this.</p>
-<h3 id="a-href-https-github-com-cakephp-upgrade-cakephp-upgrade-a"><a href="https://github.com/cakephp/upgrade">cakephp/upgrade</a></h3>
-<p><span class="badge badge-success">Modifies Code</span></p>
-<p>It's completely natural, that frameworks that evolve fast need a tool that helps their users to migrate.
-CakePHP is jumping faster and faster in recent years, they made their own tool. It's based on regular expressions.</p>
-<h3 id="a-href-https-github-com-silverstripe-silverstripe-upgrader-silverstripe-upgrader-a"><a href="https://github.com/silverstripe/silverstripe-upgrader">silverstripe-upgrader</a></h3>
-<p><span class="badge badge-danger">AST</span>
-<span class="badge badge-success">Modifies Code</span></p>
-<p>SilverStripe is a PHP CMS coming from New Zealand. Its logic is very similar to Rector and I like it. It's also quite small, so the code is easy to understand. Be sure to check it!</p>
 <h3 id="a-href-https-github-com-rectorphp-rector-rector-a"><a href="https://github.com/rectorphp/rector">Rector</a></h3>
 <p><span class="badge badge-danger">AST</span>
 <span class="badge badge-success">Modifies Code</span></p>
