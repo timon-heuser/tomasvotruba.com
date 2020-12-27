@@ -190,7 +190,7 @@ composer.json
 ecs.php
 phpstan.neon
 phpunit.xml
-rector-ci.php</code></pre>
+rector.php</code></pre>
 <p>Second repository: <code>lazy-company/drone-delivery</code></p>
 <p>With following code:</p>
 <pre><code class="language-bash">/src
@@ -199,7 +199,7 @@ composer.json
 ecs.php
 phpstan.neon
 phpunit.xml
-rector-ci.php</code></pre>
+rector.php</code></pre>
 <h2 id="1-create-a-monorepo-repository">1. Create a Monorepo repository</h2>
 <p>Go to your Gitlab or Github and create a new repository. Name it <code>lazy-company/lazy-company</code> (by convention) or <code>lazy-company/lazy-company-monorepo</code> (in case the previous is taken).</p>
 <p>Clone it locally.</p>
@@ -213,7 +213,7 @@ rector-ci.php</code></pre>
         ecs.php
         phpstan.neon
         phpunit.xml
-        rector-ci.php
+        rector.php
     /drone-delivery
         /src
         /test
@@ -221,7 +221,7 @@ rector-ci.php</code></pre>
         ecs.php
         phpstan.neon
         phpunit.xml
-        rector-ci.php</code></pre>
+        rector.php</code></pre>
 <p>Not bad, right?</p>
 <h2 id="3-merge-all-code-composer-json-code-to-root-one">3. Merge all <code>composer.json</code> to Root One</h2>
 <p>In the root directory, we only have the directory with all packages:</p>
@@ -342,7 +342,7 @@ rector-ci.php</code></pre>
 -        ecs.php
 -        phpstan.neon
          phpunit.xml
--        rector-ci.php
+-        rector.php
      /drone-delivery
          /src
          /test
@@ -350,10 +350,10 @@ rector-ci.php</code></pre>
 -        ecs.php
 -        phpstan.neon
          phpunit.xml
--        rector-ci.php
+-        rector.php
 +ecs.php
 +phpstan.neon
-+rector-ci.php</code></pre>
++rector.php</code></pre>
 <p>This step is pretty easy... well, it depends.</p>
 <p><strong>What is the thing that can happen?</strong> One of your packages has PHPStan level 1, but all others have PHPStan 8.</p>
 <p>We can either take time and update the PHPStan level 1 to 8 or lower all to 1. I'd go with <em> drop all to 1</em> options now, and do this after creating the monorepo. If we mix too many tasks at once, we can prolong <em>build a monorepo</em> tasks for weeks.</p>
@@ -375,7 +375,7 @@ rector-ci.php</code></pre>
 -        phpunit.xml
  ecs.php
  phpstan.neon
- rector-ci.php
+ rector.php
 +phpunit.xml</code></pre>
 <p>Update paths in <code>phpunit.xml</code> and prepare a common environment for all tests.</p>
 <p><br></p>

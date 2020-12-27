@@ -148,7 +148,8 @@
                         <strong>This post was updated at December 2020</strong>
                     </div>
                                             <div class="card-body pb-2">
-                            <p>The Bitbucket was dropped, as unused services and the demo repository is not maintained.</p>
+                            <p>The Bitbucket was dropped, as unused services and the demo repository is not maintained.
+The Travis was dropped, as it does not support open-source anymore and for private projects are better alternatives.</p>
                         </div>
                                     </div>
 
@@ -196,7 +197,7 @@ In the last <a href="/blog/2019/07/29/how-we-completed-thousands-of-missing-var-
 </ol>
 <pre><code class="language-bash">composer require rector/rector --dev</code></pre>
 <ol start="2">
-<li>Create <code>rector-ci.php</code> config just for code-reviews</li>
+<li>Create <code>rector.php</code> config just for code-reviews</li>
 </ol>
 <pre><code class="language-php">use Rector\Core\Configuration\Option;
 use Rector\Set\ValueObject\SetList;
@@ -209,13 +210,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 <ol start="3">
 <li>And add to your CI bash</li>
 </ol>
-<pre><code class="language-bash">vendor/bin/rector process src --config rector-ci.php --dry-run</code></pre>
+<pre><code class="language-bash">vendor/bin/rector process src --dry-run</code></pre>
 <h2 id="how-to-add-rector-ci-to-your-favorite-ci">How to add Rector CI to your Favorite CI?</h2>
 <p>I've prepared a demo with PHP code and a testing pipeline for all widely used CI services.</p>
 <ul>
 <li><a href="#1-github-actions">GitHub Actions</a></li>
-<li><a href="#2-github-travis-ci">GitHub + Travis CI</a></li>
-<li><a href="#3-gitlab-ci">Gitlab CI</a></li>
+<li><a href="#2-gitlab-ci">Gitlab CI</a></li>
 </ul>
 <p><br></p>
 <p>There you'll find all the configuration you need to <strong>let your CI do code-reviews</strong>.</p>
@@ -233,46 +233,20 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-        - uses: actions/checkout@v1
+            - uses: actions/checkout@v1
 
-        - name: Validate composer.json and composer.lock
-          run: composer validate
+            -
+                name: Validate composer.json and composer.lock
+                run: composer validate
 
-        - name: Install dependencies
-          run: composer install --prefer-dist --no-progress --no-suggest
+            -
+                name: Install dependencies
+                run: composer install --no-progress --no-suggest
 
-        - name: Code Review
-          run: ./vendor/bin/rector process --config rector-ci.php --dry-run</code></pre>
-<h3 id="2-github-travis-ci">2. GitHub + Travis CI</h3>
-<p><br></p>
-<p><a href="https://github.com/tomasvotruba/rector-ci-demo" class="btn btn-info">Repository</a>
-<a href="https://travis-ci.com/TomasVotruba/rector-ci-demo/jobs/258286278#L320"  class="btn btn-success ml-3">CI Feedback</a></p>
-<pre><code class="language-yaml"># .travis.yml
-os: linux
-language: php
-
-php:
-    - '7.2'
-
-install:
-    # install composer dependencies for all stages
-    - composer install --prefer-dist --no-ansi --no-interaction --no-progress
-
-jobs:
-    include:
-        -
-            stage: test
-            name: "Tests"
-            script:
-                - vendor/bin/phpunit
-
-        -
-            stage: test
-            name: "Code Review"
-            script:
-                - vendor/bin/rector process --config rector-ci.php --dry-run</code></pre>
-<p><br></p>
-<h3 id="3-gitlab-ci">3. Gitlab CI</h3>
+            -
+                name: Code Review
+                run: ./vendor/bin/rector process --dry-run</code></pre>
+<h3 id="2-gitlab-ci">2. Gitlab CI</h3>
 <pre><code class="language-yaml"># .gitlab-ci.yml
 # inspired from https://docs.gitlab.com/ee/ci/examples/php.html
 
@@ -294,7 +268,7 @@ tests:
 code-review:
     stage: test
     script:
-        - vendor/bin/rector process --config rector-ci.php --dry-run</code></pre>
+        - vendor/bin/rector process --dry-run</code></pre>
 <h2 id="what-sets-to-start-with">What sets to Start With?</h2>
 <p>Here are my favorite sets I apply first:</p>
 <pre><code class="language-php">&lt;?php
@@ -321,7 +295,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 <br></p>
 <p>That's it!</p>
 <p>Oh... one more thing. You don't have to resolve all the Rector reported flaws manually, <strong>just remove the <code>--dry-run</code> option</strong> and run it locally before pushing:</p>
-<pre><code class="language-bash">vendor/bin/rector process src --config rector-ci.php</code></pre>
+<pre><code class="language-bash">vendor/bin/rector process src</code></pre>
 <p><br></p>
 <p>Enjoy your coffee!</p>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
