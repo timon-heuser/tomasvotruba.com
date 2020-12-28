@@ -350,7 +350,7 @@ $isTimestampableEntity = is_a($entityClass, TimestampableInterface::class, true)
 <p><br></p>
 <p>That's why during such BC breaking changes <strong>I've prepared <a href="https://github.com/KnpLabs/DoctrineBehaviors/blob/master/upgrade/rector/doctrine-behaviors-20.yaml">instant upgrade Rector set</a> you can run on your code</strong>:</p>
 <pre><code class="language-yaml">composer require rector/rector --dev
-vendor/bin/rector process src --config vendor/knplabs/doctrine-behaviors/upgrade/rector/doctrine-behaviors-20.yaml</code></pre>
+vendor/bin/rector process src --config vendor/rector/rector/config/set/doctrine-behaviors-20.php</code></pre>
 <p>Single command turns to upgrade from 1 to 2 from days to few dozens of minutes.</p>
 <h2 id="how-does-it-compare-to-gedmo-stof">How does it Compare to Gedmo/Stof?</h2>
 <p>Are you a stof/gedmo user? Then you're familiar <a href="https://github.com/stof/StofDoctrineExtensionsBundle/issues">with Symfony 5 issues</a> around it. Don't worry. The KnpLabs\DoctrineBehaviors 2 was developed bearing you in mind.</p>
