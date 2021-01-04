@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>5 New Combos opened by Symfony 5.2 and PHP 8.0 | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 294 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="container-fluid" id="post">
+            <h1>5 New Combos opened by Symfony&nbsp;5.2&nbsp;and PHP&nbsp;8.0</h1>
+
+            <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>5 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-12-Mon">
+            
+                            Mon, Dec 21, 2020
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/12/21/5-new-combos-opened-by-symfony-52-and-php-80/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/data/2020/2020-12-21-5-new-combos-opened-by-symfony-52-and-php-80.md">Found a typo? Edit me</a>
+        </li>
+    </ul>
+
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Conjunction of 2 releases came in December 2020, Symfony 5.2 and <a href="https://getrector.org/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs">PHP 8.0</a>.
+I wanted to give them a fresh try, so I've updated <code>composer.json</code> in 3 projects, run the Rector upgrade set, and this happened...</p>
+                </div>
+            </div>
+
+            <p>For code-screeners who understand diffs better than words like me, here are direct links to pull-requests to get the real deal of migration porn:</p>
+<ul>
+<li><a href="https://github.com/TomasVotruba/tomasvotruba.com/pull/1107/files">tomasvotruba.com upgrade</a></li>
+<li><a href="https://github.com/rectorphp/getrector.org/pull/190/files">getrector.org upgrade</a></li>
+<li><a href="https://github.com/TomasVotruba/friendsofphp.org/pull/176/files">friendsofphp.org upgrade</a></li>
+</ul>
+<p>I haven't done such a smooth upgrade in years. The work started on December 1st and finished with the last merge on December 2nd. That's two days - <strong>that's only possible thanks to the amazing work of PHP contributors and Symfony team</strong>. Thank you! Do you want to upgrade too? <a href="https://getrector.org/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs">Do it with PHP 8 Rector set</a>.</p>
+<h2 id="open-the-next-door">Open the Next Door</h2>
+<p>Now that we have this off the table, let's talk about the &quot;open the next door&quot; technique. An open door is one of the kaizen approaches to coding, life, and everything.</p>
+<p><strong>We don't know what is behind the door until we open them and enter the room</strong>. There might be another door that we might open. Don't think about what is after 2nd potential door in a room we haven't seen yet. Just enter the room and see.</p>
+<img src="/assets/images/posts/2020/combo-door.jpg" class="img-thumbnail">
+<p>The same way PHP 5.3 helped with service vs. value object directory structure in times nobody think of it:</p>
+<ul>
+<li>PHP 5.3 opened the door to namespaces</li>
+<li>then PSR-4 opened the door to unique file-class names</li>
+<li>then Symfony autodiscovery opened the door to namespace-based service loading</li>
+<li>then namespace-based service loading opened the door to services vs. value objects directory structure</li>
+</ul>
+<p><em>Kaizen</em> is a Japanese technique about daily continuous little improvements. Today <strong>we open the door to PHP 8, then another to Symfony 5.2</strong>. Only then can we see what is in the room we've never been to.</p>
+<p><br></p>
+<p>Here is what I saw:</p>
+<h2 id="1-switch-code-route-code-annotations-to-code-route-code-attributes">1. Switch <code>@Route</code> Annotations to <code>#[Route]</code> Attributes</h2>
+<p>PHP 8 brings attributes and Symfony 5.2 brings <code>#[Route]</code> attribute. Now we can finally get rid of stringy annotations and get robust reliable native PHP attributes code:</p>
+<pre><code class="language-diff">-/**
+- * @Route(path="/archive", name="blog_archive")
+- */
++#[Route(path: '/archive', name: 'blog_archive')]
+ public function blogArchive(): Response
+ {
+     // ...
+ }</code></pre>
+<p>Named properties included.</p>
+<h2 id="2-route-names-can-be-constants">2. Route Names Can be Constants</h2>
+<p>Annotations have kind-of autocomplete support, but lack of docblock standard makes parsing problematic. One parser supports syntax with trailing <code>,</code>, the other does not.</p>
+<p>With attributes, we can forget this bag of problems and welcome features we use in standard PHP code. E.g., <strong>using constants for repeated strings across many PHP files</strong>.</p>
+<p><br></p>
+<p>During refactoring, I used <code>"archive"</code> as route name, and the project crashed. Why? The correct value was <code>"blog_archive"</code>. What a dumb <a href="/blog/2018/08/27/why-and-how-to-avoid-the-memory-lock/">memory locker</a>. We don't want to store and search strings in my brain. We want to code as safely as possible with IDE having our back.</p>
+<p><br></p>
+<p>Here is the deal. What if we have a <code>RouteName</code> object with constants of route names?</p>
+<img src="/assets/images/posts/2020/combo-route-value-object.png" class="img-thumbnail">
+<p>No we have <strong>one place</strong> to manage route names <em class="fas fa-fw fa-check text-success"></em></p>
+<p><br></p>
+<p>What else extra can we get out of this...</p>
+<p><br></p>
+<p><strong>Where is route used?</strong> Just click on it <em class="fas fa-fw fa-check text-success"></em></p>
+<img src="/assets/images/posts/2020/combo-route-use-cases.png" class="img-thumbnail">
+<p><br></p>
+<p><strong>What routes can we use?</strong> Ask your IDE <em class="fas fa-fw fa-check text-success"></em></p>
+<img src="/assets/images/posts/2020/combo-route-value-object.png" class="img-thumbnail">
+<p>Attribute and redirect autocomplete <em class="fas fa-fw fa-check text-success"></em></p>
+<pre><code class="language-php">return $this-&gt;redirectToRoute(RouteName::CONTACT);</code></pre>
+<p>Twig autocomplete - kind of crappy now <em class="fas fa-fw fa-question text-warning"></em></p>
+<pre><code class="language-twig">&lt;a href="{{ path(constant('Rector\\Website\\ValueObject\\RouteName::CONTACT')) }}"&gt;Dare us&lt;/a&gt;</code></pre>
+<p><br></p>
+<p><strong>How can we rename a route?</strong> In 1 line <em class="fas fa-fw fa-check text-success"></em></p>
+<p>Wait, why should we ever rename a route? That's a good question. But a better question is: why should we think about route names at all? We'll get into that.</p>
+<h2 id="3-property-promotion-empowers-invokable-controllers">3. Property Promotion empowers Invokable Controllers</h2>
+<p>What is property promotion? It's a PHP 8 feature that does this:</p>
+<pre><code class="language-diff">-    private PostRepository $postRepository;
+
+-    private ClusterRepository $clusterRepository;
+
+     public function __construct(
+-        PostRepository $postRepository,
++        private PostRepository $postRepository,
+-        ClusterRepository $clusterRepository
++        private ClusterRepository $clusterRepository
+    ) {
+-        $this-&gt;postRepository = $postRepository;
+-        $this-&gt;clusterRepository = $clusterRepository;
+    }</code></pre>
+<p>2/3 less lines, 100 % of duplicated code removed <em class="fas fa-fw fa-check text-success"></em></p>
+<p>Note: Are you using action injection? Migrate to promoted properties and <a href="/blog/2018/04/23/how-to-slowly-turn-your-symfony-project-to-legacy-with-action-injection/">stop now</a>.</p>
+<p><br></p>
+<p>What is an invokable controller? It's a form of Symfony controller that is impossible to turn into a huge legacy controller with 50 actions.</p>
+<p><strong>Invokable controller has exactly 1 action called <code>__invoke()</code></strong>. We only think about the controller name and what it should do. It's like CQRS on the controller level.</p>
+<p><br></p>
+<p>So we separate each controller action method into its controller class with a descriptive name:</p>
+<pre><code class="language-diff">-final class HomepageController
++final class BlogArchiveController
+ {
+     public function __construct(
+         private PostRepository $postRepository,
+-        private ClusterRepository $clusterRepository
+     ) {
+     }
+
+     #[Route(path: '/archive', name: RouteName::BLOG_ARCHIVE)]
+-    public function blogArchive): Response
++    public function __invoke(): Response
+     {
+         // ...
+     }
+
+-    #[Route(path: '/clusters', name: RouteName::CLUSTERS)]
+-    public function clusters(): Response
+-    {
+-        // ...
+-    }
+ }</code></pre>
+<p>This opens another door... now, we'll get to the route naming...</p>
+<h2 id="4-door-for-new-phpstan-rules">4. Door for New PHPStan Rules</h2>
+<p>What do you think about this controller?</p>
+<pre><code class="language-php"> final class BlogArchiveController
+ {
+     public function __construct(private PostRepository $postRepository)
+     {
+     }
+
+     #[Route(path: '/archive', name: RouteName::CONTACT)]
+     public function __invoke(): Response
+     {
+        // ...
+     }
+ }</code></pre>
+<p>What about this controller?</p>
+<pre><code class="language-php"> final class ContactController
+ {
+     public function __construct(private PostRepository $postRepository)
+     {
+     }
+
+     #[Route(path: '/post-detail', name: RouteName::POST_DETAIL)]
+     public function __invoke(): Response
+     {
+        // ...
+     }
+ }</code></pre>
+<p><br></p>
+<p>If you have OCD or you're a programmer, you have noticed the names doesn't quite add up:</p>
+<ul>
+<li><code>BlogArchiveController</code> - route name: <code>CONTACT</code></li>
+<li><code>ContactController</code> - route name: <code>POST_DETAIL</code></li>
+</ul>
+<p>This could have been spotted during code-review... or not.
+<strong>Why bother yourself</strong>, when PHPStan can handle it?</p>
+<p><br></p>
+<p>Abdul is <a href="https://github.com/symplify/symplify/pull/2740">just now working on a PHPStan rule</a>, which makes sure <strong>the class name matches the route name</strong>.</p>
+<ul>
+<li><code>BlogArchiveController</code> - route name: CONTACT <em class="fas fa-fw fa-times text-danger"></em></li>
+<li><code>ContactController</code> - route name: <code>CONTACT</code> <em class="fas fa-fw fa-check text-success"></em></li>
+</ul>
+<h2 id="5-move-from-yaml-to-php-to-get-rep">5. Move from YAML to PHP to get REP</h2>
+<p>REP works best with pure PHP code. Not YAML, not TWIG, not NEON nor Latte. Pure PHP.
+<br><strong>R</strong>ector, <strong>E</strong>CS and <strong>P</strong>HPStan.
+If you're still on old YAML configs, switch now - <a href="/blog/2020/07/27/how-to-switch-from-yaml-xml-configs-to-php-today-with-migrify/">there is a tool for that</a>.</p>
+<p><br></p>
+<p>Then, you can add PHPStan rules, e.g. <a href="https://github.com/symplify/phpstan-rules/blob/master/docs/rules_overview.md#checkrequiredautowireautoconfigurepublicusedinconfigservicerule">one</a> that make sure you don't forget to add saint <code>defaults()</code> to your configs:</p>
+<pre><code class="language-php">use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $services = $containerConfigurator-&gt;services();
+
+    $services-&gt;defaults()
+        -&gt;public();
+};</code></pre>
+<p><em class="fas fa-fw fa-times text-danger fa-2x" style="margin-left: 0em; float: left; padding-right: .2em;"></em> <code>autoconfigure()</code> and <code>autowire()</code> is missing</p>
+<p><br></p>
+<p>You can avoid <a href="https://github.com/symplify/phpstan-rules/blob/master/docs/rules_overview.md#preventdoublesetparameterrule">parameter override</a>:</p>
+<pre><code class="language-php">use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+
+    $parameters-&gt;set('some_param', [1]);
+    $parameters-&gt;set('some_param', [2]);
+};</code></pre>
+<p><em class="fas fa-fw fa-times text-danger fa-2x" style="margin-left: 0em; float: left; padding-right: .2em;"></em> <code>"some_param"</code> is overridden</p>
+<p><br></p>
+<p>Or <a href="https://github.com/symplify/phpstan-rules/blob/master/docs/rules_overview.md#requireconstantinmethodcallpositionrule">require constant</a> to configure parameter name:</p>
+<pre><code class="language-php">use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator-&gt;parameters();
+    $parameters-&gt;set('some_param', [1]);
+};</code></pre>
+<p><em class="fas fa-fw fa-times text-danger fa-2x" style="margin-left: 0em; float: left; padding-right: .2em;"></em> string <code>"some_param"</code> can create typoes, use constant instead</p>
+<p><br></p>
+<p>Another side effect is that you can finally drop <a href="https://symfony.com/blog/new-in-symfony-4-4-service-container-linter">YAML linting</a> from your CI:</p>
+<pre><code class="language-diff">         steps:
+-            - run: bin/console lint:YAML config</code></pre>
+<p><br></p>
+<p>That's it. We've just opened 5 doors to a new view on PHP programming in Symfony. That's just a start. I bet you can see the 6th door already...</p>
+<p>I'm curious, <strong>What new way have you opened in your projects?</strong> Share with us in the comments. I'm eager to try it out.</p>
+<p><br></p>
+<p>Happy coding!</p>
+
+            <br>
+
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/12/14/new-in-symplify-9-more-than-110-phpstan-rules" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                New in Symplify 9: More than 110 PHPStan Rules
+                            </span>
+                        </a>
+                                    </div>
+            </div>
+
+            <br>
+
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p class="mt-2">
+        Open-source is my life. Does it help yours? You can <a href="https://github.com/sponsors/TomasVotruba">Sponsor Me</a> &nbsp;
+        <em class="fas fa-heart text-danger fa-lg"></em>
+
+        &nbsp;
+        <span class="pl-2 pr-2">•</span>
+        &nbsp;
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong>?
+
+        <br>
+
+        With awesome <a href="https://getrector.org/">Instant Refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="5 New Combos opened by Symfony 5.2 and PHP 8.0" />
+    <meta property="og:description" content="Conjunction of 2 releases came in December 2020, Symfony 5.2 and [PHP 8.0](https://getrector.org/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs).
+I wanted to give them a fresh try, so I&#039;ve updated `composer.json` in 3 projects, run the Rector upgrade set, and this happened...
+" />
+    <meta property="og:url" content="/blog/2020/12/21/5-new-combos-opened-by-symfony-52-and-php-80" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="5 New Combos opened by Symfony 5.2 and PHP 8.0" />
+    <meta name="twitter:description" content="Conjunction of 2 releases came in December 2020, Symfony 5.2 and [PHP 8.0](https://getrector.org/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs).
+I wanted to give them a fresh try, so I&#039;ve updated `composer.json` in 3 projects, run the Rector upgrade set, and this happened...
+" />
