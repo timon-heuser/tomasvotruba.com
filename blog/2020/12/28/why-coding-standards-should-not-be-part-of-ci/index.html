@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Why Coding Standards Should Not Be Part of CI | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 295 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="container-fluid" id="post">
+            <h1>Why Coding Standards Should Not Be Part of CI</h1>
+
+            <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>3 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2020-12-Mon">
+            
+                            Mon, Dec 28, 2020
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2020/12/28/why-coding-standards-should-not-be-part-of-ci/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/data/2020/2020-12-28-why-coding-standards-should-not-be-part-of-ci.md">Found a typo? Edit me</a>
+        </li>
+    </ul>
+
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Why do you use coding standards? To standardize the design of your code so that any contributor will produce somewhat similar PHP code.
+<br><br>
+Where do we use it? In CI pipelines on every pull-request, locally in a command line or within PHPStorm.
+<strong>Now take these 3 places and drop coding standard from them.</strong></p>
+                </div>
+            </div>
+
+            <p>&quot;What?&quot; Wait a sec. We'll get to that.</p>
+<p>Do you use using PHPStorm plugins for coding standards? I [argued it's a waste of time](/blog/2019/06/24/do-you-use-php-code sniffer-and-php-cs-fixer-phpstorm-plugin-you-are-slow-and-expensive/) and that you should move to CI. In recent months, I conclude <strong>that even coding standard in CI is rather limiting for daily work</strong>. We have to wait for CI feedback, process the feedback, and pay for CI work-minutes.</p>
+<p>I believe we can get rid of this technical debt. Why even care? <a href="/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers/">Because faster CI feedback is</a>, the addictive is coding against it. We'll get to that.</p>
+<p><br></p>
+<p>What do we talk about when we say &quot;coding standards&quot;?</p>
+<h2 id="1-coding-standard-is-about-how-code-looks">1. Coding Standard is about How Code Looks</h2>
+<p>If we run coding standard on our code, the only thing that should change is <strong>its design</strong>:</p>
+<pre><code class="language-diff">-   class    SomeClass { }
++class SomeClass
++{
++}</code></pre>
+<p>Their features and logic should remain the same.</p>
+<ul>
+<li>Does your coding standard handle refactoring or upgrades? It should be by <a href="https://github.com/rectorphp/rector">Rector</a>.</li>
+<li>Does your coding standard tell you that <code>dump()</code> was left in the code? <a href="https://github.com/phpstan/phpstan">PHPStan</a> should handle that.</li>
+</ul>
+<h2 id="2-coding-standard-is-deterministic">2. Coding Standard is Deterministic</h2>
+<p><strong>Deterministic means that each input has exactly one output</strong>.</p>
+<p>E.g., you have a car. If you turn its steering wheel to the left, the car will turn left. If you turn it right, the car will turn right.</p>
+<img src="/assets/images/posts/2020/steering-wheel.jpg" class="img-thumbnail">
+<p>If turning the steering wheel in one direction does not produce the same output in the same conditions, we know that car is broken, or we're too drunk. We should stop driving in both cases as it can have non-deterministic consequences.</p>
+<p>The same applies to coding standards. If we say A → we must add B.</p>
+<ul>
+<li>We don't use composed constants → we use each on their standalone line.</li>
+</ul>
+<pre><code class="language-diff">-const ONE = 'two', TWO = 'one';
++const ONE = 'two';
++const TWO = 'one';</code></pre>
+<ul>
+<li>We don't use old arrays → we use new ones.</li>
+</ul>
+<pre><code class="language-diff">-$items = array(
++$items = [
+     // ...
+-);
++];</code></pre>
+<p>We can't say: &quot;we don't use old arrays → we use anything else&quot;. That's not a coding standard but an unfinished opinion.</p>
+<h2 id="3-coding-standard-rules-must-be-fixable">3. Coding Standard Rules must be Fixable</h2>
+<p>Let's get back to the car. The steering wheel is deterministic. Turn it left →  car turns left, turn it right → car turns right. If we turn left and turns right, we know the car paradigm is broken and take it into the car repair shop. They already know how the car should behave without us telling them. They know <strong>how to fix it</strong>, no need to discuss car standards.</p>
+<p>Same applies for coding standard:</p>
+<pre><code class="language-diff">-$items = array(
++$items = [
+     // ...
+-);
++];</code></pre>
+<p>That's why every coding standard rule <strong>should be fixable by default</strong>. Actually, <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">PHP CS Fixer</a> is built on this premise, and each rule is a fixer by default. Good job!</p>
+<p>If it's impossible to come up with a fixable version, a PHPStan rule should handle this case.</p>
+<p><br></p>
+<p>What happens if we apply points 1, 2, and 3 to our coding standard set? It handles code design, it is deterministic, and it is fixable. That looks like work for robots...</p>
+<h2 id="why-do-we-put-coding-standards-into-ci">Why do we put Coding Standards into CI?</h2>
+<p>Well, one reason is self-evident - <em>status quo</em>, we're used to that.</p>
+<p>Also, we want the code to look the same on every merge. Apart from that, there is not much to say.</p>
+<h2 id="how-coding-standard-in-ci-wastes-time">How Coding Standard in CI Wastes Time?</h2>
+<p>If we have a project with 15 pull-request a day and coding standard run in CI for every pull-request, that's at least 15 runs a day.
+One run can take 3 mins on average. That's 45 minutes. What happens when a coding standard fails? We have to check it manually, fix it, and push the commit into the branch.</p>
+<p>The circle repeats. That's <strong>at least 90 minutes of waiting time wasted a day for your whole team</strong>. Also, now robots are controlling humans. Our CI is adding extra work to developers, and developers must silently obey to make CI robots happy. Dooms Day already?</p>
+<p><br></p>
+<p>Let's get back to the primary purpose of coding standards. Our PHP code should look the same.</p>
+<p>Could you think of a better solution that does not waste 90 minutes a day and turn us into slaves but keeps our PHP code looks nice and pretty?</p>
+<p><br></p>
+<p>Happy coding!</p>
+
+            <br>
+
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/12/21/5-new-combos-opened-by-symfony-52-and-php-80" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                5 New Combos opened by Symfony 5.2 and PHP 8.0
+                            </span>
+                        </a>
+                                    </div>
+            </div>
+
+            <br>
+
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p class="mt-2">
+        Open-source is my life. Does it help yours? You can <a href="https://github.com/sponsors/TomasVotruba">Sponsor Me</a> &nbsp;
+        <em class="fas fa-heart text-danger fa-lg"></em>
+
+        &nbsp;
+        <span class="pl-2 pr-2">•</span>
+        &nbsp;
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong>?
+
+        <br>
+
+        With awesome <a href="https://getrector.org/">Instant Refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="Why Coding Standards Should Not Be Part of CI" />
+    <meta property="og:description" content="Why do you use coding standards? To standardize the design of your code so that any contributor will produce somewhat similar PHP code.
+
+Where do we use it? In CI pipelines on every pull-request, locally in a command line or within PHPStorm.
+**Now take these 3 places and drop coding standard from them.**
+" />
+    <meta property="og:url" content="/blog/2020/12/28/why-coding-standards-should-not-be-part-of-ci" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="Why Coding Standards Should Not Be Part of CI" />
+    <meta name="twitter:description" content="Why do you use coding standards? To standardize the design of your code so that any contributor will produce somewhat similar PHP code.
+
+Where do we use it? In CI pipelines on every pull-request, locally in a command line or within PHPStorm.
+**Now take these 3 places and drop coding standard from them.**
+" />
