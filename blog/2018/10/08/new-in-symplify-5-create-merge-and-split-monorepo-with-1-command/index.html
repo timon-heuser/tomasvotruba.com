@@ -120,12 +120,15 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2018-10-Mon">
-            
-                            Mon, Oct 8, 2018
+            <strike>
+                            Oct, 2018
             
             </strike>        </time>
     </li>
 
+            <li class="list-inline-item mr-3 text-success">
+            <em class="fas fa-fw fa-sync"></em> Updated Dec, 2020
+        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -140,6 +143,16 @@
     </ul>
 
             
+                            <div class="card border-success card-bigger mt-5">
+                    <div class="card-header text-white bg-success">
+                        <strong>This post was updated at December 2020</strong>
+                    </div>
+                                            <div class="card-body pb-2">
+                            <p>Removed the deprecated <code>split</code> command. Use faster and reliable <a href="/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action/">GitHub Action</a> instead.</p>
+                        </div>
+                                    </div>
+
+                <br>
             
             <div class="card card-bigger mb-5">
                 <div class="card-body pb-2">
@@ -186,17 +199,6 @@ parameters:
             phpunit/phpunit: '^7.3'</code></pre>
 <p>That's what <code>data_to_append</code> section is for. These packages and versions will be added to <code>composer.json</code>.</p>
 <p><em>Btw, all packages are nicely sorted by name so you always find them quickly.</em></p>
-<h2 id="4-split-it-to-multiple-repositories">4. Split It to Multiple Repositories</h2>
-<p>Let's do the split! Wait, do you even want to split packages into separate repositories? If so:</p>
-<pre><code class="language-bash">vendor/bin/monorepo-builder split</code></pre>
-<p>It's all prepared in config:</p>
-<pre><code class="language-yaml">parameters:
-    # for "split" command
-    directories_to_repositories:
-        packages/first-package: 'git@github.com:your-monorepo/first-package.git'
-        packages/secnod-package: 'git@github.com:your-monorepo/second-package.git'
-</code></pre>
-<p>This step is optional. Most people use only <code>init</code> and <code>merge</code> command at the start.</p>
 <h3 id="do-you-want-to-know-more">Do you Want to Know More?</h3>
 <p>Discover other commands:</p>
 <pre><code class="language-bash">vendor/bin/monorepo-builder</code></pre>
