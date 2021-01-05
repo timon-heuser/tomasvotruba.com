@@ -242,7 +242,7 @@
     }
 }</code></pre>
 <p>So every time a single doc block is created, more than 10 classes (counting these on background) are created too. It might be a small deal for performance, but even bigger for legacy code smell that might hit me back later. But whatever, YOLO!</p>
-<p>And here all the static fun ends. Well, not yet, because it worked. I talked a lot with the maintainer of <code>phpDocumentor/ReflectionDocBlock</code> about moving it forward, but as I was the only one trying, it didn't lead much further than issue chats and PRs that were opened for too long. It was only logical that without <a href="/clusters/#monorepo-from-zero-to-hero/">monorepo</a> all the time was swallowed only by maintenance of 4 interdependent packages.</p>
+<p>And here all the static fun ends. Well, not yet, because it worked. I talked a lot with the maintainer of <code>phpDocumentor/ReflectionDocBlock</code> about moving it forward, but as I was the only one trying, it didn't lead much further than issue chats and PRs that were opened for too long. It was only logical that without <a href="/cluster/monorepo-from-zero-to-hero/">monorepo</a> all the time was swallowed only by maintenance of 4 interdependent packages.</p>
 <h3 id="a-new-shiny-package">A New Shiny Package?</h3>
 <p>Then <a href="https://github.com/JanTvrdik">Jan Tvrdík</a> came with a support package for PHPStan for handling php docs - <a href="https://github.com/phpstan/phpdoc-parser">phpstan/phpdoc-parser</a>. It is built on similar principles as <code>nikic/php-parser</code>, much younger and robust.</p>
 <p>I thought: &quot;I'd like to try that one package in my code&quot;, but how?</p>

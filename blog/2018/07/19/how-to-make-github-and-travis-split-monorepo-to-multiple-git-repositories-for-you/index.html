@@ -114,7 +114,7 @@
             <ul class="list-inline post-metadata">
     <li class="list-inline-item mr-3">
         <em class="fas fa-clock fa-fw"></em>
-        <strong>6 min</strong>
+        <strong>5 min</strong>
     </li>
 
     <li class="list-inline-item mr-3">
@@ -139,11 +139,21 @@
         </li>
     </ul>
 
+                            <div class="card border-danger card-bigger">
+                    <div class="card-header text-white bg-danger">
+                        <strong>This post is deprecated at December 2020</strong>
+                    </div>
+                    <div class="card-body pb-2">
+                        <p>Travis and Monorepo Split is dead now. Use faster <a href="/blog/2020/11/09/new-in-symplify-9-monorepo-split-with-github-action/">GitHub Action</a> instead.</p>
+                    </div>
+                </div>
+
+                <br>
             
             
             <div class="card card-bigger mb-5">
                 <div class="card-body pb-2">
-                    <p>Do you use a <a href="/clusters/#monorepo-from-zero-to-hero/">monorepo</a>? Then you know <a href="https://blog.shopsys.com/how-to-maintain-multiple-git-repositories-with-ease-61a5e17152e0">How to maintain multiple Git repositories with ease</a>. If you're not there yet, you may wonder <a href="https://blog.shopsys.com/how-to-merge-15-repositories-to-1-monorepo-keep-their-git-history-and-add-project-base-as-well-6e124f3a0ab3">How to Merge 15 Repositories to 1 Monorepo and Keep their Git History</a>.
+                    <p>Do you use a <a href="/cluster/monorepo-from-zero-to-hero/">monorepo</a>? Then you know <a href="https://blog.shopsys.com/how-to-maintain-multiple-git-repositories-with-ease-61a5e17152e0">How to maintain multiple Git repositories with ease</a>. If you're not there yet, you may wonder <a href="https://blog.shopsys.com/how-to-merge-15-repositories-to-1-monorepo-keep-their-git-history-and-add-project-base-as-well-6e124f3a0ab3">How to Merge 15 Repositories to 1 Monorepo and Keep their Git History</a>.
 <br><br>
 Are you and your monorepo ready? Today we'll focus on <strong>fast, secured and outsourced monorepo auto split</strong> - all that under 10 minutes.</p>
                 </div>
@@ -300,31 +310,6 @@ after_script:
 <p><strong>It takes under 7,5 minutes</strong> including all the tests, static analysis and code style validation.</p>
 <p>That's all folks. You're ready to go and try it on your monorepo.</p>
 <p><br></p>
-<h2 id="are-you-into-git-internals">Are You Into Git Internals?</h2>
-<p>I knew you are, so here are few details.</p>
-<p>All it' wrapped in a bash file at the moment. It could be done in <code>symfony\process</code>, but the original source <a href="https://github.com/dflydev/git-subsplit">subsplit.sh</a> was in bash so I used it.</p>
-<p>There are ~160 lines but most of them are arguments and options configuration, their resolving, preparing the repository and other boring stuff. The interesting part is really <a href="https://github.com/Symplify/MonorepoBuilder/blob/db9a1aa840092a66234c166cbcc9d6d9196d81b1/packages/Split/bash/subsplit.sh#L107">in this 1</a> and <a href="https://github.com/Symplify/MonorepoBuilder/blob/db9a1aa840092a66234c166cbcc9d6d9196d81b1/packages/Split/bash/subsplit.sh#L123-L126">these 3 lines</a>:</p>
-<pre><code class="language-bash">git remote add origin "git@github.com:Symplify/MonorepoBuilder.git"
-
-git checkout -b "master"
-git subtree split -q --prefix="/packages/MonorepoBuilder" --branch="master"
-git push -q --force origin "master"</code></pre>
-<p>I used &quot;real values&quot; instead of <code>$VARIABLES</code>, so it's more clear to you.</p>
-<p>In human words it works like this:</p>
-<pre><code class="language-bash"># in what repository should we push the code?
-git remote add origin "git@github.com:Symplify/MonorepoBuilder.git"
-
-# what branch do we push there?
-git checkout -b "master"
-
-# the split magic!
-git subtree split -q --prefix="/packages/MonorepoBuilder" --branch="master"
-
-# push this branch to remote branch
-git push -q --force origin "master"</code></pre>
-<p>That is really it!</p>
-<p><strong>If you're git split geek (like me), feel free to explore the whole <a href="https://github.com/Symplify/MonorepoBuilder/blob/master/packages/Split/bash/subsplit.sh"><code>subsplit.sh</code> script</a></strong>. There are many nice little details to learn from.</p>
-<p><br></p>
 <p>So, do you think you're ready to fascinate your friends tonight with all your brand new monorepo split setup?</p>
 
             <br>
@@ -430,7 +415,7 @@ git push -q --force origin "master"</code></pre>
 
         <meta property="og:type" content="article" />
     <meta property="og:title" content="How to Make Github and Travis Split Monorepo to Multiple Git Repositories for You" />
-    <meta property="og:description" content="Do you use a [monorepo](/clusters/#monorepo-from-zero-to-hero/)? Then you know [How to maintain multiple Git repositories with ease](https://blog.shopsys.com/how-to-maintain-multiple-git-repositories-with-ease-61a5e17152e0). If you&#039;re not there yet, you may wonder [How to Merge 15 Repositories to 1 Monorepo and Keep their Git History](https://blog.shopsys.com/how-to-merge-15-repositories-to-1-monorepo-keep-their-git-history-and-add-project-base-as-well-6e124f3a0ab3).
+    <meta property="og:description" content="Do you use a [monorepo](/cluster/monorepo-from-zero-to-hero/)? Then you know [How to maintain multiple Git repositories with ease](https://blog.shopsys.com/how-to-maintain-multiple-git-repositories-with-ease-61a5e17152e0). If you&#039;re not there yet, you may wonder [How to Merge 15 Repositories to 1 Monorepo and Keep their Git History](https://blog.shopsys.com/how-to-merge-15-repositories-to-1-monorepo-keep-their-git-history-and-add-project-base-as-well-6e124f3a0ab3).
 
 Are you and your monorepo ready? Today we&#039;ll focus on **fast, secured and outsourced monorepo auto split** - all that under 10 minutes.
 " />
@@ -439,7 +424,7 @@ Are you and your monorepo ready? Today we&#039;ll focus on **fast, secured and o
         <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@votrubaT">
     <meta name="twitter:title" content="How to Make Github and Travis Split Monorepo to Multiple Git Repositories for You" />
-    <meta name="twitter:description" content="Do you use a [monorepo](/clusters/#monorepo-from-zero-to-hero/)? Then you know [How to maintain multiple Git repositories with ease](https://blog.shopsys.com/how-to-maintain-multiple-git-repositories-with-ease-61a5e17152e0). If you&#039;re not there yet, you may wonder [How to Merge 15 Repositories to 1 Monorepo and Keep their Git History](https://blog.shopsys.com/how-to-merge-15-repositories-to-1-monorepo-keep-their-git-history-and-add-project-base-as-well-6e124f3a0ab3).
+    <meta name="twitter:description" content="Do you use a [monorepo](/cluster/monorepo-from-zero-to-hero/)? Then you know [How to maintain multiple Git repositories with ease](https://blog.shopsys.com/how-to-maintain-multiple-git-repositories-with-ease-61a5e17152e0). If you&#039;re not there yet, you may wonder [How to Merge 15 Repositories to 1 Monorepo and Keep their Git History](https://blog.shopsys.com/how-to-merge-15-repositories-to-1-monorepo-keep-their-git-history-and-add-project-base-as-well-6e124f3a0ab3).
 
 Are you and your monorepo ready? Today we&#039;ll focus on **fast, secured and outsourced monorepo auto split** - all that under 10 minutes.
 " />

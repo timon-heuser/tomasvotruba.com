@@ -315,7 +315,7 @@ class NormalizerConfigPass implements ConfigPassInterface
 <img src="/assets/images/posts/2018/collector-easy-admin-bundle/services.png" class="img-thumbnail">
 <p>I see a tag: <code>easyadmin.config_pass</code>. Let's look for that string:</p>
 <img src="/assets/images/posts/2018/collector-easy-admin-bundle/bingo.png" class="img-thumbnail">
-<p>Warmer! <strong>I've just <a href="/clusters/#collector-pattern-the-shortcut-hack-to-solid-code/">found a collector</a>.</strong> To config, I look for service under <code>easyadmin.config.manager</code> name - <a href="https://github.com/EasyCorp/EasyAdminBundle/blob/07194017918aebe382e1ab0e53c68f6242547a0e/src/Configuration/ConfigManager.php#L112-L119"><code>ConfigManager</code></a> and look for <code>foreach</code> on collected services:</p>
+<p>Warmer! <strong>I've just <a href="/cluster/collector-pattern-the-shortcut-hack-to-solid-code/">found a collector</a>.</strong> To config, I look for service under <code>easyadmin.config.manager</code> name - <a href="https://github.com/EasyCorp/EasyAdminBundle/blob/07194017918aebe382e1ab0e53c68f6242547a0e/src/Configuration/ConfigManager.php#L112-L119"><code>ConfigManager</code></a> and look for <code>foreach</code> on collected services:</p>
 <pre><code class="language-php">private function doProcessConfig($backendConfig): array
     {
     foreach ($this-&gt;configPasses as $configPass) {
