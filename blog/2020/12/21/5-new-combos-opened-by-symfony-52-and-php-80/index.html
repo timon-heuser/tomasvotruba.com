@@ -262,7 +262,8 @@ I wanted to give them a fresh try, so I've updated <code>composer.json</code> in
      {
         // ...
      }
- }</code></pre>
+ }    push: null
+</code></pre>
 <p>What about this controller?</p>
 <pre><code class="language-php"> final class ContactController
  {
@@ -287,7 +288,7 @@ I wanted to give them a fresh try, so I've updated <code>composer.json</code> in
 <p><br></p>
 <p>Abdul is <a href="https://github.com/symplify/symplify/pull/2740">just now working on a PHPStan rule</a>, which makes sure <strong>the class name matches the route name</strong>.</p>
 <ul>
-<li><code>BlogArchiveController</code> - route name: CONTACT <em class="fas fa-fw fa-times text-danger"></em></li>
+<li><code>BlogArchiveController</code> - route name: <code>CONTACT</code> <em class="fas fa-fw fa-times text-danger"></em></li>
 <li><code>ContactController</code> - route name: <code>CONTACT</code> <em class="fas fa-fw fa-check text-success"></em></li>
 </ul>
 <h2 id="5-move-from-yaml-to-php-to-get-rep">5. Move from YAML to PHP to get REP</h2>
