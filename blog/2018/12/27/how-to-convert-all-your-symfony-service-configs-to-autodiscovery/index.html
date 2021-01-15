@@ -120,15 +120,12 @@
     <li class="list-inline-item mr-3">
         <em class="fas fa-calendar fa-fw"></em>
         <time datetime="2018-12-Thu">
-            <strike>
-                            Dec, 2018
+            
+                            Thu, Dec 27, 2018
             
             </strike>        </time>
     </li>
 
-            <li class="list-inline-item mr-3 text-success">
-            <em class="fas fa-fw fa-sync"></em> Updated Apr, 2020
-        </li>
     
             <li class="list-inline-item mr-3">
             <em class="fas fa-fw fa-comments"></em>
@@ -142,17 +139,17 @@
         </li>
     </ul>
 
-            
-                            <div class="card border-success card-bigger mt-5">
-                    <div class="card-header text-white bg-success">
-                        <strong>This post was updated at April 2020</strong>
+                            <div class="card border-danger card-bigger">
+                    <div class="card-header text-white bg-danger">
+                        <strong>This post is deprecated at January 2021</strong>
                     </div>
-                                            <div class="card-body pb-2">
-                            <p>Updated to Symfony 5+ syntax with <a href="https://github.com/symfony/symfony/pull/27075">per-line excludes</a>.</p>
-                        </div>
-                                    </div>
+                    <div class="card-body pb-2">
+                        <p>Autodiscovery package was deprecated, because Symfony is moving towards <a href="/blog/2020/07/27/how-to-switch-from-yaml-xml-configs-to-php-today-with-migrify/">united PHP configs</a>. They make more sense and use united syntax in Kernel, Extension and configs. Use PHP configs with configurators instead.</p>
+                    </div>
+                </div>
 
                 <br>
+            
             
             <div class="card card-bigger mb-5">
                 <div class="card-body pb-2">
@@ -164,10 +161,7 @@ But if <strong>you have many configs with manual service registration</strong>, 
                 </div>
             </div>
 
-            <h2 id="tl-dr">tl;dr;</h2>
-<img src="/assets/images/posts/2018/autodiscovery/demo.gif" class="img-thumbnail">
-<p><br></p>
-<p>I've been consulting a few Symfony e-commerce projects recently that all have <code>service.yml</code>. Big configs with manual service registration:</p>
+            <p>I've been consulting a few Symfony e-commerce projects recently that all have <code>service.yml</code>. Big configs with manual service registration:</p>
 <pre><code class="language-yaml">services:
     App\SomeService:
         autowire: true
@@ -177,31 +171,7 @@ But if <strong>you have many configs with manual service registration</strong>, 
 
     # 50 more lines...
     # 20 more files similar to this one</code></pre>
-<p>I already wrote <a href="/blog/2017/05/07/how-to-refactor-to-new-dependency-injection-features-in-symfony-3-3/">How to refactor to new Dependency Injection features in Symfony 3.3</a>, so you can read it. But you don't have to, since <strong>this conversion can be automated</strong>...</p>
-<pre><code class="language-yaml">services:
-    _defaults:
-        autowire: true
-    App\:
-        resource: /src</code></pre>
-<p>...with <a href="https://github.com/symplify/autodiscovery">Symplify\Autodiscovery</a>.</p>
-<h2 id="3-steps-to-your-minimalistic-configs">3 Steps to Your Minimalistic Configs</h2>
-<ol>
-<li>
-<p>Install the package</p>
-<pre><code class="language-bash">composer require symplify/autodiscovery</code></pre>
-</li>
-<li>
-<p>Convert Configs</p>
-<p>Run on <code>/src</code> directory:</p>
-<pre><code class="language-diff">vendor/bin/autodiscovery convert-yaml /src</code></pre>
-<p>It converts all <code>services.yml</code>, <code>config.yml</code>, <code>config.dev.yml</code> etc. configs that contain <code>services:</code> to autodiscovery format.</p>
-<p><code>*.yaml</code> included.</p>
-</li>
-<li>
-<p>See the changes:</p>
-<pre><code class="language-bash">git diff</code></pre>
-</li>
-</ol>
+<p>I already wrote <a href="/blog/2017/05/07/how-to-refactor-to-new-dependency-injection-features-in-symfony-3-3/">How to refactor to new Dependency Injection features in Symfony 3.3</a>, so you can read it.</p>
 <h2 id="what-can-go-wrong">What Can Go Wrong?</h2>
 <p>There are many reasons to <strong>automate this work</strong>, because <strong>there are many gotchas</strong> you have to be careful about. In each single service registration.</p>
 <h2 id="1-tags">1. Tags</h2>
@@ -274,9 +244,8 @@ services:
 +           - ../src/Entity/*
 +           - ../src/Exception/*
 +           - ../src/Contract/*</code></pre>
-<p>The converter includes support for basic dirs to be excluded.</p>
 <p><br></p>
-<p><strong>Do you want minimalist configs for your application?</strong> <a href="#3-steps-to-your-minimalistic-configs">Give Autodiscovery a try</a>.</p>
+<p>Happy coding!</p>
 
             <br>
 
