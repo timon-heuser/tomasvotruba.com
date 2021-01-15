@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>How to detect Complex Duplicated Methods With PHPStan | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="/assets/css/checklist.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+                <!-- post_id: 296 -->
+
+        
+<div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="me_avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/mission">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                Blog
+            </a>
+
+
+            <a href="/clusters" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+
+            <a href="/projects" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+
+            <a href="/contact" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center" id="top-menu-search-mobile">
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+    <input name="sitesearch" value="tomasvotruba.com" type="hidden"/>
+    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+</form>
+    </div>
+</div>
+
+        <div class="container-fluid" id="post">
+            <h1>How to detect Complex Duplicated Methods With PHPStan</h1>
+
+            <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>4 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2021-01-Mon">
+            
+                                            Mon, Jan 11
+            
+            </strike>        </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="/blog/2021/01/11/how-to-detect-complex-duplicated-methods-with-phpstan/#disqus_thread">X</a> comments
+        </li>
+    
+    
+            <li class="list-inline-item mr-3 text-primary">
+            <em class="fab fa-fw fa-github"></em>
+            <a href="https://github.com/tomasvotruba/tomasvotruba.com/edit/master/packages/blog/data/2021/2021-01-11-how-to-detect-complex-duplicated-methods-with-phpstan.md">Found a typo? Edit me</a>
+        </li>
+    </ul>
+
+            
+            
+            <div class="card card-bigger mb-5">
+                <div class="card-body pb-2">
+                    <p>Duplicated code is a code smell that hides the potential of better design.
+How can we find it? Is it 100 % identical code token by token?
+Are methods <code>getName()</code> and <code>getName()</code> on 2 entities duplicated?
+<br>
+<br>
+Today we look at PHPStan and hot to use it to find duplicated class methods.</p>
+                </div>
+            </div>
+
+            <h2 id="why-even-care-about-duplicated-code">Why even Care about Duplicated Code?</h2>
+<p>What is the practical approach to finding a duplicated code? You probably know about <a href="https://github.com/sebastianbergmann/phpcpd">phpcpd</a> tool. It goes through your code and dumps a list of duplicated lines:</p>
+<pre><code class="language-bash">- .../sodium_compat/src/Core32/Curve25519.php:879-889 (10 lines)
+  .../sodium_compat/src/Core32/Curve25519.php:1072-1082
+
+1.82% duplicated lines out of 446676 total lines of code</code></pre>
+<p>Is this number high? Is it low? How low should it be? The output is so generic. There is no clear answer to what to do with it. That's because <a href="https://tomasvotruba.com/blog/2018/10/22/brief-history-of-tools-watching-and-changing-your-php-code/">phpcpd is using tokens</a>.</p>
+<p>PHPStan changes an approach to duplicated code. It runs on php-parser and uses an abstract syntax tree. So why should we care?</p>
+<h3 id="phpstan-gives-human-output-so-we-know-what-to-do">PHPStan gives Human Output, so we Know What to Do</h3>
+<p>Compare reports of 2 tools:</p>
+<ul>
+<li>phpcpd: &quot;10 lines of here and 10 lines of here are identical&quot;</li>
+<li>PHPStan: &quot;Class methods <code>ProductSorter::sortResults()</code> and <code>PictureSorter::sortResults()</code> are identical</li>
+</ul>
+<p>In the first case, we'd have to look into the files, check if it's part of the method or couple of properties, how to extract it from both, and combine it in a class or method?</p>
+<p>With PHPStan, we know it's class methods, so we can only <strong>extract them to external service</strong>.</p>
+<h3 id="improve-architecture-flaws-without-effort">Improve Architecture Flaws without Effort</h3>
+<p>Where in your code is duplicated code? We don't know. It's a tough question for the human to spot.</p>
+<p>Do you look for all possible duplication during each code review? I don't think so. We go through added/modified code, and that's it.</p>
+<p>PHPStan <strong>does this hard work on each commit</strong> and tells us precisely the duplicated code. 0 effort.</p>
+<p>When we know where duplications are, we can do something about it. Our project code will be more consistent, logical, and each piece of code will fit into another.</p>
+<p><br></p>
+<p>Let's look at a practical example from the Rector code. We applied the PHPStan duplication rule a month ago, and this is what we found:</p>
+<pre><code class="language-php">private function unwrapExpression(Node $node): Node
+{
+    if ($node instanceof Expression) {
+        return $node-&gt;expr;
+    }
+
+    return $node;
+}</code></pre>
+<pre><code class="language-php">private function unwrapExpression(Node $node): Node
+{
+    return $node instanceof Expression ? $node-&gt;expr : $node;
+}</code></pre>
+<pre><code class="language-php">/**
+ * @param Node|Expression $node
+ */
+private function unwrapExpression(Node $node): Node
+{
+    if ($node instanceof Expression) {
+        return $node-&gt;expr;
+    }
+
+    return $node;
+}</code></pre>
+<p>Each method has a different count of nodes. There is short ternary in one and if condition in other 2. All three have the same logic. <strong>We extracted this method to shared service</strong> and used it in 3 places.</p>
+<p>Now the method is always re-used because PHPStan reports all the future cases of duplication.</p>
+<p>What are other benefits?</p>
+<ul>
+<li>1 place to fix it <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+<li>1 place to maintain it <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+<li>Code is much more robust and easier to change <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+<li>The service is doing exactly 1 thing <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+<li>Other services are not cluttered with &quot;util code&quot; <em class="fas fa-fw fa-check text-success fa-lg"></em></li>
+</ul>
+<h2 id="what-is-not-duplicated-method">What is Not Duplicated Method?</h2>
+<p>These 2 methods are 100 % identical, including spaces. Would you consider them duplicated?</p>
+<pre><code class="language-php">public function getName(): string
+{
+    return $this-&gt;name;
+}</code></pre>
+<pre><code class="language-php">public function getName(): string
+{
+    return $this-&gt;name;
+}</code></pre>
+<p>No. These are only getters. Imagine <strong>one parent object for all entities with all the getters</strong> that used at least twice. That's nonsense.</p>
+<p>That's why the PHPStan rule skips:</p>
+<ul>
+<li>value objects,</li>
+<li>entities</li>
+<li>and methods with only 1 line of code.</li>
+</ul>
+<h2 id="how-can-we-spot-the-duplicated-method-with-x-rays">How can we spot the Duplicated Method with X-Rays?</h2>
+<p>Let's get back to our example above. What if we use different variables names, method names, and omit return type?</p>
+<pre><code class="language-php">public function unwrapExpression(Node $node)
+{
+    if ($node instanceof Expression) {
+        return $node-&gt;expr;
+    }
+
+    return $node;
+}</code></pre>
+<pre><code class="language-php">private function unwrap($stmt)
+{
+    if($stmt instanceof Expression){
+        return $stmt-&gt;expr;
+    }
+    return $stmt;
+}</code></pre>
+<p>Is this method still duplicated? Yes, because <strong>the semantics remain the same</strong>. Method and variable names are subjective and can be anything without changing logic.</p>
+<p>Here I borrow an example from <a href="https://ocramius.github.io/blog/eliminating-visual-debt/">Eliminating Visual Debt</a> by Ocramius. If you haven't read it, it's so much fun you're missing out.</p>
+<p>Let's replace these irrelevant names with foo/bar:</p>
+<pre><code class="language-php">function foo($bar)
+{
+    if ($bar instanceof Expression) {
+        return $bar-&gt;expr;
+    }
+    return $bar;
+}</code></pre>
+<p>When we look at both methods with this approach, we see the logic is identical → let's extract it.</p>
+<h2 id="how-to-teach-it-phpstan">How to Teach it PHPStan?</h2>
+<p>Samsonasik contributed this <a href="https://github.com/symplify/symplify/pull/2666">rule to Symplify</a> about a month ago. We took a month to try it out, fixed repeated methods from trait, and class using it.</p>
+<p>We tried various angles that we tested on 4 different projects.</p>
+<p>In the end, the final rule works like this:</p>
+<ul>
+<li>look for a class method</li>
+<li>normalized variable names</li>
+<li>ignore parameters, method name, and return types</li>
+<li>print method to string</li>
+<li>compare it to previous methods</li>
+</ul>
+<p>You can see <a href="https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/PreventDuplicateClassMethodRule.php">final rule here</a>.</p>
+<p>This rule has been running on our code base and already reported over 50 duplicated methods. It's a bizarre feeling if you see that you put in the effort to write 20 lines long method in 2 different Rector rules. But <strong>the feeling after refactoring to cleaner design is priceless</strong>.</p>
+<h2 id="3-steps-to-get-rid-of-duplications-in-your-code-today">3 Steps to Get rid of Duplications in Your Code Today</h2>
+<p>Do you want to try it out? I must warn you. It will dig out the darkest secrets of your project that you never thought they exist. Be ready for critics. Critics that will help your code to be more fun work with.</p>
+<h3 id="1-get-a-href-https-github-com-symplify-phpstan-rules-symplify-phpstan-rules-a">1. Get <a href="https://github.com/symplify/phpstan-rules">symplify/phpstan-rules</a>:</h3>
+<pre><code class="language-bash">composer require symplify/phpstan-rules --dev</code></pre>
+<h3 id="2-add-it-to-code-phpstan-neon-code">2. Add it to <code>phpstan.neon</code></h3>
+<pre><code class="language-neon">includes:
+    # set services that are needed by PHPStan rules
+    - vendor/symplify/phpstan-rules/config/services/services.neon
+
+services:
+    -
+        class: Symplify\PHPStanRules\Rules\PreventDuplicateClassMethodRule
+        tags: [phpstan.rules.rule]</code></pre>
+<h3 id="3-run-phpstan">3. Run PHPStan</h3>
+<pre><code class="language-bash">vendor/bin/phsptan analyse</code></pre>
+<p>Now you won't miss any single duplicated method in your code.</p>
+<p><br>
+<br></p>
+<p>Happy coding!</p>
+
+            <br>
+
+            <div class="row mb-5 mt-5">
+                <div class="col-12 mb-5">
+                                                                <a href="/blog/2020/12/28/why-coding-standards-should-not-be-part-of-ci" class="d-block pt-4 pb-4 pl-4 pr-4 btn btn-success btn-wrappable">
+                            <em class="fas fa-fw fa-forward"></em>
+                            <strong>Read Next</strong>
+                            <br>
+                            <span class="text-bigger">
+                                Why Coding Standards Should Not Be Part of CI
+                            </span>
+                        </a>
+                                    </div>
+            </div>
+
+            <br>
+
+            <a name="comments"></a>
+            <div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://itsworthsharing.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+        </div>
+
+        <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/assets/js/cleaning-lady-checklist.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    // sortable table
+    $('.sortable_table').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "order": [[1, "desc"]],
+        // see https://datatables.net/examples/advanced_init/sort_direction_control.html
+        "aoColumns": [
+            null,
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] },
+            { "orderSequence": [ "desc", "asc" ] }
+        ]
+    });
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <p class="mt-2">
+        Open-source is my life. Does it help yours? You can <a href="https://github.com/sponsors/TomasVotruba">Sponsor Me</a> &nbsp;
+        <em class="fas fa-heart text-danger fa-lg"></em>
+
+        &nbsp;
+        <span class="pl-2 pr-2">•</span>
+        &nbsp;
+
+        See <a href="/archive">Post Archive</a>
+    </p>
+
+    <br>
+
+    <p>
+        Did you know my daily focus goes to <strong>turning working with legacy code into joy</strong>?
+
+        <br>
+
+        With awesome <a href="https://getrector.org/">Instant Refactoring tool called Rector</a>.
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to detect Complex Duplicated Methods With PHPStan" />
+    <meta property="og:description" content="Duplicated code is a code smell that hides the potential of better design.
+How can we find it? Is it 100 % identical code token by token?
+Are methods `getName()` and `getName()` on 2 entities duplicated?
+
+
+Today we look at PHPStan and hot to use it to find duplicated class methods.
+" />
+    <meta property="og:url" content="/blog/2021/01/11/how-to-detect-complex-duplicated-methods-with-phpstan" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="How to detect Complex Duplicated Methods With PHPStan" />
+    <meta name="twitter:description" content="Duplicated code is a code smell that hides the potential of better design.
+How can we find it? Is it 100 % identical code token by token?
+Are methods `getName()` and `getName()` on 2 entities duplicated?
+
+
+Today we look at PHPStan and hot to use it to find duplicated class methods.
+" />
